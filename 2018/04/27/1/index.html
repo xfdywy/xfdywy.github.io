@@ -17,26 +17,26 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。   安装 Jupyter lab 的安装很简单，假定已经安装了anaconda了。那么已经有了Jupyter notebook了，这个时候安装只需要一句命令： 123pip ins">
+  <meta name="description" content="Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jupyter lab 安装及多kernel配置">
 <meta property="og:url" content="https://blog.wyue.site/2018/04/27/1/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。   安装 Jupyter lab 的安装很简单，假定已经安装了anaconda了。那么已经有了Jupyter notebook了，这个时候安装只需要一句命令： 123pip ins">
+<meta property="og:description" content="Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2018/4/1524829854782.jpg">
 <meta property="article:published_time" content="2018-04-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-12T09:14:24.759Z">
+<meta property="article:modified_time" content="2021-05-02T15:14:36.394Z">
 <meta property="article:author" content="WangYue">
 <meta property="article:tag" content="Jupyter lab">
 <meta property="article:tag" content="python">
@@ -61,15 +61,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -134,54 +125,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +217,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -266,7 +265,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-12 17:14:24" itemprop="dateModified" datetime="2020-04-12T17:14:24+08:00">2020-04-12</time>
+                <time title="修改时间：2021-05-02 23:14:36" itemprop="dateModified" datetime="2021-05-02T23:14:36+08:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,6 +284,13 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
             </span>
   
   <span class="post-meta-item">
@@ -310,31 +316,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。<br> 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。</p>
- <!--  more -->
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p> Jupyter lab 的安装很简单，假定已经安装了anaconda了。那么已经有了Jupyter notebook了，这个时候安装只需要一句命令：</p>
+        <p>Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。</p>
+<p><span id="more"></span></p>
+<p># 安装 Jupyter lab 的安装很简单，假定已经安装了anaconda了。那么已经有了Jupyter notebook了，这个时候安装只需要一句命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterlab</span><br><span class="line">或者</span><br><span class="line">conda install -c conda-forge jupyterlab</span><br></pre></td></tr></table></figure>
-
 <p>安装好了启动也是非常简单，在命令行输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab</span><br></pre></td></tr></table></figure>
 <p>就ok了。当然也可以进行一些配置, 与jupyter notebook 的配置完全一致。你可以输入<code>jupyter lab -h</code> 来进行查看。例如</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab --port=<span class="string">&#x27;8080&#x27;</span> --ip=<span class="string">&#x27;0.0.0.0&#x27;</span> --notebook-dir=<span class="string">&#x27;d:/&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>就是指运行在8080端口，可以从任意ip访问（可以远程机器直接连过来），工作路径为d盘根目录。</p>
-<p>看到一连串输出后就可以打开浏览器访问了，ip:port 就可以了。如果在本机就是localhost:8080(一般会弹出浏览器)。<br>这里需要配置一下密码登录，如果你不配置密码登录。你就需要输入一个token，显示在命令行里面，我觉得有点麻烦，还是设置一个密码比较好。</p>
-<h1 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h1><p>如果没有config文件(默认在  c:/User/&lt; your user name&gt;/.jupyter/jupyter_notebook_config.py )，执行下面这个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
-<p>然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
-<p>输入你的密码，生成对应的hash值，放到config文件的同目录下了（自动）</p>
+<p>看到一连串输出后就可以打开浏览器访问了，ip:port 就可以了。如果在本机就是localhost:8080(一般会弹出浏览器)。 这里需要配置一下密码登录，如果你不配置密码登录。你就需要输入一个token，显示在命令行里面，我觉得有点麻烦，还是设置一个密码比较好。</p>
+<h1 id="配置密码">配置密码</h1>
+<p>如果没有config文件(默认在 c:/User/&lt; your user name&gt;/.jupyter/jupyter_notebook_config.py )，执行下面这个 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure> 然后执行 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure> 输入你的密码，生成对应的hash值，放到config文件的同目录下了（自动）</p>
 <p>应该已经可以了。试试在浏览器里面输入localhost:8080 ，如果还是不行，就手动把生成的 <code>jupyter_notebook_config.json</code> 里面的password后面的， 复制到 <code>jupyter_notebook_config.py</code> 中</p>
-<p>找到下面这行并修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.password &#x3D; u&#39;...刚才复制的那个密文&#39;</span><br></pre></td></tr></table></figure>
-<p>进去之后就是这样了<br><img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2018/4/1524829854782.jpg" alt="enter description here"></p>
+<p>找到下面这行并修改 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.password &#x3D; u&#39;...刚才复制的那个密文&#39;</span><br></pre></td></tr></table></figure> 进去之后就是这样了 <img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2018/4/1524829854782.jpg" alt="enter description here" /></p>
 <p>下一个问题就是如何配置多个kernel了。</p>
-<h1 id="配置python2-python3-r的kernel"><a href="#配置python2-python3-r的kernel" class="headerlink" title="配置python2 python3 r的kernel"></a>配置python2 python3 r的kernel</h1><h2 id="R-kernel"><a href="#R-kernel" class="headerlink" title="R kernel"></a>R kernel</h2><p> 如果你已经安装了r，那么在r的命令行下输入</p>
+<h1 id="配置python2-python3-r的kernel">配置python2 python3 r的kernel</h1>
+<p>## R kernel 如果你已经安装了r，那么在r的命令行下输入</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="built_in">c</span>(<span class="string">&#x27;pbdZMQ&#x27;</span>, <span class="string">&#x27;repr&#x27;</span>, <span class="string">&#x27;devtools&#x27;</span>)) </span><br><span class="line">devtools::install_github(<span class="string">&#x27;IRkernel/IRkernel&#x27;</span>) </span><br><span class="line">IRkernel::installspec()</span><br></pre></td></tr></table></figure>
-
-<h2 id="多个python-kernel"><a href="#多个python-kernel" class="headerlink" title="多个python kernel"></a>多个python kernel</h2><p>如果你的多个python 是安装在多个环境中的，就是用activate &lt; env_name &gt;这样的语句可以进入不同的环境的话，可以这样操作，下面假定python 3.5 安装在py35 的环境里面，</p>
+<h2 id="多个python-kernel">多个python kernel</h2>
+<p>如果你的多个python 是安装在多个环境中的，就是用activate &lt; env_name &gt;这样的语句可以进入不同的环境的话，可以这样操作，下面假定python 3.5 安装在py35 的环境里面，</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acitvate py35   (or <span class="built_in">source</span> activate py35)</span><br><span class="line">python -m ipykernel install --name py35</span><br><span class="line">deactivate (or <span class="built_in">source</span> deactivate)</span><br></pre></td></tr></table></figure>
 <p>其他同理。</p>
 
@@ -441,7 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">配置密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEpython2-python3-r%E7%9A%84kernel"><span class="nav-number">3.</span> <span class="nav-text">配置python2 python3 r的kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#R-kernel"><span class="nav-number">3.1.</span> <span class="nav-text">R kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AApython-kernel"><span class="nav-number">3.2.</span> <span class="nav-text">多个python kernel</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">配置密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEpython2-python3-r%E7%9A%84kernel"><span class="nav-number">2.</span> <span class="nav-text">配置python2 python3 r的kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AApython-kernel"><span class="nav-number">2.1.</span> <span class="nav-text">多个python kernel</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,10 +491,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -508,7 +505,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -518,7 +515,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -550,6 +547,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -561,8 +649,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -578,31 +666,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -625,13 +688,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -640,18 +756,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

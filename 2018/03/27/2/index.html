@@ -17,22 +17,22 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天开始学习这本书，准备用自己的博客做点笔记。我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。今天开始第一章 第1条： 确认自己用的python版本这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。 1python --version 这个是系统命令">
+  <meta name="description" content="今天开始学习这本书，准备用自己的博客做点笔记。 我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。 今天开始第一章 第1条： 确认自己用的python版本 这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。 1python --version">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective Python 59 specific ways 读书笔记 第一章">
 <meta property="og:url" content="https://blog.wyue.site/2018/03/27/2/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="今天开始学习这本书，准备用自己的博客做点笔记。我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。今天开始第一章 第1条： 确认自己用的python版本这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。 1python --version 这个是系统命令">
+<meta property="og:description" content="今天开始学习这本书，准备用自己的博客做点笔记。 我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。 今天开始第一章 第1条： 确认自己用的python版本 这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。 1python --version">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-03-26T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-04-24T02:33:10.000Z">
@@ -58,15 +58,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -131,54 +122,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,7 +214,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -283,6 +282,13 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -307,46 +313,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天开始学习这本书，准备用自己的博客做点笔记。<br>我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。<br>今天开始第一章</p>
-<h1 id="第1条：-确认自己用的python版本"><a href="#第1条：-确认自己用的python版本" class="headerlink" title="第1条： 确认自己用的python版本"></a>第1条： 确认自己用的python版本</h1><p>这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。</p>
+        <p>今天开始学习这本书，准备用自己的博客做点笔记。 我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。 今天开始第一章</p>
+<h1 id="第1条-确认自己用的python版本">第1条： 确认自己用的python版本</h1>
+<p>这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
 <p>这个是系统命令版本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.version_info</span><br><span class="line">sys.version</span><br></pre></td></tr></table></figure>
-<h1 id="第2条：-遵循PEP8-风格指南"><a href="#第2条：-遵循PEP8-风格指南" class="headerlink" title="第2条： 遵循PEP8 风格指南"></a>第2条： 遵循PEP8 风格指南</h1><p>PEP8 全称 Python Enhancement Proposal #8.下面是比较重要的几点：</p>
-<h2 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h2><ul>
-<li> 用space 而不是 tab</li>
-<li> 每一层缩进都用4个space</li>
-<li> 每行字符不超过79个</li>
-<li> 函数与类之间应该用两个空行隔开</li>
-<li> 同一个类不同方法用一个空行隔开</li>
-<li> 下标不要添加空格，同理还有给参数赋值</li>
-<li> 变量赋值的时候左右各写一个空格</li>
-</ul>
-<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><ul>
+<h1 id="第2条-遵循pep8-风格指南">第2条： 遵循PEP8 风格指南</h1>
+<p>PEP8 全称 Python Enhancement Proposal #8.下面是比较重要的几点： ## 空白 - 用space 而不是 tab - 每一层缩进都用4个space - 每行字符不超过79个 - 函数与类之间应该用两个空行隔开 - 同一个类不同方法用一个空行隔开 - 下标不要添加空格，同理还有给参数赋值 - 变量赋值的时候左右各写一个空格</p>
+<h2 id="命名">命名</h2>
+<ul>
 <li>函数，变量和属性应该用小写，并且各个单词之间用下划线连接</li>
 <li>类与异常，单词首字母大写</li>
 <li>受保护的实例属性，应该以下划线开头</li>
 </ul>
-<h2 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h2><ul>
+<h2 id="表达式和语句">表达式和语句</h2>
+<ul>
 <li><code>if a is not b</code> 而不是 <code>if not a is b</code></li>
 <li>不要用检测长度的方法来判断是否为空</li>
 <li>不要编写单行的 <code>if， for，while</code></li>
 <li>import 总是放在开头</li>
 <li>import语句要按照 标准库模块，第三方模块，自用模块来分成三块，并且按照字母序排列</li>
 </ul>
-<h1 id="第3条：了解bytes，str和unicode的区别。"><a href="#第3条：了解bytes，str和unicode的区别。" class="headerlink" title="第3条：了解bytes，str和unicode的区别。"></a>第3条：了解bytes，str和unicode的区别。</h1><p>Unicode 是「字符集」<br>UTF-8 是「编码规则」gbk等也是</p>
-<p>python3有两种表示字符序列的类型：bytes和str<br>python2有三种表示字符序列的类型： str和unicode</p>
-<p>python3中的str相当于py2的unicode<br>python3中的str只能encode<br>python3中str可以被encode成bytes，例如gbk utf-8等</p>
-<p>python2中unicode是一种最基本的数据类型。需要加u在前面表示。<code>u &#39;abc&#39;</code>. unicode可以被encode成str（如gbk，utf-8等）<br>python2中str是指utf8 gbk这样的编码过的对象，可以被decode成unicode。默认字符串是str.它本身存储的就是字节码（bytes）。</p>
-<h1 id="第4条：-用辅助函数来取代复杂表达式"><a href="#第4条：-用辅助函数来取代复杂表达式" class="headerlink" title="第4条： 用辅助函数来取代复杂表达式"></a>第4条： 用辅助函数来取代复杂表达式</h1><p>不要过度运用python的语法特性，写那些特别复杂且难以理解的表达式，特别是如果要反复利用的话，更要包装一下成函数。</p>
-<h1 id="第5条：-了解切割序列的办法"><a href="#第5条：-了解切割序列的办法" class="headerlink" title="第5条： 了解切割序列的办法"></a>第5条： 了解切割序列的办法</h1><p>起始元素包含，结束元素不包含</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[:<span class="number">4</span>]</span><br><span class="line">a[-<span class="number">4</span>:]</span><br><span class="line">a[<span class="number">3</span>:-<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<p>slice列表时，start越界也不会出问题，但是访问单个元素的时候会报错<br>slice列表是一份拷贝，不是引用</p>
-<h1 id="第6条：-单次切片操作内，不要同时使用start，-end，-stride"><a href="#第6条：-单次切片操作内，不要同时使用start，-end，-stride" class="headerlink" title="第6条： 单次切片操作内，不要同时使用start， end， stride"></a>第6条： 单次切片操作内，不要同时使用start， end， stride</h1><p>python提供了<code>list[start:end:stride]</code>的操作<br>stride 为负数表示反过来取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x[::-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-
-
-
+<h1 id="第3条了解bytesstr和unicode的区别">第3条：了解bytes，str和unicode的区别。</h1>
+<p>Unicode 是「字符集」 UTF-8 是「编码规则」gbk等也是</p>
+<p>python3有两种表示字符序列的类型：bytes和str python2有三种表示字符序列的类型： str和unicode</p>
+<p>python3中的str相当于py2的unicode python3中的str只能encode python3中str可以被encode成bytes，例如gbk utf-8等</p>
+<p>python2中unicode是一种最基本的数据类型。需要加u在前面表示。<code>u 'abc'</code>. unicode可以被encode成str（如gbk，utf-8等） python2中str是指utf8 gbk这样的编码过的对象，可以被decode成unicode。默认字符串是str.它本身存储的就是字节码（bytes）。</p>
+<h1 id="第4条-用辅助函数来取代复杂表达式">第4条： 用辅助函数来取代复杂表达式</h1>
+<p>不要过度运用python的语法特性，写那些特别复杂且难以理解的表达式，特别是如果要反复利用的话，更要包装一下成函数。</p>
+<h1 id="第5条-了解切割序列的办法">第5条： 了解切割序列的办法</h1>
+<p>起始元素包含，结束元素不包含 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[:<span class="number">4</span>]</span><br><span class="line">a[-<span class="number">4</span>:]</span><br><span class="line">a[<span class="number">3</span>:-<span class="number">3</span>]</span><br></pre></td></tr></table></figure> slice列表时，start越界也不会出问题，但是访问单个元素的时候会报错 slice列表是一份拷贝，不是引用</p>
+<h1 id="第6条-单次切片操作内不要同时使用start-end-stride">第6条： 单次切片操作内，不要同时使用start， end， stride</h1>
+<p>python提供了<code>list[start:end:stride]</code>的操作 stride 为负数表示反过来取 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x[::-<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -450,7 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E6%9D%A1%EF%BC%9A-%E7%A1%AE%E8%AE%A4%E8%87%AA%E5%B7%B1%E7%94%A8%E7%9A%84python%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">第1条： 确认自己用的python版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E6%9D%A1%EF%BC%9A-%E9%81%B5%E5%BE%AAPEP8-%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97"><span class="nav-number">2.</span> <span class="nav-text">第2条： 遵循PEP8 风格指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E7%99%BD"><span class="nav-number">2.1.</span> <span class="nav-text">空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">2.2.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.</span> <span class="nav-text">表达式和语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E6%9D%A1%EF%BC%9A%E4%BA%86%E8%A7%A3bytes%EF%BC%8Cstr%E5%92%8Cunicode%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">第3条：了解bytes，str和unicode的区别。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC4%E6%9D%A1%EF%BC%9A-%E7%94%A8%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0%E6%9D%A5%E5%8F%96%E4%BB%A3%E5%A4%8D%E6%9D%82%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">第4条： 用辅助函数来取代复杂表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC5%E6%9D%A1%EF%BC%9A-%E4%BA%86%E8%A7%A3%E5%88%87%E5%89%B2%E5%BA%8F%E5%88%97%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">第5条： 了解切割序列的办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC6%E6%9D%A1%EF%BC%9A-%E5%8D%95%E6%AC%A1%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C%E5%86%85%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8start%EF%BC%8C-end%EF%BC%8C-stride"><span class="nav-number">6.</span> <span class="nav-text">第6条： 单次切片操作内，不要同时使用start， end， stride</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E6%9D%A1-%E7%A1%AE%E8%AE%A4%E8%87%AA%E5%B7%B1%E7%94%A8%E7%9A%84python%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">第1条： 确认自己用的python版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E6%9D%A1-%E9%81%B5%E5%BE%AApep8-%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97"><span class="nav-number">2.</span> <span class="nav-text">第2条： 遵循PEP8 风格指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">2.1.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">表达式和语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E6%9D%A1%E4%BA%86%E8%A7%A3bytesstr%E5%92%8Cunicode%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">第3条：了解bytes，str和unicode的区别。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC4%E6%9D%A1-%E7%94%A8%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0%E6%9D%A5%E5%8F%96%E4%BB%A3%E5%A4%8D%E6%9D%82%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">第4条： 用辅助函数来取代复杂表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC5%E6%9D%A1-%E4%BA%86%E8%A7%A3%E5%88%87%E5%89%B2%E5%BA%8F%E5%88%97%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">第5条： 了解切割序列的办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC6%E6%9D%A1-%E5%8D%95%E6%AC%A1%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C%E5%86%85%E4%B8%8D%E8%A6%81%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8start-end-stride"><span class="nav-number">6.</span> <span class="nav-text">第6条： 单次切片操作内，不要同时使用start， end， stride</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -499,10 +498,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -517,7 +512,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -527,7 +522,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -559,6 +554,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -570,8 +656,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -587,31 +673,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -634,13 +695,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -649,18 +763,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

@@ -17,14 +17,14 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="A math PH.D. student, doning research at MSRA.  Machine learning, Python, Linux, 阅读， Blog">
@@ -54,15 +54,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -127,54 +118,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,7 +210,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -280,6 +279,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/03/27/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/03/27/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -291,8 +302,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site/">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。<br>这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
-<ol>
+          <p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
+<ol type="1">
 <li>dns 解析的相关基础知识</li>
 <li>国内博客托管到 <a target="_blank" rel="noopener" href="https://coding.net/pages/">coding</a> 国外托管到<a target="_blank" rel="noopener" href="https://pages.github.com/">github</a></li>
 <li>同一个域名分别解析到这两个地址</li>
@@ -300,22 +311,22 @@
 </ol>
 <p>这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。如果大家还不清楚的话，网上教程很多。也可以留言。</p>
 <p>下面就是详细内容啦。</p>
-<h1 id="1-dns-解析的相关基础知识"><a href="#1-dns-解析的相关基础知识" class="headerlink" title="1.dns 解析的相关基础知识"></a>1.dns 解析的相关基础知识</h1><p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
-<h2 id="dns-解析的基本流程"><a href="#dns-解析的基本流程" class="headerlink" title="dns 解析的基本流程"></a>dns 解析的基本流程</h2><p>这部分其实参考了很多 <a target="_blank" rel="noopener" href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a target="_blank" rel="noopener" href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
-<ol>
+<h1 id="dns-解析的相关基础知识">1.dns 解析的相关基础知识</h1>
+<p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
+<h2 id="dns-解析的基本流程">dns 解析的基本流程</h2>
+<p>这部分其实参考了很多 <a target="_blank" rel="noopener" href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a target="_blank" rel="noopener" href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
+<ol type="1">
 <li><p>DNS 的定义和作用</p>
 <blockquote>
 <p>DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名查出IP地址。你可以把它想象成一本巨大的电话本。举例来说，如果你要访问域名<code>math.stackexchange.com</code>，首先要通过DNS查出它的IP地址是<code>151.101.129.69</code>。</p>
 </blockquote>
-<p>​</p>
-</li>
+<p>​</p></li>
 <li><p>DNS 解析的过程</p>
 <blockquote>
-<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<em><strong>ip地址</strong></em>和一个配套的<em><strong>域名</strong></em>(假设为 test.github.io). </p>
-<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<em><strong>域名</strong></em>的对应的<em><strong>ip地址</strong></em>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
+<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<strong><em>ip地址</em></strong>和一个配套的<strong><em>域名</em></strong>(假设为 test.github.io).</p>
+<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<strong><em>域名</em></strong>的对应的<strong><em>ip地址</em></strong>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ dig wangyue.ml</span><br><span class="line">&gt;; &lt;&lt;&gt;&gt; DiG 9.9.5-3ubuntu0.16-Ubuntu &lt;&lt;&gt;&gt; wangyue.ml</span><br><span class="line">&gt;;; global options: +cmd</span><br><span class="line">&gt;;; Got answer:</span><br><span class="line">&gt;;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50601</span><br><span class="line">&gt;;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">&gt;;; OPT PSEUDOSECTION:</span><br><span class="line">&gt;; EDNS: version: 0, flags:; udp: 4000</span><br><span class="line">&gt;;; QUESTION SECTION:</span><br><span class="line">&gt;;wangyue.ml.                    IN      A</span><br><span class="line"></span><br><span class="line">&gt;;; ANSWER SECTION:</span><br><span class="line">&gt;wangyue.ml.             599     IN      CNAME   xfdywy.github.io.</span><br><span class="line">&gt;xfdywy.github.io.       3599    IN      CNAME   sni.github.map.fastly.net.</span><br><span class="line">&gt;sni.github.map.fastly.net. 29   IN      A       151.101.9.147</span><br><span class="line"></span><br><span class="line">&gt;;; Query time: 480 msec</span><br><span class="line">&gt;;; SERVER: 10.172.11.45#53(10.172.11.45)</span><br><span class="line">&gt;;; WHEN: Tue Mar 27 20:32:43 JST 2018</span><br><span class="line">&gt;;; MSG SIZE  rcvd: 124</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<em><strong>域名</strong></em>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<em><strong>IP地址</strong></em>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
+<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<strong><em>域名</em></strong>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<strong><em>IP地址</em></strong>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
 <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://support.dnsimple.com/articles/a-record">A</a></li>
@@ -332,19 +343,58 @@
 <li>SSHFP</li>
 </ul>
 </blockquote>
-<p><strong>我们今天只用到<code>CNAME</code></strong>     </p>
-</blockquote>
-</li>
+<p><strong>我们今天只用到<code>CNAME</code></strong></p>
+</blockquote></li>
 </ol>
-<h1 id="2-申请域名"><a href="#2-申请域名" class="headerlink" title="2 申请域名"></a>2 申请域名</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/03/27/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h1 id="申请域名">2 申请域名</h1>
+<p>这一步就是实际操作啦。申请域名当然去哪都行。这里提供两个，一个是国内的<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain/">阿里云</a>，一个是国外的<a target="_blank" rel="noopener" href="http://www.freenom.com">freenom</a> 。 操作大同小异，都是</p>
+<ol type="1">
+<li>注册账号，登录</li>
+<li>搜索并找到可用的域名，买下来（阿里云里面有一些挺便宜的域名。freenorm里面有一些收费的，也有挺多免费的，都是顶级域名，就是xxx.xxx 这种）</li>
+<li>这一步就结束啦。买下来的这个域名就属于你自己啦。例如<code>wangyue.ml</code>。</li>
+</ol>
+<h1 id="dns解析">3 dns解析</h1>
+<p>想要在浏览器里面输入 <code>wangyue.ml</code> 就能跳到这里。必不可少的一步就是要告诉全世界的电脑，这个域名现在指向这个地方啦。而这一步就是由 dns服务器来负责的。我们需要做的就是将<code>wangyue.ml</code> 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）.</p>
+<p>下面我们以freenorm购买的域名为例，实现一个域名绑定多个域名，这样我们就可以实现国内访问托管在coding上的blog，国外访问托管在github上的blog。这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。</p>
+<ol type="1">
+<li><p>freenom 买完域名之后，freenom提供了一个dns解析的服务。但是因为freenom的dns解析在国内可能不是很流畅，我选择<a target="_blank" rel="noopener" href="https://www.cloudxns.net/">cloudXNS</a> 来做dns解析（真的不是打广告。。。。国内的也可以试试腾讯的dnspod） 。在这之前，我们需要把这个域名的控制权从freenom 交到 cloudXNS 的手上，方法就是按照 cloudXNS 提供的 dns server 地址，填到freenom的设置里面。具体操作流程为：</p>
+<blockquote>
+<p>购买完freenom后，从freenom首页，点击services -&gt; my domain -&gt; manage domain -&gt; Management Tools -&gt; Nameservers -&gt; Use custom nameservers (enter below) -&gt; 填入 cloudXNS 的 dns server地址</p>
+</blockquote>
+<blockquote>
+<p>如果你找不到my domain ， 请确认你是不是登录了。</p>
+</blockquote></li>
+<li><p>cloudXNS的 dns server 怎么获取 ： 同理。登录cloudXNS之后，选择 管理控制台 -》 我的域名 -》 添加域名，填写你刚刚在freenom购买的域名，这个时候提示域名未接管，然后会告诉你server地址是多少，怎么操作。</p></li>
+<li><p>等待一段时间，大约1~5分钟。等待接管。</p></li>
+<li><p>等到cloudXNS 接管状态显示已接管的时候，点击域名进行管理(以下假定购买的域名是wangyue.ml)。添加记录。</p>
+<ol type="1">
+<li>主机记录这里空着的话，表示这条记录解析的是 wangyue.ml , 如果写www， 表示这条记录解析的是www.wangyue.ml 。 剩下的同理</li>
+<li>记录类型填A的话，后面的记录值填写IP地址。这种情况一般适用于自己买了虚拟主机，分配了一个固定 ip，然后直接解析到那个ip就行。我们这里选CNAME，解析到原始域名。（即wangyue.ml 解析到 xxx.github.io 这种）</li>
+<li>然后在线路类型选全网默认，然后记录值填xxx.coding.me(记得把xxx换成自己的.....).然后保存就好。</li>
+<li>到上一步，我们就算已经把我们新买到的域名解析到原始的域名了。为了实现国外用户访问托管到github的博客，我们再同样添加一条记录，只不过线路选择海外默认，记录值填xxx.github.io</li>
+<li>dns 服务器端的设置就算完全结束了。下面我们需要分别到github和coding上去设置，使得我们能用新地址访问他们。（这里完全是因为github和coding的设定因素，如果你是绑定到自己的服务器的ip上去，到了这一步就已经完全结束了，可以跳过下一节）</li>
+</ol></li>
+<li><p>注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。不过别忘了继续往下看，下面的也很重要。</p></li>
+</ol>
+<h1 id="github和coding的设置">4.github和coding的设置</h1>
+<p>可能是从安全的角度和服务器负载的角度，github和coding要求自定义域名绑定的时候还要分别在自己的网站上设置一下（前半句我完全乱猜的，后半句是真的 ，认真脸）</p>
+<h2 id="coding的设置">coding的设置</h2>
+<p>首先你需要是银牌会员，个人信息填完全了就自动是了。</p>
+<p>进入到你托管博客的那个项目，然后点page 服务， 自定义域名 ，填上 wangyue.ml. 搞定。</p>
+<h2 id="github的设置">github的设置</h2>
+<p>进入github你托管博客的那个项目，点setting，GitHub Pages ，Custom domain ， 输入wangyue.ml，点save。暂时搞定。</p>
+<p>为什么说暂时搞定呢，因为你仔细看你github的这个repository, 你会发现一个叫做CNAME 的文件出现在根目录下，里面只有一行，就是 wangyue.ml . github 需要依赖这个文件来让你用自己的域名来访问你的blog。</p>
+<p><strong><em>但是</em></strong> 问题出现在，你每次部署blog之后，就是<code>hexo g</code> <code>hexo d</code> 之后这个文件都会消失。因为你本地目录下并没有这个文件，所以要想办法让hexo编译的时候就生成这个文件。</p>
+<p><strong><em>但是</em></strong> 问题出在hexo编译都是md文件，而且会渲染成html文件。那么怎么办呢。</p>
+<h1 id="github-cname-文件">5.github CNAME 文件</h1>
+<p>答案就是你把github生成的CNAME 文件放一份到你的 you blog/source/ 文件夹下，或者自己手写也行，注意文件名没有后缀，就叫CNAME， 文件内容就写你的域名 <code>wangyue.ml</code>。</p>
+<p>然后，最最关键的一步，你要去你blog的根目录下，修改 _config.yml 文件。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
+<p>之后就愉快的</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d </span><br></pre></td></tr></table></figure>
+<p>再次提醒注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。</p>
+<h1 id="至此大功告成">至此，大功告成</h1>
+
       
     </div>
 
@@ -415,6 +465,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/03/27/2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/03/27/2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -426,29 +488,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天开始学习这本书，准备用自己的博客做点笔记。<br>我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。<br>今天开始第一章</p>
-<h1 id="第1条：-确认自己用的python版本"><a href="#第1条：-确认自己用的python版本" class="headerlink" title="第1条： 确认自己用的python版本"></a>第1条： 确认自己用的python版本</h1><p>这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。</p>
+          <p>今天开始学习这本书，准备用自己的博客做点笔记。 我自己计划着，笔记的内容会会随着自己的理解而变化，在想到好的组织方式之前，我选择“抄书”吧。预计一章一篇博客。总共8章。 今天开始第一章</p>
+<h1 id="第1条-确认自己用的python版本">第1条： 确认自己用的python版本</h1>
+<p>这个不用多说了，py2和py3 还是有一定 的兼容性问题的，但是大部分都不成问题，跑代码前一定要先确认好自己的python版本。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
 <p>这个是系统命令版本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.version_info</span><br><span class="line">sys.version</span><br></pre></td></tr></table></figure>
-<h1 id="第2条：-遵循PEP8-风格指南"><a href="#第2条：-遵循PEP8-风格指南" class="headerlink" title="第2条： 遵循PEP8 风格指南"></a>第2条： 遵循PEP8 风格指南</h1><p>PEP8 全称 Python Enhancement Proposal #8.下面是比较重要的几点：</p>
-<h2 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h2><ul>
-<li> 用space 而不是 tab</li>
-<li> 每一层缩进都用4个space</li>
-<li> 每行字符不超过79个</li>
-<li> 函数与类之间应该用两个空行隔开</li>
-<li> 同一个类不同方法用一个空行隔开</li>
-<li> 下标不要添加空格，同理还有给参数赋值</li>
-<li> 变量赋值的时候左右各写一个空格</li>
+<h1 id="第2条-遵循pep8-风格指南">第2条： 遵循PEP8 风格指南</h1>
+<p>PEP8 全称 Python Enhancement Proposal #8.下面是比较重要的几点： ## 空白 - 用space 而不是 tab - 每一层缩进都用4个space - 每行字符不超过79个 - 函数与类之间应该用两个空行隔开 - 同一个类不同方法用一个空行隔开 - 下标不要添加空格，同理还有给参数赋值 - 变量赋值的时候左右各写一个空格</p>
+<h2 id="命名">命名</h2>
+<ul>
+<li>函数，变量和属性应该用小写，并且各个单词之间用下划线连接</li>
+<li>类与异常，单词首字母大写</li>
+<li>受保护的实例属性，应该以下划线开头</li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/03/27/2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h2 id="表达式和语句">表达式和语句</h2>
+<ul>
+<li><code>if a is not b</code> 而不是 <code>if not a is b</code></li>
+<li>不要用检测长度的方法来判断是否为空</li>
+<li>不要编写单行的 <code>if， for，while</code></li>
+<li>import 总是放在开头</li>
+<li>import语句要按照 标准库模块，第三方模块，自用模块来分成三块，并且按照字母序排列</li>
+</ul>
+<h1 id="第3条了解bytesstr和unicode的区别">第3条：了解bytes，str和unicode的区别。</h1>
+<p>Unicode 是「字符集」 UTF-8 是「编码规则」gbk等也是</p>
+<p>python3有两种表示字符序列的类型：bytes和str python2有三种表示字符序列的类型： str和unicode</p>
+<p>python3中的str相当于py2的unicode python3中的str只能encode python3中str可以被encode成bytes，例如gbk utf-8等</p>
+<p>python2中unicode是一种最基本的数据类型。需要加u在前面表示。<code>u 'abc'</code>. unicode可以被encode成str（如gbk，utf-8等） python2中str是指utf8 gbk这样的编码过的对象，可以被decode成unicode。默认字符串是str.它本身存储的就是字节码（bytes）。</p>
+<h1 id="第4条-用辅助函数来取代复杂表达式">第4条： 用辅助函数来取代复杂表达式</h1>
+<p>不要过度运用python的语法特性，写那些特别复杂且难以理解的表达式，特别是如果要反复利用的话，更要包装一下成函数。</p>
+<h1 id="第5条-了解切割序列的办法">第5条： 了解切割序列的办法</h1>
+<p>起始元素包含，结束元素不包含 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[:<span class="number">4</span>]</span><br><span class="line">a[-<span class="number">4</span>:]</span><br><span class="line">a[<span class="number">3</span>:-<span class="number">3</span>]</span><br></pre></td></tr></table></figure> slice列表时，start越界也不会出问题，但是访问单个元素的时候会报错 slice列表是一份拷贝，不是引用</p>
+<h1 id="第6条-单次切片操作内不要同时使用start-end-stride">第6条： 单次切片操作内，不要同时使用start， end， stride</h1>
+<p>python提供了<code>list[start:end:stride]</code>的操作 stride 为负数表示反过来取 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x[::-<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -519,6 +592,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/02/14/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/14/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -530,19 +615,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%91.png" alt="词云1"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%911.png" alt="词云"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180214161417.jpg" alt="微信图片_20180214161417"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/love.jpg" alt="lalal"></p>
-<h1 id="2016年10月4日"><a href="#2016年10月4日" class="headerlink" title="2016年10月4日"></a>2016年10月4日</h1><h1 id="2017年3月9日"><a href="#2017年3月9日" class="headerlink" title="2017年3月9日"></a>2017年3月9日</h1><h1 id="2018年2月14日"><a href="#2018年2月14日" class="headerlink" title="2018年2月14日"></a>2018年2月14日</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/02/14/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%91.png" alt="" /><figcaption>词云1</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%911.png" alt="" /><figcaption>词云</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180214161417.jpg" alt="" /><figcaption>微信图片_20180214161417</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/love.jpg" alt="" /><figcaption>lalal</figcaption>
+</figure>
+<h1 id="年10月4日">2016年10月4日</h1>
+<h1 id="年3月9日">2017年3月9日</h1>
+<h1 id="年2月14日">2018年2月14日</h1>
+
       
     </div>
 
@@ -604,6 +692,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/08/10/2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/08/10/2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -616,27 +716,19 @@
 
       
           <p>就用这个帖子记录一下自己学习c++遇到的一些小细节吧</p>
-<p>#1 atof </p>
+<p>#1 atof</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zhaoyl03/article/details/8176387">http://blog.csdn.net/zhaoyl03/article/details/8176387</a></p>
+<p>http://blog.csdn.net/zhaoyl03/article/details/8176387</p>
 </blockquote>
-<p>它将ascII字符串转换为相应的单精度浮点数，比如传入”1.234”，经过处理后就返回float类型的数1.234 。类似的还有atoi 、atol、itoa、ftoa等等。</p>
+<p>它将ascII字符串转换为相应的单精度浮点数，比如传入"1.234"，经过处理后就返回float类型的数1.234 。类似的还有atoi 、atol、itoa、ftoa等等。</p>
 <p>#2 随机数</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/egmkang/archive/2012/09/06/2673253.html">http://www.cnblogs.com/egmkang/archive/2012/09/06/2673253.html</a></p>
+<p>http://www.cnblogs.com/egmkang/archive/2012/09/06/2673253.html</p>
 </blockquote>
 <p>　　标准把随机数抽象成随机数引擎和分布两部分.引擎用来产生随机数,分布产生特定分布的随机数(比如平均分布,正太分布等).</p>
-<p>　　标准提供三种常用的引擎:linear_congruential_engine,mersenne_twister_engine和subtract_with_carry_engine.第一种是线性同余算法,第二种是梅森旋转算法,第三种带进位的线性同余算法.第一种是最常用的,而且速度也是非常快的; 第二种号称是最好的伪随机数生成器;第三种没用过….</p>
+<p>　　标准提供三种常用的引擎:linear_congruential_engine,mersenne_twister_engine和subtract_with_carry_engine.第一种是线性同余算法,第二种是梅森旋转算法,第三种带进位的线性同余算法.第一种是最常用的,而且速度也是非常快的; 第二种号称是最好的伪随机数生成器;第三种没用过....</p>
 <p>　　随机数引擎接受一个整形参数当作种子,不提供的话,会使用默认值. 推荐使用random_device来产生一个随机数当作种子.(windows下爱咋整咋整,谁叫windows的random_device是调用rand_s)</p>
 
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/08/10/2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -707,6 +799,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/08/10/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/08/10/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -719,22 +823,11 @@
 
       
           <p>就用这个帖子记录一下自己学习python遇到的一些小细节吧</p>
-<p>#1      ndarray.swapaxes(axis1, axis2) : 交换两个轴的元素后的矩阵.</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/qq403977698/article/details/47254597">http://blog.csdn.net/qq403977698/article/details/47254597</a><br>转魔方，始终的面对着的面向下为第一维度，水平为第二维度<br>#2      [x for x in list if r.match(x)]<br><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/3640359/regular-expressions-search-in-list">http://stackoverflow.com/questions/3640359/regular-expressions-search-in-list</a></p>
-</blockquote>
-<p>#3<br>names = df.columns.tolist()</p>
-<p>names[names.index(‘two’)] = ‘new_name’</p>
+<p>#1 ndarray.swapaxes(axis1, axis2) : 交换两个轴的元素后的矩阵. &gt;http://blog.csdn.net/qq403977698/article/details/47254597 转魔方，始终的面对着的面向下为第一维度，水平为第二维度 #2 [x for x in list if r.match(x)] &gt;http://stackoverflow.com/questions/3640359/regular-expressions-search-in-list</p>
+<p>#3 names = df.columns.tolist()</p>
+<p>names[names.index('two')] = 'new_name'</p>
 <p>df.columns = names</p>
 
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/08/10/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -805,6 +898,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/07/07/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/07/07/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -817,13 +922,16 @@
 
       
           <p>就用这个帖子记录一下自己的读书笔记吧</p>
-<hr>
-<h1 id="1-《消失的地平线》2016"><a href="#1-《消失的地平线》2016" class="headerlink" title="1.《消失的地平线》2016."></a>1.《消失的地平线》2016.</h1><h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><blockquote>
+<hr />
+<h1 id="消失的地平线2016.">1.《消失的地平线》2016.</h1>
+<h2 id="内容简介">内容简介</h2>
+<blockquote>
 <ul>
 <li>香格里拉的梦，梦幻，不真实.一帮外国人，各有各的性格，“被选中”，被带到一个类似于世外桃源的地方，这里没有争吵，没有烦恼，似乎独立于这个世界而存在，让人迷醉。在这里，只用想着，活下去，心放宽，享受生活。</li>
 </ul>
 </blockquote>
-<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><blockquote>
+<h2 id="感想">感想</h2>
+<blockquote>
 <ul>
 <li>我是在去成都的一路上给读完的这本书，大概那段时间自己的心情也就跟这本书里面一样，充满虚幻的想象，充满一种浮夸，肥皂泡吧。那些和尚，那几个外国人，世外桃源般，突然降临，又突然逃离。</li>
 </ul>
@@ -843,14 +951,20 @@
 <li>误入世外桃源终不能长久，甚至我觉得世外桃源也终不能长久。香格里拉这种地方就像毒品，借着正常的生活带来的种种黑暗面，发自己的光，就像毒品能给空虚的人以一种病态的安慰。若不能明辨，若不能逃离，便会迷醉其中。</li>
 </ul>
 </blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/07/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<blockquote>
+<ul>
+<li>最可怕的是心态的改变，这也是一直以来，所有事情最直接影响我们的方式：不是一件事情发生了，便会改变生活，便能从根本上改变什么；而是，一件事情发生了，很快又过去了，但是下次再发生时，我们看待这件事情的方式就不同了。楞次定律说的好啊，事情发生的结果是会产生阻碍其发生的某种影响，所以一件事情并不会从根本上改变什么，但是，<strong>阻碍</strong>不是<strong>阻止</strong>啊，心态变了，视角变了，就是从根上变了。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>恩，我就是想说，我可能在变了。</li>
+</ul>
+</blockquote>
+<h1 id="月亮和六便士">2.《月亮和六便士》</h1>
+<h1 id="乌合之众">3.《乌合之众》</h1>
+<h1 id="生命民间记忆之史铁生">4.《生命，民间记忆之史铁生》</h1>
+
       
     </div>
 
@@ -912,6 +1026,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/06/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/06/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -924,21 +1050,20 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/05/06/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
       
     </div>
 
@@ -1009,6 +1134,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/01/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/01/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -1021,30 +1158,58 @@
 
       
           <p>菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。</p>
-<p>#一些操作：<br>查看端口占用  netstat -tunlp |grep 22<br>卸载 自己编译的软件 make uninstall<br>查询版本号 uname -a</p>
+<p>#一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a</p>
 <p>#安装yum：</p>
 <p>见下文详解转载自</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zcyhappy1314/article/details/17580943">http://blog.csdn.net/zcyhappy1314/article/details/17580943</a></p>
+<p>http://blog.csdn.net/zcyhappy1314/article/details/17580943</p>
 </blockquote>
-<p>#配置epel<br>利用这个链接选择符合版本号的epel</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://fedoraproject.org/wiki/EPEL/zh-cn">https://fedoraproject.org/wiki/EPEL/zh-cn</a></p>
-</blockquote>
+<p>#配置epel 利用这个链接选择符合版本号的epel &gt;https://fedoraproject.org/wiki/EPEL/zh-cn</p>
 <p>之后下载安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.yun-idc.com&#x2F;epel&#x2F;6&#x2F;i386&#x2F;epel-release-6-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh epel-release-6-8.noarch.rpm </span><br></pre></td></tr></table></figure>
-
-
-
 <p>#安装R</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/04/01/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum install R</span><br><span class="line"></span><br><span class="line">tar vxzf R-3.2.2.tar.gz</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;home&#x2F;rstudio&#x2F;R --with-readline&#x3D;yes --with-libpng&#x3D;yes --with-x&#x3D;no --enable-R-shlib</span><br><span class="line"></span><br><span class="line">make </span><br><span class="line"></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;home&#x2F;rstudio&#x2F;R&#x2F;bin&#x2F;R &#x2F;usr&#x2F;local&#x2F;bin&#x2F;R</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#安装rstudio</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download2.rstudio.org&#x2F;rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line">yum install --nogpgcheck rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line"> rstudio-server verify-installation</span><br></pre></td></tr></table></figure>
+<p>#配置ipython notebook 见下文，转载自</p>
+<blockquote>
+<p>http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/</p>
+</blockquote>
+<p>jupyter 配置文件最终应如下： jupyter_notebook_config.py</p>
+<p>c = get_config() c = get_config()</p>
+<p>c.IPKernelApp.pylab = 'inline'<br />
+c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:8e71ef9</em>*****3bad'</p>
+<p>c.NotebookApp.port = 9999</p>
+<p>##安装yum</p>
+<blockquote>
+<p>YUM是Redhat Linux在线安装更新及软件的工具，但是这 是RHEL5的收费功能，如果没有购买Redhat的服务时不能使用RHEL5的更新源的，会提示注册。 由于CentOS是从Redhat演化而来的免费Linux版本，因此可以利用CentOS的yum更新源来实现RHEL5的YUM功能。配置方法如下： 检查yum是否安装，默认情况下都是安装好的，总共4各包。 [root@linux-a ~]# rpm -qa |grep yum yum-metadata-parser-1.0-8.fc6 yum-3.0.1-5.el5 yum-rhn-plugin-0.4.3-1.el5 yum-updatesd-3.0.1-5.el5 1、卸载掉系统redhat自带的yum rpm -qa |grep yum |xargs rpm -e --nodeps</p>
+<p>2 下载相关的centos yum插件 主要有python-iniparse-0.3.1-2.1.el6.noarch.rpm yum-3.2.29-40.el6.centos.noarch.rpm yum-metadata-parser-1.1.2-16.el6.x86_64.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>其中版本号和安装的系统版本，以及是32位系统和64位系统有关系，可根据实际情况，自行调整下载路径<br />
+下载地址：http://mirrors.163.com/centos/</p>
+<p>在linux可以使用命令直接下载到本地也可以 wget http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm 注意：如果下载不了可能是小版本号有变化，可以直接下载后在上传到linux服务器或者到http://mirrors.163.com/centos/6/os/i386/Packages/ 页面按照上述 rpm 的开头搜索具体的名称即可。</p>
+<p>3 安装下载的yum包（如果没权限可以先修改权限 chmod 777 *）</p>
+<p>rpm -ivh python-iniparse-0.3.1-2.1.el6.noarch.rpm rpm -ivh yum-metadata-parser-1.1.2-16.el6.i686.rpm rpm -ivh yum-3.2.29-40.el6.centos.noarch.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>最后两个需要一起安装，有相互依赖关系</p>
+<p>4 下载配置文件CentOS6-Base-163.repo wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</p>
+<p>5 修改CentOS6-Base-163.repo ，将其中的<span class="math inline">\(releasever 更改为centos的版本 vi CentOS6-Base-163.repo（使用 vi 命令编辑文件） ：%s/\)</span>releasever/6 （在 vi 命令模式下执行上述命令）</p>
+<p>6 把配置文件放到指定目录 并且删除原来的配置文件 cd /etc/yum.repos.d rm -fr * mv /home/CentOS6-Base-163.repo ./</p>
+<p>7 清除缓存 yum clean all</p>
+<p>8 配置获取yum列表 yum makecache</p>
+</blockquote>
+<p>##配置ipythonnotebook远程访问</p>
+<blockquote>
+<p>首先创建一个名为 nbserver 的配置文件 3：</p>
+<p>ipython profile create nbserver 设置登陆密码：</p>
+<p>IN [1]: from IPython.lib import passwd IN [2]: passwd() Enter password: Verify password: Out[2]: 'sha1:xxxxxxxxxxxxxxxxxxxxxxxxx' 创建私人证书：</p>
+<p>openssl req -x509 -nodes -days 10000 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem 进入 nbserver 配置文件所在目录 4 并打开 ipython_notebook_config.py，设置以下属性：</p>
+<p>c = get_config()</p>
+<p>c.IPKernerlApp.pylab = 'inline' c.NotebookApp.ip = '*' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:xxxx your hashed password' c.Notebook.App.port = 9999<br />
+可设为其他端口 为使 Notebook 正常工作，需在防火墙中打开上面设置的端口。可以编辑 /etc/sysconfig/iptables，在最后一条 REJECT 语句前加入：</p>
+<p>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT -A OUTPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT 用下面这条命令运行服务端：</p>
+<p>ipython notebook --profile=nbserver --certfile=/path/to/your/mycert.pem 在本地计算机中打开浏览器，输入</p>
+<p>https://ip/of/your/server:9999 即可打开客户端。</p>
+</blockquote>
+
       
     </div>
 
@@ -1106,6 +1271,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/03/26/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/03/26/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -1118,21 +1295,23 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/03/26/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+<figure>
+<img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/test.gif" alt="" /><figcaption>123</figcaption>
+</figure>
+
       
     </div>
 
@@ -1194,6 +1373,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/03/02/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/03/02/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -1211,14 +1402,6 @@
 </blockquote>
 <p>this is 20160402</p>
 
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/03/02/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1280,6 +1463,18 @@
               <span class="leancloud-visitors-count"></span>
             </span>
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/03/01/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/03/01/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
         </div>
@@ -1292,19 +1487,9 @@
 
       
           <p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。</p>
-<p>通过下面的命令，就可以创建新文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 新的开始</span><br></pre></td></tr></table></figure>
-
+<p>通过下面的命令，就可以创建新文章 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 新的开始</span><br></pre></td></tr></table></figure></p>
 <p>感觉非常好。</p>
 
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/03/01/1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1423,10 +1608,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -1441,7 +1622,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -1451,7 +1632,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -1483,6 +1664,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -1494,8 +1766,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -1511,31 +1783,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -1558,23 +1805,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-  <script>
-      window.addEventListener('load', () => {
-      quicklink({
-        timeout : 3000,
-        priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.wyue.site/page/2/',]
-      });
-      });
-  </script>
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -1583,18 +1873,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

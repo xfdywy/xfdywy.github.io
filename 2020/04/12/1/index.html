@@ -17,25 +17,25 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦   大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。  简而言之就是利用网易云音乐的api，通过网易云音乐">
+  <meta name="description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态博客网页中的网易云音乐播放器">
 <meta property="og:url" content="https://blog.wyue.site/2020/04/12/1/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦   大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。  简而言之就是利用网易云音乐的api，通过网易云音乐">
+<meta property="og:description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-29T10:07:25.219Z">
+<meta property="article:modified_time" content="2021-05-02T15:13:39.758Z">
 <meta property="article:author" content="WangYue">
 <meta property="article:tag" content="music">
 <meta property="article:tag" content="hexo blog">
@@ -58,15 +58,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -131,54 +122,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,7 +214,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -263,7 +262,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-29 18:07:25" itemprop="dateModified" datetime="2020-04-29T18:07:25+08:00">2020-04-29</time>
+                <time title="修改时间：2021-05-02 23:13:39" itemprop="dateModified" datetime="2021-05-02T23:13:39+08:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,6 +281,13 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
             </span>
   
   <span class="post-meta-item">
@@ -310,46 +316,45 @@
         <p>(终于填了<a href="/2018/05/06/1/">之前</a>的坑)</p>
 <p>一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。</p>
 <p>可以先体验一下, <a href="/music">点这里哦</a></p>
- <!--  more -->
-<h1 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h1><p> 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
-<p> 简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
-<h1 id="网易云音乐api"><a href="#网易云音乐api" class="headerlink" title="网易云音乐api"></a>网易云音乐api</h1><p> 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
+<p><span id="more"></span></p>
+<p># 大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
+<p>简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
+<p># 网易云音乐api 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://y-cloud-music-api.herokuapp.com/">https://y-cloud-music-api.herokuapp.com/</a></p>
 </blockquote>
 <p>api网址就是这个，想要看接口细节的话，可以通过点开链接看文档，也可以看我的代码实现的例子。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p> 首先上代码，代码在这里</p>
+<h1 id="代码">代码</h1>
+<p>首先上代码，代码在这里</p>
 <blockquote>
-<p> <a target="_blank" rel="noopener" href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
 </blockquote>
-<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用  <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
+<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用 <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
 <p>如果你直接点开html文件，可能会遇到问题，因为你是file：//协议打开的，需要是http：//协议（我猜的我不懂）。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>大概分这么几步</p>
-<ol>
+<h1 id="分析">分析</h1>
+<p>大概分这么几步</p>
+<ol type="1">
 <li>先写个网页ui</li>
 <li>引用APlayer模块</li>
 <li>跟网易云音乐api交互，获得歌曲信息</li>
 <li>把歌曲信息传给APlayer进行播放。</li>
 </ol>
 <p>新版本修改了逻辑，我先获取第一首歌的信息，然后传给播放器播放，之后再去获取剩下的，并且所有api的交互都是用axio进行异步操作，保证网页的流畅性，可以一边播放一边获取剩下的歌的信息，这样就不会出现网页等好久都刷不出来的情况了。等第一首歌放到一半，后面的肯定也都加载出来了，完美~</p>
-<h2 id="网页ui"><a href="#网页ui" class="headerlink" title="网页ui"></a>网页ui</h2><p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。<br>其实就是一个输入框，一个提交按钮，一个播放器占位符,<br>gist代码的27行以上。</p>
-<h2 id="APlayer-模块"><a href="#APlayer-模块" class="headerlink" title="APlayer 模块"></a>APlayer 模块</h2><p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
-<p>文档在这里：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
-</blockquote>
+<h2 id="网页ui">网页ui</h2>
+<p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。 其实就是一个输入框，一个提交按钮，一个播放器占位符, gist代码的27行以上。</p>
+<h2 id="aplayer-模块">APlayer 模块</h2>
+<p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
+<p>文档在这里： &gt; <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
 <p>需要传几个参数，比如</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;player1&#x27;</span>),</span><br><span class="line">    lrcType: <span class="number">1</span>,</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    audio: first_song,</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<p>container是之前html代码预留的div<br>lrcType是歌词的类型，我这里选1，具体可以看文档<br>fixed: 是否开启吸底模式,<br>audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
-<h2 id="歌曲信息"><a href="#歌曲信息" class="headerlink" title="歌曲信息"></a>歌曲信息</h2><p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
+<p>container是之前html代码预留的div lrcType是歌词的类型，我这里选1，具体可以看文档 fixed: 是否开启吸底模式, audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
+<h2 id="歌曲信息">歌曲信息</h2>
+<p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">&quot;subdiv2&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p> 首先获取输入框的歌单id</p>
+<p>首先获取输入框的歌单id</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> playlist =   downloadplaylist(input.textContent);</span><br><span class="line">playlist = <span class="keyword">await</span> playlist; </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-<p> 然后获取歌单中所有歌曲的id</p>
+<p>然后获取歌单中所有歌曲的id</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_song = <span class="keyword">await</span>  loadplaylist([playlist[<span class="number">0</span>]]) ; </span><br></pre></td></tr></table></figure>
-
 <p>先获取第一首歌的信息，之后传给播放器，开始播放。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rest_songs =  <span class="keyword">await</span>  loadplaylist(playlist.slice(<span class="number">1</span>)) ;</span><br><span class="line"></span><br><span class="line">ap.list.add(rest_songs);</span><br></pre></td></tr></table></figure>
 <p>之后再同步获取剩下的歌曲信息，并且加到播放器中去。</p>
@@ -358,17 +363,18 @@
 <p>loadplaylist 函数的输入为所有歌曲的id，输出为上面说到的audio需要的 array</p>
 <p>gist代码 160-173行是调用其他几个小函数与api进行交互，分别获取信息</p>
 <p>这里注意我们143到152行提出get请求后，这些请求是以async的方式同时请求出去的，互相不阻塞。 直到所有的get请求都发出去了，我们再利用await的方法把结果都拿到（154-156行）， 这样性能会比较好。</p>
-<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到  res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>主要是学习了axio的使用，以及async 和await的使用。<br>此外82到93行简单试验了一下addEventListener的用法。</p>
+<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到 res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
+<h1 id="总结">总结</h1>
+<p>主要是学习了axio的使用，以及async 和await的使用。 此外82到93行简单试验了一下addEventListener的用法。</p>
 <p>作为一个外行，如果有更好的想法，欢迎与我交流，可以在博文下面留言，也可以去博客的留言板（Board）留言。</p>
 <blockquote>
-<p>我博客音乐的网址： <a target="_blank" rel="noopener" href="https://www.blog.wyue.site/music">https://www.blog.wyue.site/music</a></p>
+<p>我博客音乐的网址： https://www.blog.wyue.site/music</p>
 </blockquote>
 <blockquote>
-<p>APlayer 网址： <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">https://aplayer.js.org/#/</a></p>
+<p>APlayer 网址： https://aplayer.js.org/#/</p>
 </blockquote>
 <blockquote>
-<p>axio 网址：<a target="_blank" rel="noopener" href="http://axios-js.com/">http://axios-js.com/</a></p>
+<p>axio 网址：http://axios-js.com/</p>
 </blockquote>
 <p>.</p>
 
@@ -474,7 +480,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%A6%82%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">大概思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90api"><span class="nav-number">2.</span> <span class="nav-text">网易云音乐api</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5ui"><span class="nav-number">4.1.</span> <span class="nav-text">网页ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APlayer-%E6%A8%A1%E5%9D%97"><span class="nav-number">4.2.</span> <span class="nav-text">APlayer 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%8C%E6%9B%B2%E4%BF%A1%E6%81%AF"><span class="nav-number">4.3.</span> <span class="nav-text">歌曲信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5ui"><span class="nav-number">2.1.</span> <span class="nav-text">网页ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aplayer-%E6%A8%A1%E5%9D%97"><span class="nav-number">2.2.</span> <span class="nav-text">APlayer 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%8C%E6%9B%B2%E4%BF%A1%E6%81%AF"><span class="nav-number">2.3.</span> <span class="nav-text">歌曲信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -523,10 +529,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -541,7 +543,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -551,7 +553,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -583,6 +585,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -594,8 +687,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -611,31 +704,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -658,13 +726,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -673,18 +794,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

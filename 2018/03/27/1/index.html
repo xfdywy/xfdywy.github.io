@@ -17,22 +17,22 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 blog.wyue.site不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的（自吹一波。。。溜了）。这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有  dns 解析的相关基础知识 国内博客托管到 coding 国外托管到">
+  <meta name="description" content="最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 blog.wyue.site不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的（自吹一波。。。溜了）。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有  dns 解析的相关基础知识 国内博客托管到 coding 国">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo(1)   hexo自定义域名以及解析">
 <meta property="og:url" content="https://blog.wyue.site/2018/03/27/1/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 blog.wyue.site不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的（自吹一波。。。溜了）。这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有  dns 解析的相关基础知识 国内博客托管到 coding 国外托管到">
+<meta property="og:description" content="最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 blog.wyue.site不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的（自吹一波。。。溜了）。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有  dns 解析的相关基础知识 国内博客托管到 coding 国">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-03-26T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-04-29T10:07:25.209Z">
@@ -62,15 +62,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -135,54 +126,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +218,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -287,6 +286,13 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -311,8 +317,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site/">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。<br>这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
-<ol>
+        <p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
+<ol type="1">
 <li>dns 解析的相关基础知识</li>
 <li>国内博客托管到 <a target="_blank" rel="noopener" href="https://coding.net/pages/">coding</a> 国外托管到<a target="_blank" rel="noopener" href="https://pages.github.com/">github</a></li>
 <li>同一个域名分别解析到这两个地址</li>
@@ -320,22 +326,22 @@
 </ol>
 <p>这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。如果大家还不清楚的话，网上教程很多。也可以留言。</p>
 <p>下面就是详细内容啦。</p>
-<h1 id="1-dns-解析的相关基础知识"><a href="#1-dns-解析的相关基础知识" class="headerlink" title="1.dns 解析的相关基础知识"></a>1.dns 解析的相关基础知识</h1><p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
-<h2 id="dns-解析的基本流程"><a href="#dns-解析的基本流程" class="headerlink" title="dns 解析的基本流程"></a>dns 解析的基本流程</h2><p>这部分其实参考了很多 <a target="_blank" rel="noopener" href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a target="_blank" rel="noopener" href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
-<ol>
+<h1 id="dns-解析的相关基础知识">1.dns 解析的相关基础知识</h1>
+<p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
+<h2 id="dns-解析的基本流程">dns 解析的基本流程</h2>
+<p>这部分其实参考了很多 <a target="_blank" rel="noopener" href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a target="_blank" rel="noopener" href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
+<ol type="1">
 <li><p>DNS 的定义和作用</p>
 <blockquote>
 <p>DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名查出IP地址。你可以把它想象成一本巨大的电话本。举例来说，如果你要访问域名<code>math.stackexchange.com</code>，首先要通过DNS查出它的IP地址是<code>151.101.129.69</code>。</p>
 </blockquote>
-<p>​</p>
-</li>
+<p>​</p></li>
 <li><p>DNS 解析的过程</p>
 <blockquote>
-<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<em><strong>ip地址</strong></em>和一个配套的<em><strong>域名</strong></em>(假设为 test.github.io). </p>
-<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<em><strong>域名</strong></em>的对应的<em><strong>ip地址</strong></em>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
+<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<strong><em>ip地址</em></strong>和一个配套的<strong><em>域名</em></strong>(假设为 test.github.io).</p>
+<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<strong><em>域名</em></strong>的对应的<strong><em>ip地址</em></strong>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ dig wangyue.ml</span><br><span class="line">&gt;; &lt;&lt;&gt;&gt; DiG 9.9.5-3ubuntu0.16-Ubuntu &lt;&lt;&gt;&gt; wangyue.ml</span><br><span class="line">&gt;;; global options: +cmd</span><br><span class="line">&gt;;; Got answer:</span><br><span class="line">&gt;;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50601</span><br><span class="line">&gt;;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">&gt;;; OPT PSEUDOSECTION:</span><br><span class="line">&gt;; EDNS: version: 0, flags:; udp: 4000</span><br><span class="line">&gt;;; QUESTION SECTION:</span><br><span class="line">&gt;;wangyue.ml.                    IN      A</span><br><span class="line"></span><br><span class="line">&gt;;; ANSWER SECTION:</span><br><span class="line">&gt;wangyue.ml.             599     IN      CNAME   xfdywy.github.io.</span><br><span class="line">&gt;xfdywy.github.io.       3599    IN      CNAME   sni.github.map.fastly.net.</span><br><span class="line">&gt;sni.github.map.fastly.net. 29   IN      A       151.101.9.147</span><br><span class="line"></span><br><span class="line">&gt;;; Query time: 480 msec</span><br><span class="line">&gt;;; SERVER: 10.172.11.45#53(10.172.11.45)</span><br><span class="line">&gt;;; WHEN: Tue Mar 27 20:32:43 JST 2018</span><br><span class="line">&gt;;; MSG SIZE  rcvd: 124</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<em><strong>域名</strong></em>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<em><strong>IP地址</strong></em>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
+<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<strong><em>域名</em></strong>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<strong><em>IP地址</em></strong>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
 <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://support.dnsimple.com/articles/a-record">A</a></li>
@@ -352,61 +358,58 @@
 <li>SSHFP</li>
 </ul>
 </blockquote>
-<p><strong>我们今天只用到<code>CNAME</code></strong>     </p>
-</blockquote>
-</li>
+<p><strong>我们今天只用到<code>CNAME</code></strong></p>
+</blockquote></li>
 </ol>
-<h1 id="2-申请域名"><a href="#2-申请域名" class="headerlink" title="2 申请域名"></a>2 申请域名</h1><p>这一步就是实际操作啦。申请域名当然去哪都行。这里提供两个，一个是国内的<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain/">阿里云</a>，一个是国外的<a target="_blank" rel="noopener" href="http://www.freenom.com/">freenom</a> 。 操作大同小异，都是</p>
-<ol>
+<h1 id="申请域名">2 申请域名</h1>
+<p>这一步就是实际操作啦。申请域名当然去哪都行。这里提供两个，一个是国内的<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain/">阿里云</a>，一个是国外的<a target="_blank" rel="noopener" href="http://www.freenom.com">freenom</a> 。 操作大同小异，都是</p>
+<ol type="1">
 <li>注册账号，登录</li>
 <li>搜索并找到可用的域名，买下来（阿里云里面有一些挺便宜的域名。freenorm里面有一些收费的，也有挺多免费的，都是顶级域名，就是xxx.xxx 这种）</li>
 <li>这一步就结束啦。买下来的这个域名就属于你自己啦。例如<code>wangyue.ml</code>。</li>
 </ol>
-<h1 id="3-dns解析"><a href="#3-dns解析" class="headerlink" title="3 dns解析"></a>3 dns解析</h1><p>想要在浏览器里面输入  <code>wangyue.ml</code> 就能跳到这里。必不可少的一步就是要告诉全世界的电脑，这个域名现在指向这个地方啦。而这一步就是由 dns服务器来负责的。我们需要做的就是将<code>wangyue.ml</code>  与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）.</p>
+<h1 id="dns解析">3 dns解析</h1>
+<p>想要在浏览器里面输入 <code>wangyue.ml</code> 就能跳到这里。必不可少的一步就是要告诉全世界的电脑，这个域名现在指向这个地方啦。而这一步就是由 dns服务器来负责的。我们需要做的就是将<code>wangyue.ml</code> 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）.</p>
 <p>下面我们以freenorm购买的域名为例，实现一个域名绑定多个域名，这样我们就可以实现国内访问托管在coding上的blog，国外访问托管在github上的blog。这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。</p>
-<ol>
+<ol type="1">
 <li><p>freenom 买完域名之后，freenom提供了一个dns解析的服务。但是因为freenom的dns解析在国内可能不是很流畅，我选择<a target="_blank" rel="noopener" href="https://www.cloudxns.net/">cloudXNS</a> 来做dns解析（真的不是打广告。。。。国内的也可以试试腾讯的dnspod） 。在这之前，我们需要把这个域名的控制权从freenom 交到 cloudXNS 的手上，方法就是按照 cloudXNS 提供的 dns server 地址，填到freenom的设置里面。具体操作流程为：</p>
 <blockquote>
-<p>购买完freenom后，从freenom首页，点击services -&gt; my domain -&gt; manage domain  -&gt; Management Tools -&gt; Nameservers -&gt; Use custom nameservers (enter below) -&gt; 填入 cloudXNS 的 dns server地址</p>
+<p>购买完freenom后，从freenom首页，点击services -&gt; my domain -&gt; manage domain -&gt; Management Tools -&gt; Nameservers -&gt; Use custom nameservers (enter below) -&gt; 填入 cloudXNS 的 dns server地址</p>
 </blockquote>
 <blockquote>
 <p>如果你找不到my domain ， 请确认你是不是登录了。</p>
-</blockquote>
-</li>
-<li><p>cloudXNS的 dns server 怎么获取 ： 同理。登录cloudXNS之后，选择 管理控制台 -》 我的域名 -》 添加域名，填写你刚刚在freenom购买的域名，这个时候提示域名未接管，然后会告诉你server地址是多少，怎么操作。</p>
-</li>
-<li><p>等待一段时间，大约1~5分钟。等待接管。</p>
-</li>
+</blockquote></li>
+<li><p>cloudXNS的 dns server 怎么获取 ： 同理。登录cloudXNS之后，选择 管理控制台 -》 我的域名 -》 添加域名，填写你刚刚在freenom购买的域名，这个时候提示域名未接管，然后会告诉你server地址是多少，怎么操作。</p></li>
+<li><p>等待一段时间，大约1~5分钟。等待接管。</p></li>
 <li><p>等到cloudXNS 接管状态显示已接管的时候，点击域名进行管理(以下假定购买的域名是wangyue.ml)。添加记录。</p>
-<ol>
-<li>主机记录这里空着的话，表示这条记录解析的是 wangyue.ml ,  如果写www， 表示这条记录解析的是<a target="_blank" rel="noopener" href="http://www.wangyue.ml/">www.wangyue.ml</a> 。 剩下的同理</li>
+<ol type="1">
+<li>主机记录这里空着的话，表示这条记录解析的是 wangyue.ml , 如果写www， 表示这条记录解析的是www.wangyue.ml 。 剩下的同理</li>
 <li>记录类型填A的话，后面的记录值填写IP地址。这种情况一般适用于自己买了虚拟主机，分配了一个固定 ip，然后直接解析到那个ip就行。我们这里选CNAME，解析到原始域名。（即wangyue.ml 解析到 xxx.github.io 这种）</li>
-<li>然后在线路类型选全网默认，然后记录值填xxx.coding.me(记得把xxx换成自己的…..).然后保存就好。</li>
+<li>然后在线路类型选全网默认，然后记录值填xxx.coding.me(记得把xxx换成自己的.....).然后保存就好。</li>
 <li>到上一步，我们就算已经把我们新买到的域名解析到原始的域名了。为了实现国外用户访问托管到github的博客，我们再同样添加一条记录，只不过线路选择海外默认，记录值填xxx.github.io</li>
 <li>dns 服务器端的设置就算完全结束了。下面我们需要分别到github和coding上去设置，使得我们能用新地址访问他们。（这里完全是因为github和coding的设定因素，如果你是绑定到自己的服务器的ip上去，到了这一步就已经完全结束了，可以跳过下一节）</li>
+</ol></li>
+<li><p>注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。不过别忘了继续往下看，下面的也很重要。</p></li>
 </ol>
-</li>
-<li><p>注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。不过别忘了继续往下看，下面的也很重要。</p>
-</li>
-</ol>
-<h1 id="4-github和coding的设置"><a href="#4-github和coding的设置" class="headerlink" title="4.github和coding的设置"></a>4.github和coding的设置</h1><p>可能是从安全的角度和服务器负载的角度，github和coding要求自定义域名绑定的时候还要分别在自己的网站上设置一下（前半句我完全乱猜的，后半句是真的 ，认真脸）</p>
-<h2 id="coding的设置"><a href="#coding的设置" class="headerlink" title="coding的设置"></a>coding的设置</h2><p>首先你需要是银牌会员，个人信息填完全了就自动是了。</p>
-<p>进入到你托管博客的那个项目，然后点page 服务， 自定义域名 ，填上 wangyue.ml. 搞定。 </p>
-<h2 id="github的设置"><a href="#github的设置" class="headerlink" title="github的设置"></a>github的设置</h2><p>进入github你托管博客的那个项目，点setting，GitHub Pages ，Custom domain ， 输入wangyue.ml，点save。暂时搞定。</p>
+<h1 id="github和coding的设置">4.github和coding的设置</h1>
+<p>可能是从安全的角度和服务器负载的角度，github和coding要求自定义域名绑定的时候还要分别在自己的网站上设置一下（前半句我完全乱猜的，后半句是真的 ，认真脸）</p>
+<h2 id="coding的设置">coding的设置</h2>
+<p>首先你需要是银牌会员，个人信息填完全了就自动是了。</p>
+<p>进入到你托管博客的那个项目，然后点page 服务， 自定义域名 ，填上 wangyue.ml. 搞定。</p>
+<h2 id="github的设置">github的设置</h2>
+<p>进入github你托管博客的那个项目，点setting，GitHub Pages ，Custom domain ， 输入wangyue.ml，点save。暂时搞定。</p>
 <p>为什么说暂时搞定呢，因为你仔细看你github的这个repository, 你会发现一个叫做CNAME 的文件出现在根目录下，里面只有一行，就是 wangyue.ml . github 需要依赖这个文件来让你用自己的域名来访问你的blog。</p>
-<p><em><strong>但是</strong></em>   问题出现在，你每次部署blog之后，就是<code>hexo g</code> <code>hexo d</code> 之后这个文件都会消失。因为你本地目录下并没有这个文件，所以要想办法让hexo编译的时候就生成这个文件。</p>
-<p><em><strong>但是</strong></em>   问题出在hexo编译都是md文件，而且会渲染成html文件。那么怎么办呢。 </p>
-<h1 id="5-github-CNAME-文件"><a href="#5-github-CNAME-文件" class="headerlink" title="5.github CNAME 文件"></a>5.github CNAME 文件</h1><p>答案就是你把github生成的CNAME 文件放一份到你的 you blog/source/ 文件夹下，或者自己手写也行，注意文件名没有后缀，就叫CNAME， 文件内容就写你的域名 <code>wangyue.ml</code>。</p>
+<p><strong><em>但是</em></strong> 问题出现在，你每次部署blog之后，就是<code>hexo g</code> <code>hexo d</code> 之后这个文件都会消失。因为你本地目录下并没有这个文件，所以要想办法让hexo编译的时候就生成这个文件。</p>
+<p><strong><em>但是</em></strong> 问题出在hexo编译都是md文件，而且会渲染成html文件。那么怎么办呢。</p>
+<h1 id="github-cname-文件">5.github CNAME 文件</h1>
+<p>答案就是你把github生成的CNAME 文件放一份到你的 you blog/source/ 文件夹下，或者自己手写也行，注意文件名没有后缀，就叫CNAME， 文件内容就写你的域名 <code>wangyue.ml</code>。</p>
 <p>然后，最最关键的一步，你要去你blog的根目录下，修改 _config.yml 文件。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
-
 <p>之后就愉快的</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d </span><br></pre></td></tr></table></figure>
-
-
-
 <p>再次提醒注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。</p>
-<h1 id="至此，大功告成"><a href="#至此，大功告成" class="headerlink" title="至此，大功告成"></a>至此，大功告成</h1>
+<h1 id="至此大功告成">至此，大功告成</h1>
+
     </div>
 
     
@@ -513,7 +516,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-dns-%E8%A7%A3%E6%9E%90%E7%9A%84%E7%9B%B8%E5%85%B3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">1.dns 解析的相关基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dns-%E8%A7%A3%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">dns 解析的基本流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%94%B3%E8%AF%B7%E5%9F%9F%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">2 申请域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-dns%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">3 dns解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-github%E5%92%8Ccoding%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">4.github和coding的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#coding%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">coding的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">github的设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-github-CNAME-%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">5.github CNAME 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="nav-number">6.</span> <span class="nav-text">至此，大功告成</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dns-%E8%A7%A3%E6%9E%90%E7%9A%84%E7%9B%B8%E5%85%B3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">1.dns 解析的相关基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dns-%E8%A7%A3%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">dns 解析的基本流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7%E5%9F%9F%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">2 申请域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dns%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">3 dns解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E5%92%8Ccoding%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">4.github和coding的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#coding%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">coding的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">github的设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github-cname-%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">5.github CNAME 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%B3%E6%AD%A4%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="nav-number">6.</span> <span class="nav-text">至此，大功告成</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -562,10 +565,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -580,7 +579,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -590,7 +589,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -622,6 +621,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -633,8 +723,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -650,31 +740,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -697,13 +762,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -712,18 +830,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

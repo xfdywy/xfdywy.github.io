@@ -17,25 +17,25 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。    这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，也有不等式之间的相互关系的归纳总结，包括：     Markov’s inequality 条件： 公式： 直观与讨论：   Chebyshev’s inequality">
+  <meta name="description" content="Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Concentration Inequality(集中不等式)更新版">
 <meta property="og:url" content="https://blog.wyue.site/2020/04/17/1/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。    这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，也有不等式之间的相互关系的归纳总结，包括：     Markov’s inequality 条件： 公式： 直观与讨论：   Chebyshev’s inequality">
+<meta property="og:description" content="Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-18T02:49:14.914Z">
+<meta property="article:modified_time" content="2021-05-02T15:12:00.000Z">
 <meta property="article:author" content="WangYue">
 <meta property="article:tag" content="Concentration Inequality">
 <meta name="twitter:card" content="summary">
@@ -57,15 +57,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -130,54 +121,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -217,7 +213,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -262,7 +261,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-18 10:49:14" itemprop="dateModified" datetime="2020-04-18T10:49:14+08:00">2020-04-18</time>
+                <time title="修改时间：2021-05-02 23:12:00" itemprop="dateModified" datetime="2021-05-02T23:12:00+08:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,6 +280,13 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
             </span>
   
   <span class="post-meta-item">
@@ -307,159 +313,185 @@
 
       
         <p>Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。</p>
-<!--  more -->
-
-
+<span id="more"></span>
 <p>这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，也有不等式之间的相互关系的归纳总结，包括：</p>
-<!-- - Markov's inequality
-- Chebyshev's inequality
-- Chernoff bounds
-- Hoeffding's inequality
-- Bennett's inequality 
-- Bernstein's inequalities
-- Azuma's inequality
-- Doob's martingale inequality -->
-
-
 <ul>
-<li><a href="#markovs-inequality">Markov’s inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6">条件：</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F">公式：</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA">直观与讨论：</a></li>
+<li><a href="#markovs-inequality">Markov's inequality</a>
+<ul>
+<li><a href="#条件">条件：</a></li>
+<li><a href="#公式">公式：</a></li>
+<li><a href="#直观与讨论">直观与讨论：</a></li>
+</ul></li>
+<li><a href="#chebyshevs-inequality">Chebyshev's inequality</a>
+<ul>
+<li><a href="#条件-1">条件</a></li>
+<li><a href="#公式-1">公式</a></li>
+<li><a href="#直观与讨论-1">直观与讨论</a></li>
+</ul></li>
+<li><a href="#chernoff-bounds">Chernoff bounds</a>
+<ul>
+<li><a href="#条件-2">条件</a></li>
+<li><a href="#公式-2">公式</a></li>
+<li><a href="#直观与讨论-2">直观与讨论</a></li>
+</ul></li>
+<li><a href="#hoeffdings-inequality">Hoeffding's inequality</a>
+<ul>
+<li><a href="#条件-3">条件</a></li>
+<li><a href="#公式-3">公式</a></li>
+<li><a href="#直观与讨论-3">直观与讨论</a></li>
+</ul></li>
+<li><a href="#weighted-hoeffding-inequality">Weighted Hoeffding Inequality</a>
+<ul>
+<li><a href="#条件-4">条件</a></li>
+<li><a href="#公式-4">公式</a></li>
+<li><a href="#直观与讨论-4">直观与讨论</a></li>
+</ul></li>
+<li><a href="#bennetts-inequality">Bennett's inequality</a>
+<ul>
+<li><a href="#条件-5">条件</a></li>
+<li><a href="#公式-5">公式</a></li>
+<li><a href="#直观与讨论-5">直观与讨论</a></li>
+</ul></li>
+<li><a href="#bernsteins-inequalities">Bernstein's inequalities</a>
+<ul>
+<li><a href="#条件-6">条件</a></li>
+<li><a href="#公式-6">公式</a></li>
+<li><a href="#直观与讨论-6">直观与讨论</a></li>
+</ul></li>
+<li><a href="#azumas-inequality">Azuma's inequality</a>
+<ul>
+<li><a href="#条件-7">条件</a></li>
+<li><a href="#公式-7">公式</a></li>
+<li><a href="#直观与讨论-7">直观与讨论</a></li>
+</ul></li>
+<li><a href="#doobs-martingale-inequality">Doob's martingale inequality</a>
+<ul>
+<li><a href="#条件-8">条件</a></li>
+<li><a href="#公式-8">公式</a></li>
+<li><a href="#直观与讨论-8">直观与讨论</a></li>
+</ul></li>
+<li><a href="#整体讨论">整体讨论</a></li>
 </ul>
-</li>
-<li><a href="#chebyshevs-inequality">Chebyshev’s inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-1">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-1">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-1">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#chernoff-bounds">Chernoff bounds</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-2">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-2">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-2">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#hoeffdings-inequality">Hoeffding’s inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-3">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-3">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-3">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#weighted-hoeffding-inequality">Weighted Hoeffding Inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-4">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-4">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-4">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#bennetts-inequality">Bennett’s inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-5">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-5">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-5">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#bernsteins-inequalities">Bernstein’s inequalities</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-6">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-6">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-6">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#azumas-inequality">Azuma’s inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-7">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-7">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-7">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#doobs-martingale-inequality">Doob’s martingale inequality</a><ul>
-<li><a href="#%E6%9D%A1%E4%BB%B6-8">条件</a></li>
-<li><a href="#%E5%85%AC%E5%BC%8F-8">公式</a></li>
-<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-8">直观与讨论</a></li>
-</ul>
-</li>
-<li><a href="#%E6%95%B4%E4%BD%93%E8%AE%A8%E8%AE%BA">整体讨论</a></li>
-</ul>
-<h1 id="Markov’s-inequality"><a href="#Markov’s-inequality" class="headerlink" title="Markov’s inequality"></a>Markov’s inequality</h1><h2 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h2><blockquote>
+<h1 id="markovs-inequality">Markov's inequality</h1>
+<h2 id="条件">条件：</h2>
+<blockquote>
 <p>X 是非负随机变量, a&gt;0</p>
 </blockquote>
-<h2 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h2><blockquote>
-<p>$$ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} $$</p>
+<h2 id="公式">公式：</h2>
+<blockquote>
+<p><span class="math display">\[ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} \]</span></p>
 </blockquote>
-<h2 id="直观与讨论："><a href="#直观与讨论：" class="headerlink" title="直观与讨论："></a>直观与讨论：</h2><p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， $P(X \le a)$ 就是0.2</p>
-<p>Markov’s inequality 最简单，也最“松”，只用到了随机变量的期望信息。<br>这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
-<h1 id="Chebyshev’s-inequality"><a href="#Chebyshev’s-inequality" class="headerlink" title="Chebyshev’s inequality"></a>Chebyshev’s inequality</h1><h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p> $X$ 为均值为$\mu$， 方差为$\sigma^2$ 的随机变量, 任意实数$k$</p>
+<h2 id="直观与讨论">直观与讨论：</h2>
+<p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， <span class="math inline">\(P(X \le a)\)</span> 就是0.2</p>
+<p>Markov's inequality 最简单，也最“松”，只用到了随机变量的期望信息。 这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
+<h1 id="chebyshevs-inequality">Chebyshev's inequality</h1>
+<h2 id="条件-1">条件</h2>
+<blockquote>
+<p><span class="math inline">\(X\)</span> 为均值为<span class="math inline">\(\mu\)</span>， 方差为<span class="math inline">\(\sigma^2\)</span> 的随机变量, 任意实数<span class="math inline">\(k\)</span></p>
 </blockquote>
-<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p>$$ P(|X-\mu|\ge k\sigma)\le \frac{1}{k^2} $$</p>
+<h2 id="公式-1">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(|X-\mu|\ge k\sigma)\le \frac{1}{k^2} \]</span></p>
 </blockquote>
-<h2 id="直观与讨论"><a href="#直观与讨论" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Chebyshev 不等式刻画了一个随机变量偏离其均值的概率。直观来说就是离均值越远，概率越小，并且小的速率收到方差的控制。由于Chebyshev不等式不依赖分布的具体信息，只依赖一阶矩和二阶矩，因此应用广泛。</p>
+<h2 id="直观与讨论-1">直观与讨论</h2>
+<p>Chebyshev 不等式刻画了一个随机变量偏离其均值的概率。直观来说就是离均值越远，概率越小，并且小的速率收到方差的控制。由于Chebyshev不等式不依赖分布的具体信息，只依赖一阶矩和二阶矩，因此应用广泛。</p>
 <p>Chebyshev不等式通过考虑方差和期望的信息， 比markov不等式更加细致。</p>
-<h1 id="Chernoff-bounds"><a href="#Chernoff-bounds" class="headerlink" title="Chernoff bounds"></a>Chernoff bounds</h1><h2 id="条件-1"><a href="#条件-1" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$X$ 是n个独立随机变量 $x_1, \cdots , x_n$ 的和， $t$是任意大于0的实数</p>
+<h1 id="chernoff-bounds">Chernoff bounds</h1>
+<h2 id="条件-2">条件</h2>
+<blockquote>
+<p><span class="math inline">\(X\)</span> 是n个独立随机变量 <span class="math inline">\(x_1, \cdots , x_n\)</span> 的和， <span class="math inline">\(t\)</span>是任意大于0的实数</p>
 </blockquote>
-<h2 id="公式-1"><a href="#公式-1" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p>$$ P(x_i&gt;a)=P(e^{t x_i}&gt;e^{ta}) \le e^{-ta}E[ e^{tX}] $$<br>$$ P(X&gt;a) \le e^{-ta}E[\Pi_i e^{tx_i}] $$<br>$$ P(X&gt;a) \le min_{t&gt;0}\left[ e^{-ta}E[\Pi_i e^{tx_i}] \right] $$</p>
+<h2 id="公式-2">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(x_i&gt;a)=P(e^{t x_i}&gt;e^{ta}) \le e^{-ta}E[ e^{tX}] \]</span> <span class="math display">\[ P(X&gt;a) \le e^{-ta}E[\Pi_i e^{tx_i}] \]</span> <span class="math display">\[ P(X&gt;a) \le min_{t&gt;0}\left[ e^{-ta}E[\Pi_i e^{tx_i}] \right] \]</span></p>
 </blockquote>
-<h2 id="直观与讨论-1"><a href="#直观与讨论-1" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Chernoff 算是一个技巧，本质上是Markov不等式的直接应用。如看上文公式中的第一个式子，左边的等号就是Chernoff的核心技巧，即将随机变量转化成指数的形式，并且引入一个新的参数$t$，右边的$\le$就是直接应用了Markov不等式。</p>
+<h2 id="直观与讨论-2">直观与讨论</h2>
+<p>Chernoff 算是一个技巧，本质上是Markov不等式的直接应用。如看上文公式中的第一个式子，左边的等号就是Chernoff的核心技巧，即将随机变量转化成指数的形式，并且引入一个新的参数<span class="math inline">\(t\)</span>，右边的<span class="math inline">\(\le\)</span>就是直接应用了Markov不等式。</p>
 <p>下面可以看到Chernoff的技巧是得到 Hoeffding不等式的关键。简单来说，Hoeffding不等式是Chernoff的应用。</p>
-<h1 id="Hoeffding’s-inequality"><a href="#Hoeffding’s-inequality" class="headerlink" title="Hoeffding’s inequality"></a>Hoeffding’s inequality</h1><h2 id="条件-2"><a href="#条件-2" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)$ </p>
+<h1 id="hoeffdings-inequality">Hoeffding's inequality</h1>
+<h2 id="条件-3">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x_i, \cdots, x_n\)</span> 是一族独立的随机变量，且 <span class="math inline">\(a_i&lt; x_i &lt; b_i\)</span>, <span class="math inline">\(\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)\)</span></p>
 </blockquote>
-<h2 id="公式-2"><a href="#公式-2" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p>   $$ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n (b_i-a_i)^2} \right)$$  </p>
+<h2 id="公式-3">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n (b_i-a_i)^2} \right)\]</span></p>
 </blockquote>
-<h2 id="直观与讨论-2"><a href="#直观与讨论-2" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Hoeffding 不等式刻画了一族随机变量的和偏离其期望的概率。只要求随机变量独立且有界，对随机变量的分布和各阶矩没有任何要求，并且这些随机变量可以不同分布。</p>
+<h2 id="直观与讨论-3">直观与讨论</h2>
+<p>Hoeffding 不等式刻画了一族随机变量的和偏离其期望的概率。只要求随机变量独立且有界，对随机变量的分布和各阶矩没有任何要求，并且这些随机变量可以不同分布。</p>
 <p>Hoeffding不等式在机器学习算法的收敛性证明中起到了非常重要的作用，尤其是需要刻画算法的输出在多大概率的意义下可以收敛到我们希望的结果中这一情况下，我们可以利用hoeffding 不等式得到随机算法输出的结果与其期望结果的关系，从而得到想要的高概率界。</p>
-<h1 id="Weighted-Hoeffding-Inequality"><a href="#Weighted-Hoeffding-Inequality" class="headerlink" title="Weighted Hoeffding Inequality"></a>Weighted Hoeffding Inequality</h1><h2 id="条件-3"><a href="#条件-3" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $\bar{X} = \frac{1}{n}(w_1x_1 + \cdots + w_nx_n)$ </p>
+<h1 id="weighted-hoeffding-inequality">Weighted Hoeffding Inequality</h1>
+<h2 id="条件-4">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x_i, \cdots, x_n\)</span> 是一族独立的随机变量，且 <span class="math inline">\(a_i&lt; x_i &lt; b_i\)</span>, <span class="math inline">\(\bar{X} = \frac{1}{n}(w_1x_1 + \cdots + w_nx_n)\)</span></p>
 </blockquote>
-<h2 id="公式-3"><a href="#公式-3" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p> $$ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n w_i^2(b_i-a_i)^2} \right)$$  </p>
+<h2 id="公式-4">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n w_i^2(b_i-a_i)^2} \right)\]</span></p>
 </blockquote>
-<h2 id="直观与讨论-3"><a href="#直观与讨论-3" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>与简单的Hoeffding 不等式类似，唯一区别在于是加权平均数。</p>
-<h1 id="Bennett’s-inequality"><a href="#Bennett’s-inequality" class="headerlink" title="Bennett’s inequality"></a>Bennett’s inequality</h1><h2 id="条件-4"><a href="#条件-4" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $b_i-a_i=c_i \le C$, $\bar{X} = \frac{1}{n}( x_1 + \cdots +  x_n)$ ,<br>$\sigma^2 = \sum_{i=1}^nE[x_i^2]$, t为任意实数</p>
+<h2 id="直观与讨论-4">直观与讨论</h2>
+<p>与简单的Hoeffding 不等式类似，唯一区别在于是加权平均数。</p>
+<h1 id="bennetts-inequality">Bennett's inequality</h1>
+<h2 id="条件-5">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x_i, \cdots, x_n\)</span> 是一族独立的随机变量，且 <span class="math inline">\(a_i&lt; x_i &lt; b_i\)</span>, <span class="math inline">\(b_i-a_i=c_i \le C\)</span>, <span class="math inline">\(\bar{X} = \frac{1}{n}( x_1 + \cdots + x_n)\)</span> , <span class="math inline">\(\sigma^2 = \sum_{i=1}^nE[x_i^2]\)</span>, t为任意实数</p>
 </blockquote>
-<h2 id="公式-4"><a href="#公式-4" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p> $$ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{\sigma^2}{C^2} h(\frac{Ct}{n\sigma^2})\right)$$<br>$$ h(u) = (1+u)log(1+u) - u $$</p>
+<h2 id="公式-5">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{\sigma^2}{C^2} h(\frac{Ct}{n\sigma^2})\right)\]</span><br />
+<span class="math display">\[ h(u) = (1+u)log(1+u) - u \]</span></p>
 </blockquote>
-<h2 id="直观与讨论-4"><a href="#直观与讨论-4" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p> 因为利用了方差的信息，这个界更加细致。  </p>
-<h1 id="Bernstein’s-inequalities"><a href="#Bernstein’s-inequalities" class="headerlink" title="Bernstein’s inequalities"></a>Bernstein’s inequalities</h1><h2 id="条件-5"><a href="#条件-5" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $b_i-a_i=c_i \le C$, $\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)$ , $\sigma^2 = \sum_{i=1}^nE[x_i^2]$, t为任意实数</p>
+<h2 id="直观与讨论-5">直观与讨论</h2>
+<p>因为利用了方差的信息，这个界更加细致。</p>
+<h1 id="bernsteins-inequalities">Bernstein's inequalities</h1>
+<h2 id="条件-6">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x_i, \cdots, x_n\)</span> 是一族独立的随机变量，且 <span class="math inline">\(a_i&lt; x_i &lt; b_i\)</span>, <span class="math inline">\(b_i-a_i=c_i \le C\)</span>, <span class="math inline">\(\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)\)</span> , <span class="math inline">\(\sigma^2 = \sum_{i=1}^nE[x_i^2]\)</span>, t为任意实数</p>
 </blockquote>
-<h2 id="公式-5"><a href="#公式-5" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p> $$ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{t^2/2 }{n^2\sigma^2 +  Ctn/3} \right)$$  </p>
+<h2 id="公式-6">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{t^2/2 }{n^2\sigma^2 +  Ctn/3} \right)\]</span></p>
 </blockquote>
-<h2 id="直观与讨论-5"><a href="#直观与讨论-5" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>将Bennett不等式中的h函数用更松的形式代换, 可以证明这个不等式。</p>
-<p>$$h(u)\ge \frac{u^2}{2+2u/3}$$</p>
+<h2 id="直观与讨论-6">直观与讨论</h2>
+<p>将Bennett不等式中的h函数用更松的形式代换, 可以证明这个不等式。</p>
+<p><span class="math display">\[h(u)\ge \frac{u^2}{2+2u/3}\]</span></p>
 <p>在Bernstein不等式中，我们可以看到，如果方差较小， 相同n和t的时候， 不等号右侧的概率值相比hoeffding不等式要小，说明Bernstein不等式通过考虑方差信息，获得了更加精细的结果。</p>
-<h1 id="Azuma’s-inequality"><a href="#Azuma’s-inequality" class="headerlink" title="Azuma’s inequality"></a>Azuma’s inequality</h1><p>前面讨论的一些不等式都要求随机变量独立，Azuma不等式研究的随机变量序列可以有相关性</p>
-<h2 id="条件-6"><a href="#条件-6" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p>$x_i, \cdots, x_n$ 是一族鞅序列，，且  $| x_i - x{i-1} | &lt; c_i$,   t为任意实数</p>
+<h1 id="azumas-inequality">Azuma's inequality</h1>
+<p>前面讨论的一些不等式都要求随机变量独立，Azuma不等式研究的随机变量序列可以有相关性</p>
+<h2 id="条件-7">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x_i, \cdots, x_n\)</span> 是一族鞅序列，，且 <span class="math inline">\(| x_i - x{i-1} | &lt; c_i\)</span>, t为任意实数</p>
 </blockquote>
-<p>鞅指的是满足如下两个条件的随机过程<br>$$E[|x_n|] &lt;\infty$$<br>$$E[x_{n+1}|x_1, \cdots x_n]=x_n$$</p>
-<h2 id="公式-6"><a href="#公式-6" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p> $$ P(x_N-x_0 \ge t) \le exp\left( -\frac{t^2  }{2\sum_{i=1}^Nc_i^2 } \right)$$  </p>
+<p>鞅指的是满足如下两个条件的随机过程 <span class="math display">\[E[|x_n|] &lt;\infty\]</span> <span class="math display">\[E[x_{n+1}|x_1, \cdots x_n]=x_n\]</span></p>
+<h2 id="公式-7">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(x_N-x_0 \ge t) \le exp\left( -\frac{t^2  }{2\sum_{i=1}^Nc_i^2 } \right)\]</span></p>
 </blockquote>
-<h2 id="直观与讨论-6"><a href="#直观与讨论-6" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>如果将鞅序列拆分成鞅差序列， 即令$y_i = x_i - x_{i-1}$, 那么$y_i$满足如下两条，为鞅差序列<br>$$E[|x_n|] &lt;\infty$$<br>$$E[x_{n+1}|\mathcal{F}_n]=0$$</p>
-<p>则$x_n-x_0 = \sum_{i=1}^N y_i$Azuma不等式可以看成鞅差序列的和偏离0的概率</p>
-<h1 id="Doob’s-martingale-inequality"><a href="#Doob’s-martingale-inequality" class="headerlink" title="Doob’s martingale inequality"></a>Doob’s martingale inequality</h1><h2 id="条件-7"><a href="#条件-7" class="headerlink" title="条件"></a>条件</h2><blockquote>
-<p> $x$是上鞅，即对任意两个时刻$s&lt;t$， $x_s \le E[x_t|\mathcal{F_s}]$</p>
+<h2 id="直观与讨论-7">直观与讨论</h2>
+<p>如果将鞅序列拆分成鞅差序列， 即令<span class="math inline">\(y_i = x_i - x_{i-1}\)</span>, 那么<span class="math inline">\(y_i\)</span>满足如下两条，为鞅差序列 <span class="math display">\[E[|x_n|] &lt;\infty\]</span> <span class="math display">\[E[x_{n+1}|\mathcal{F}_n]=0\]</span></p>
+<p>则<span class="math inline">\(x_n-x_0 = \sum_{i=1}^N y_i\)</span>Azuma不等式可以看成鞅差序列的和偏离0的概率</p>
+<h1 id="doobs-martingale-inequality">Doob's martingale inequality</h1>
+<h2 id="条件-8">条件</h2>
+<blockquote>
+<p><span class="math inline">\(x\)</span>是上鞅，即对任意两个时刻<span class="math inline">\(s&lt;t\)</span>， <span class="math inline">\(x_s \le E[x_t|\mathcal{F_s}]\)</span></p>
 </blockquote>
-<h2 id="公式-7"><a href="#公式-7" class="headerlink" title="公式"></a>公式</h2><blockquote>
-<p> $$ P(\sup_{0\le t \le T}x_t \ge C) \le  \frac{E[\max(x_T,0)]}{C}$$  </p>
+<h2 id="公式-8">公式</h2>
+<blockquote>
+<p><span class="math display">\[ P(\sup_{0\le t \le T}x_t \ge C) \le  \frac{E[\max(x_T,0)]}{C}\]</span></p>
 </blockquote>
-<h2 id="直观与讨论-7"><a href="#直观与讨论-7" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>这个不等式讨论了上鞅序列在路径中的表现，即如果我们知道上鞅序列$X_t$在最后$T$时刻的表现，我们就能大概推测出在整个0到T时刻之间随机变量$x_t$大于某个值的概率。</p>
-<h1 id="整体讨论"><a href="#整体讨论" class="headerlink" title="整体讨论"></a>整体讨论</h1><p>上述讨论的公式形式比较单一，都是描述随机变量或者随机变量的和偏离其中心的概率值的大小。但是实际上我们根据上文中的结果，可以很容易的推导出其他变形形式。</p>
+<h2 id="直观与讨论-8">直观与讨论</h2>
+<p>这个不等式讨论了上鞅序列在路径中的表现，即如果我们知道上鞅序列<span class="math inline">\(X_t\)</span>在最后<span class="math inline">\(T\)</span>时刻的表现，我们就能大概推测出在整个0到T时刻之间随机变量<span class="math inline">\(x_t\)</span>大于某个值的概率。</p>
+<h1 id="整体讨论">整体讨论</h1>
+<p>上述讨论的公式形式比较单一，都是描述随机变量或者随机变量的和偏离其中心的概率值的大小。但是实际上我们根据上文中的结果，可以很容易的推导出其他变形形式。</p>
 <p>用Heoffding不等式举例，我们还可以有以下结果:</p>
-<ol>
-<li>当样本量为n的时候，以至少$1-\delta$的结果，我们可以有如下</li>
+<ol type="1">
+<li>当样本量为n的时候，以至少<span class="math inline">\(1-\delta\)</span>的结果，我们可以有如下</li>
 </ol>
-<p>$$ E[\bar{X} ] - \bar{X} \le \sqrt{\frac{\sum_{i=1}^n(b_i-a_i)^2\ln\frac{1}{\delta }}{2n^2}}$$</p>
-<ol start="2">
-<li>同理，如果我们需要以至少$1-\delta$的概率保证差距小于$\epsilon$，则我们至少需要这么多样本(假设所有的$b_i &lt;b, \ a_i&gt;a$ )</li>
+<p><span class="math display">\[ E[\bar{X} ] - \bar{X} \le \sqrt{\frac{\sum_{i=1}^n(b_i-a_i)^2\ln\frac{1}{\delta }}{2n^2}}\]</span></p>
+<ol start="2" type="1">
+<li>同理，如果我们需要以至少<span class="math inline">\(1-\delta\)</span>的概率保证差距小于<span class="math inline">\(\epsilon\)</span>，则我们至少需要这么多样本(假设所有的<span class="math inline">\(b_i &lt;b, \ a_i&gt;a\)</span> )</li>
 </ol>
-<p>$$N = \frac{ (b -a )^2\ln\frac{1}{\delta }}{2\epsilon^2} $$</p>
+<p><span class="math display">\[N = \frac{ (b -a )^2\ln\frac{1}{\delta }}{2\epsilon^2} \]</span></p>
 <p>类似这样的结论对于算法的收敛性分析和有限样本表现分析非常有用</p>
 <!-- 
 |            |                                                                                         |                                                               |                                                                                 |
@@ -570,7 +602,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markov%E2%80%99s-inequality"><span class="nav-number">1.</span> <span class="nav-text">Markov’s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">条件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">公式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">直观与讨论：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chebyshev%E2%80%99s-inequality"><span class="nav-number">2.</span> <span class="nav-text">Chebyshev’s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA"><span class="nav-number">2.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chernoff-bounds"><span class="nav-number">3.</span> <span class="nav-text">Chernoff bounds</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-1"><span class="nav-number">3.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">3.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-1"><span class="nav-number">3.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hoeffding%E2%80%99s-inequality"><span class="nav-number">4.</span> <span class="nav-text">Hoeffding’s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-2"><span class="nav-number">4.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-2"><span class="nav-number">4.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-2"><span class="nav-number">4.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Weighted-Hoeffding-Inequality"><span class="nav-number">5.</span> <span class="nav-text">Weighted Hoeffding Inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-3"><span class="nav-number">5.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-3"><span class="nav-number">5.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-3"><span class="nav-number">5.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bennett%E2%80%99s-inequality"><span class="nav-number">6.</span> <span class="nav-text">Bennett’s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-4"><span class="nav-number">6.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-4"><span class="nav-number">6.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-4"><span class="nav-number">6.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bernstein%E2%80%99s-inequalities"><span class="nav-number">7.</span> <span class="nav-text">Bernstein’s inequalities</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-5"><span class="nav-number">7.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-5"><span class="nav-number">7.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-5"><span class="nav-number">7.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Azuma%E2%80%99s-inequality"><span class="nav-number">8.</span> <span class="nav-text">Azuma’s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-6"><span class="nav-number">8.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-6"><span class="nav-number">8.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-6"><span class="nav-number">8.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Doob%E2%80%99s-martingale-inequality"><span class="nav-number">9.</span> <span class="nav-text">Doob’s martingale inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-7"><span class="nav-number">9.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-7"><span class="nav-number">9.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-7"><span class="nav-number">9.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E8%AE%A8%E8%AE%BA"><span class="nav-number">10.</span> <span class="nav-text">整体讨论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markovs-inequality"><span class="nav-number">1.</span> <span class="nav-text">Markov&#39;s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">条件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">公式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA"><span class="nav-number">1.3.</span> <span class="nav-text">直观与讨论：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chebyshevs-inequality"><span class="nav-number">2.</span> <span class="nav-text">Chebyshev&#39;s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-1"><span class="nav-number">2.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">2.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-1"><span class="nav-number">2.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chernoff-bounds"><span class="nav-number">3.</span> <span class="nav-text">Chernoff bounds</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-2"><span class="nav-number">3.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-2"><span class="nav-number">3.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-2"><span class="nav-number">3.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hoeffdings-inequality"><span class="nav-number">4.</span> <span class="nav-text">Hoeffding&#39;s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-3"><span class="nav-number">4.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-3"><span class="nav-number">4.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-3"><span class="nav-number">4.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#weighted-hoeffding-inequality"><span class="nav-number">5.</span> <span class="nav-text">Weighted Hoeffding Inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-4"><span class="nav-number">5.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-4"><span class="nav-number">5.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-4"><span class="nav-number">5.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bennetts-inequality"><span class="nav-number">6.</span> <span class="nav-text">Bennett&#39;s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-5"><span class="nav-number">6.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-5"><span class="nav-number">6.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-5"><span class="nav-number">6.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bernsteins-inequalities"><span class="nav-number">7.</span> <span class="nav-text">Bernstein&#39;s inequalities</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-6"><span class="nav-number">7.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-6"><span class="nav-number">7.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-6"><span class="nav-number">7.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#azumas-inequality"><span class="nav-number">8.</span> <span class="nav-text">Azuma&#39;s inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-7"><span class="nav-number">8.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-7"><span class="nav-number">8.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-7"><span class="nav-number">8.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#doobs-martingale-inequality"><span class="nav-number">9.</span> <span class="nav-text">Doob&#39;s martingale inequality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-8"><span class="nav-number">9.1.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-8"><span class="nav-number">9.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-8"><span class="nav-number">9.3.</span> <span class="nav-text">直观与讨论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E8%AE%A8%E8%AE%BA"><span class="nav-number">10.</span> <span class="nav-text">整体讨论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -619,10 +651,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -637,7 +665,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -647,7 +675,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -679,6 +707,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -690,8 +809,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -707,31 +826,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -760,7 +854,6 @@
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       loader: {
-          load: ['[tex]/mhchem'],
         source: {
           '[tex]/amsCd': '[tex]/amscd',
           '[tex]/AMScd': '[tex]/amscd'
@@ -768,7 +861,6 @@
       },
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
         tags: 'ams'
       },
       options: {
@@ -815,7 +907,7 @@
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -824,18 +916,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });

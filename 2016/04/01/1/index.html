@@ -17,22 +17,22 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。 #一些操作：查看端口占用  netstat -tunlp |grep 22卸载 自己编译的软件 make uninstall查询版本号 uname -a #安装yum： 见下文详解转载自  http:&#x2F;&#x2F;blog.csdn.net&#x2F;zcyhappy1314&#x2F;article">
+  <meta name="description" content="菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。 #一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a #安装yum： 见下文详解转载自  http:&#x2F;&#x2F;blog.csdn.net&#x2F;zcyhappy1314&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redhat6.2相关配置（yum，r，rstudio，ipythonnotebook）">
 <meta property="og:url" content="https://blog.wyue.site/2016/04/01/1/index.html">
 <meta property="og:site_name" content="WangYue&#39;s  blog">
-<meta property="og:description" content="菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。 #一些操作：查看端口占用  netstat -tunlp |grep 22卸载 自己编译的软件 make uninstall查询版本号 uname -a #安装yum： 见下文详解转载自  http:&#x2F;&#x2F;blog.csdn.net&#x2F;zcyhappy1314&#x2F;article">
+<meta property="og:description" content="菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。 #一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a #安装yum： 见下文详解转载自  http:&#x2F;&#x2F;blog.csdn.net&#x2F;zcyhappy1314&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-03-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-04-25T14:59:29.000Z">
@@ -61,15 +61,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -134,54 +125,59 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-关于我">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-标签">
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-所有日志">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
-
-  </li>
-        <li class="menu-item menu-item-写作计划">
-
-    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站地图">
+        <li class="menu-item menu-item-plan">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
-
-  </li>
-        <li class="menu-item menu-item-留言板">
-
-    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+    <a href="/plan" rel="section"><i class="fa fa-calendar fa-fw"></i>写作计划</a>
 
   </li>
-        <li class="menu-item menu-item-音乐播放">
+        <li class="menu-item menu-item-sitemap">
 
-    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
-        <li class="menu-item menu-item-时钟">
+        <li class="menu-item menu-item-mdedit">
 
-    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+    <a href="http://markdown.xiaoshujiang.com/" rel="noopener" target="_blank"><i class="fa fa-file fa-fw"></i>MdEdit</a>
+
+  </li>
+        <li class="menu-item menu-item-board">
+
+    <a href="/board" rel="section"><i class="fa fa-heart fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a>
+
+  </li>
+        <li class="menu-item menu-item-clock">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时间</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +217,10 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -286,6 +285,13 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -311,62 +317,56 @@
 
       
         <p>菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。</p>
-<p>#一些操作：<br>查看端口占用  netstat -tunlp |grep 22<br>卸载 自己编译的软件 make uninstall<br>查询版本号 uname -a</p>
+<p>#一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a</p>
 <p>#安装yum：</p>
 <p>见下文详解转载自</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zcyhappy1314/article/details/17580943">http://blog.csdn.net/zcyhappy1314/article/details/17580943</a></p>
+<p>http://blog.csdn.net/zcyhappy1314/article/details/17580943</p>
 </blockquote>
-<p>#配置epel<br>利用这个链接选择符合版本号的epel</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://fedoraproject.org/wiki/EPEL/zh-cn">https://fedoraproject.org/wiki/EPEL/zh-cn</a></p>
-</blockquote>
+<p>#配置epel 利用这个链接选择符合版本号的epel &gt;https://fedoraproject.org/wiki/EPEL/zh-cn</p>
 <p>之后下载安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.yun-idc.com&#x2F;epel&#x2F;6&#x2F;i386&#x2F;epel-release-6-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh epel-release-6-8.noarch.rpm </span><br></pre></td></tr></table></figure>
-
-
-
 <p>#安装R</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum install R</span><br><span class="line"></span><br><span class="line">tar vxzf R-3.2.2.tar.gz</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;home&#x2F;rstudio&#x2F;R --with-readline&#x3D;yes --with-libpng&#x3D;yes --with-x&#x3D;no --enable-R-shlib</span><br><span class="line"></span><br><span class="line">make </span><br><span class="line"></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;home&#x2F;rstudio&#x2F;R&#x2F;bin&#x2F;R &#x2F;usr&#x2F;local&#x2F;bin&#x2F;R</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 <p>#安装rstudio</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download2.rstudio.org&#x2F;rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line">yum install --nogpgcheck rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line"> rstudio-server verify-installation</span><br></pre></td></tr></table></figure>
-
-<p>#配置ipython notebook<br>见下文，转载自</p>
+<p>#配置ipython notebook 见下文，转载自</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/">http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/</a></p>
+<p>http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/</p>
 </blockquote>
-<p>jupyter 配置文件最终应如下：<br>jupyter_notebook_config.py</p>
-<p>c = get_config()<br>c = get_config()</p>
-<p>c.IPKernelApp.pylab = ‘inline’<br>c.NotebookApp.ip = ‘<em>‘<br>c.NotebookApp.open_browser = False<br>c.NotebookApp.password = u’sha1:8e71ef9</em>*****3bad’</p>
+<p>jupyter 配置文件最终应如下： jupyter_notebook_config.py</p>
+<p>c = get_config() c = get_config()</p>
+<p>c.IPKernelApp.pylab = 'inline'<br />
+c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:8e71ef9</em>*****3bad'</p>
 <p>c.NotebookApp.port = 9999</p>
 <p>##安装yum</p>
 <blockquote>
-<p>YUM是Redhat Linux在线安装更新及软件的工具，但是这<br>是RHEL5的收费功能，如果没有购买Redhat的服务时不能使用RHEL5的更新源的，会提示注册。<br>由于CentOS是从Redhat演化而来的免费Linux版本，因此可以利用CentOS的yum更新源来实现RHEL5的YUM功能。配置方法如下：<br>检查yum是否安装，默认情况下都是安装好的，总共4各包。 [root@linux-a ~]# rpm -qa |grep yum<br>yum-metadata-parser-1.0-8.fc6 yum-3.0.1-5.el5<br>yum-rhn-plugin-0.4.3-1.el5 yum-updatesd-3.0.1-5.el5<br>1、卸载掉系统redhat自带的yum   rpm -qa |grep yum |xargs rpm -e –nodeps</p>
-<p>2 下载相关的centos yum插件   主要有python-iniparse-0.3.1-2.1.el6.noarch.rpm<br>yum-3.2.29-40.el6.centos.noarch.rpm<br>yum-metadata-parser-1.1.2-16.el6.x86_64.rpm<br>yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
-<p>  其中版本号和安装的系统版本，以及是32位系统和64位系统有关系，可根据实际情况，自行调整下载路径<br>下载地址：<a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/">http://mirrors.163.com/centos/</a></p>
-<p>  在linux可以使用命令直接下载到本地也可以   wget<br><a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm">http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm</a><br>wget<br><a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm">http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm</a><br>wget<br><a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm">http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm</a><br>wget<br><a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm">http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</a><br>    注意：如果下载不了可能是小版本号有变化，可以直接下载后在上传到linux服务器或者到<a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/6/os/i386/Packages/">http://mirrors.163.com/centos/6/os/i386/Packages/</a><br>页面按照上述 rpm 的开头搜索具体的名称即可。</p>
+<p>YUM是Redhat Linux在线安装更新及软件的工具，但是这 是RHEL5的收费功能，如果没有购买Redhat的服务时不能使用RHEL5的更新源的，会提示注册。 由于CentOS是从Redhat演化而来的免费Linux版本，因此可以利用CentOS的yum更新源来实现RHEL5的YUM功能。配置方法如下： 检查yum是否安装，默认情况下都是安装好的，总共4各包。 [root@linux-a ~]# rpm -qa |grep yum yum-metadata-parser-1.0-8.fc6 yum-3.0.1-5.el5 yum-rhn-plugin-0.4.3-1.el5 yum-updatesd-3.0.1-5.el5 1、卸载掉系统redhat自带的yum rpm -qa |grep yum |xargs rpm -e --nodeps</p>
+<p>2 下载相关的centos yum插件 主要有python-iniparse-0.3.1-2.1.el6.noarch.rpm yum-3.2.29-40.el6.centos.noarch.rpm yum-metadata-parser-1.1.2-16.el6.x86_64.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>其中版本号和安装的系统版本，以及是32位系统和64位系统有关系，可根据实际情况，自行调整下载路径<br />
+下载地址：http://mirrors.163.com/centos/</p>
+<p>在linux可以使用命令直接下载到本地也可以 wget http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm 注意：如果下载不了可能是小版本号有变化，可以直接下载后在上传到linux服务器或者到http://mirrors.163.com/centos/6/os/i386/Packages/ 页面按照上述 rpm 的开头搜索具体的名称即可。</p>
 <p>3 安装下载的yum包（如果没权限可以先修改权限 chmod 777 *）</p>
-<p> rpm -ivh python-iniparse-0.3.1-2.1.el6.noarch.rpm  rpm -ivh<br>yum-metadata-parser-1.1.2-16.el6.i686.rpm  rpm -ivh<br>yum-3.2.29-40.el6.centos.noarch.rpm<br>yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
-<p>  最后两个需要一起安装，有相互依赖关系</p>
-<p>4 下载配置文件CentOS6-Base-163.repo   wget<br><a target="_blank" rel="noopener" href="http://mirrors.163.com/.help/CentOS6-Base-163.repo">http://mirrors.163.com/.help/CentOS6-Base-163.repo</a> </p>
-<p>5 修改CentOS6-Base-163.repo  ，将其中的$releasever 更改为centos的版本  vi<br>CentOS6-Base-163.repo（使用 vi 命令编辑文件）  ：%s/$releasever/6 （在 vi<br>命令模式下执行上述命令）</p>
-<p>6 把配置文件放到指定目录 并且删除原来的配置文件   cd /etc/yum.repos.d   rm -fr *   mv<br>/home/CentOS6-Base-163.repo ./</p>
+<p>rpm -ivh python-iniparse-0.3.1-2.1.el6.noarch.rpm rpm -ivh yum-metadata-parser-1.1.2-16.el6.i686.rpm rpm -ivh yum-3.2.29-40.el6.centos.noarch.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>最后两个需要一起安装，有相互依赖关系</p>
+<p>4 下载配置文件CentOS6-Base-163.repo wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</p>
+<p>5 修改CentOS6-Base-163.repo ，将其中的<span class="math inline">\(releasever 更改为centos的版本 vi CentOS6-Base-163.repo（使用 vi 命令编辑文件） ：%s/\)</span>releasever/6 （在 vi 命令模式下执行上述命令）</p>
+<p>6 把配置文件放到指定目录 并且删除原来的配置文件 cd /etc/yum.repos.d rm -fr * mv /home/CentOS6-Base-163.repo ./</p>
 <p>7 清除缓存 yum clean all</p>
-<p>8 配置获取yum列表    yum  makecache</p>
+<p>8 配置获取yum列表 yum makecache</p>
 </blockquote>
 <p>##配置ipythonnotebook远程访问</p>
 <blockquote>
-<p> 首先创建一个名为 nbserver 的配置文件 3：</p>
-<p> ipython profile create nbserver 设置登陆密码：</p>
-<p> IN [1]: from IPython.lib import passwd IN [2]: passwd() Enter<br> password: Verify password: Out[2]: ‘sha1:xxxxxxxxxxxxxxxxxxxxxxxxx’<br> 创建私人证书：</p>
-<p> openssl req -x509 -nodes -days 10000 -newkey rsa:1024 -keyout<br> mycert.pem -out mycert.pem 进入 nbserver 配置文件所在目录 4 并打开<br> ipython_notebook_config.py，设置以下属性：</p>
-<p> c = get_config()</p>
-<p> c.IPKernerlApp.pylab = ‘inline’ c.NotebookApp.ip = ‘*’<br> c.NotebookApp.open_browser = False c.NotebookApp.password =<br> u’sha1:xxxx your hashed password’ c.Notebook.App.port = 9999<br> 可设为其他端口 为使 Notebook 正常工作，需在防火墙中打开上面设置的端口。可以编辑 /etc/sysconfig/iptables，在最后一条 REJECT 语句前加入：</p>
-<p> -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 9999 -j ACCEPT<br> -A OUTPUT -m state –state NEW -m tcp -p tcp –dport 9999 -j ACCEPT 用下面这条命令运行服务端：</p>
-<p> ipython notebook –profile=nbserver<br> –certfile=/path/to/your/mycert.pem 在本地计算机中打开浏览器，输入</p>
-<p> <a target="_blank" rel="noopener" href="https://ip/of/your/server:9999">https://ip/of/your/server:9999</a> 即可打开客户端。</p>
+<p>首先创建一个名为 nbserver 的配置文件 3：</p>
+<p>ipython profile create nbserver 设置登陆密码：</p>
+<p>IN [1]: from IPython.lib import passwd IN [2]: passwd() Enter password: Verify password: Out[2]: 'sha1:xxxxxxxxxxxxxxxxxxxxxxxxx' 创建私人证书：</p>
+<p>openssl req -x509 -nodes -days 10000 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem 进入 nbserver 配置文件所在目录 4 并打开 ipython_notebook_config.py，设置以下属性：</p>
+<p>c = get_config()</p>
+<p>c.IPKernerlApp.pylab = 'inline' c.NotebookApp.ip = '*' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:xxxx your hashed password' c.Notebook.App.port = 9999<br />
+可设为其他端口 为使 Notebook 正常工作，需在防火墙中打开上面设置的端口。可以编辑 /etc/sysconfig/iptables，在最后一条 REJECT 语句前加入：</p>
+<p>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT -A OUTPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT 用下面这条命令运行服务端：</p>
+<p>ipython notebook --profile=nbserver --certfile=/path/to/your/mycert.pem 在本地计算机中打开浏览器，输入</p>
+<p>https://ip/of/your/server:9999 即可打开客户端。</p>
 </blockquote>
 
     </div>
@@ -522,10 +522,6 @@
 
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -540,7 +536,7 @@
         
 
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
   </div>
 
 <div class="copyright">
@@ -550,7 +546,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yue</span>
+  <span class="author" itemprop="copyrightHolder">WangYue</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -582,6 +578,97 @@
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"76VjQJ0UO6EYHhSSyG18tgsi-gzGzoHsz","app_key":"qyQonVm7mBI2O3a0EkGcK8Ek","security":false,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -593,8 +680,8 @@
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -610,31 +697,6 @@
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
@@ -657,13 +719,66 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
@@ -672,18 +787,18 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
       appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
-      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      placeholder: "Say something...",
       avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : 'https://api.blog.leancloud.wyue.site'
+      recordIP   : true,
+      serverURLs : ''
     });
   }, window.Valine);
 });
