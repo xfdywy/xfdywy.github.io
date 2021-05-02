@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="A math PH.D. student, doning research at MSRA.  Machine learning, Python, Linux, 阅读， Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WangYue&#39;s  blog">
+<meta property="og:url" content="https://blog.wyue.site/index.html">
+<meta property="og:site_name" content="WangYue&#39;s  blog">
+<meta property="og:description" content="A math PH.D. student, doning research at MSRA.  Machine learning, Python, Linux, 阅读， Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="WangYue">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.wyue.site/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>WangYue's  blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WangYue's  blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于我">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-所有日志">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
+
+  </li>
+        <li class="menu-item menu-item-写作计划">
+
+    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+
+  </li>
+        <li class="menu-item menu-item-网站地图">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-音乐播放">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+
+  </li>
+        <li class="menu-item menu-item-时钟">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/17/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/17/1/" class="post-title-link" itemprop="url">Concentration Inequality(集中不等式)更新版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-17T00:00:00+08:00">2020-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-18 10:49:14" itemprop="dateModified" datetime="2020-04-18T10:49:14+08:00">2020-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">math</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/17/1/" class="post-meta-item leancloud_visitors" data-flag-title="Concentration Inequality(集中不等式)更新版" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。</p>
+<!--  more -->
+
+
+<p>这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，也有不等式之间的相互关系的归纳总结，包括：</p>
+<!-- - Markov's inequality
+- Chebyshev's inequality
+- Chernoff bounds
+- Hoeffding's inequality
+- Bennett's inequality 
+- Bernstein's inequalities
+- Azuma's inequality
+- Doob's martingale inequality -->
+
+
+<ul>
+<li><a href="#markovs-inequality">Markov’s inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6">条件：</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F">公式：</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA">直观与讨论：</a></li>
+</ul>
+</li>
+<li><a href="#chebyshevs-inequality">Chebyshev’s inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-1">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-1">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-1">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#chernoff-bounds">Chernoff bounds</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-2">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-2">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-2">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#hoeffdings-inequality">Hoeffding’s inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-3">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-3">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-3">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#weighted-hoeffding-inequality">Weighted Hoeffding Inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-4">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-4">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-4">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#bennetts-inequality">Bennett’s inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-5">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-5">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-5">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#bernsteins-inequalities">Bernstein’s inequalities</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-6">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-6">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-6">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#azumas-inequality">Azuma’s inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-7">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-7">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-7">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#doobs-martingale-inequality">Doob’s martingale inequality</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6-8">条件</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F-8">公式</a></li>
+<li><a href="#%E7%9B%B4%E8%A7%82%E4%B8%8E%E8%AE%A8%E8%AE%BA-8">直观与讨论</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B4%E4%BD%93%E8%AE%A8%E8%AE%BA">整体讨论</a></li>
+</ul>
+<h1 id="Markov’s-inequality"><a href="#Markov’s-inequality" class="headerlink" title="Markov’s inequality"></a>Markov’s inequality</h1><h2 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h2><blockquote>
+<p>X 是非负随机变量, a&gt;0</p>
+</blockquote>
+<h2 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h2><blockquote>
+<p>$$ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} $$</p>
+</blockquote>
+<h2 id="直观与讨论："><a href="#直观与讨论：" class="headerlink" title="直观与讨论："></a>直观与讨论：</h2><p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， $P(X \le a)$ 就是0.2</p>
+<p>Markov’s inequality 最简单，也最“松”，只用到了随机变量的期望信息。<br>这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
+<h1 id="Chebyshev’s-inequality"><a href="#Chebyshev’s-inequality" class="headerlink" title="Chebyshev’s inequality"></a>Chebyshev’s inequality</h1><h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p> $X$ 为均值为$\mu$， 方差为$\sigma^2$ 的随机变量, 任意实数$k$</p>
+</blockquote>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p>$$ P(|X-\mu|\ge k\sigma)\le \frac{1}{k^2} $$</p>
+</blockquote>
+<h2 id="直观与讨论"><a href="#直观与讨论" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Chebyshev 不等式刻画了一个随机变量偏离其均值的概率。直观来说就是离均值越远，概率越小，并且小的速率收到方差的控制。由于Chebyshev不等式不依赖分布的具体信息，只依赖一阶矩和二阶矩，因此应用广泛。</p>
+<p>Chebyshev不等式通过考虑方差和期望的信息， 比markov不等式更加细致。</p>
+<h1 id="Chernoff-bounds"><a href="#Chernoff-bounds" class="headerlink" title="Chernoff bounds"></a>Chernoff bounds</h1><h2 id="条件-1"><a href="#条件-1" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$X$ 是n个独立随机变量 $x_1, \cdots , x_n$ 的和， $t$是任意大于0的实数</p>
+</blockquote>
+<h2 id="公式-1"><a href="#公式-1" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p>$$ P(x_i&gt;a)=P(e^{t x_i}&gt;e^{ta}) \le e^{-ta}E[ e^{tX}] $$<br>$$ P(X&gt;a) \le e^{-ta}E[\Pi_i e^{tx_i}] $$<br>$$ P(X&gt;a) \le min_{t&gt;0}\left[ e^{-ta}E[\Pi_i e^{tx_i}] \right] $$</p>
+</blockquote>
+<h2 id="直观与讨论-1"><a href="#直观与讨论-1" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Chernoff 算是一个技巧，本质上是Markov不等式的直接应用。如看上文公式中的第一个式子，左边的等号就是Chernoff的核心技巧，即将随机变量转化成指数的形式，并且引入一个新的参数$t$，右边的$\le$就是直接应用了Markov不等式。</p>
+<p>下面可以看到Chernoff的技巧是得到 Hoeffding不等式的关键。简单来说，Hoeffding不等式是Chernoff的应用。</p>
+<h1 id="Hoeffding’s-inequality"><a href="#Hoeffding’s-inequality" class="headerlink" title="Hoeffding’s inequality"></a>Hoeffding’s inequality</h1><h2 id="条件-2"><a href="#条件-2" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)$ </p>
+</blockquote>
+<h2 id="公式-2"><a href="#公式-2" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p>   $$ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n (b_i-a_i)^2} \right)$$  </p>
+</blockquote>
+<h2 id="直观与讨论-2"><a href="#直观与讨论-2" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>Hoeffding 不等式刻画了一族随机变量的和偏离其期望的概率。只要求随机变量独立且有界，对随机变量的分布和各阶矩没有任何要求，并且这些随机变量可以不同分布。</p>
+<p>Hoeffding不等式在机器学习算法的收敛性证明中起到了非常重要的作用，尤其是需要刻画算法的输出在多大概率的意义下可以收敛到我们希望的结果中这一情况下，我们可以利用hoeffding 不等式得到随机算法输出的结果与其期望结果的关系，从而得到想要的高概率界。</p>
+<h1 id="Weighted-Hoeffding-Inequality"><a href="#Weighted-Hoeffding-Inequality" class="headerlink" title="Weighted Hoeffding Inequality"></a>Weighted Hoeffding Inequality</h1><h2 id="条件-3"><a href="#条件-3" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $\bar{X} = \frac{1}{n}(w_1x_1 + \cdots + w_nx_n)$ </p>
+</blockquote>
+<h2 id="公式-3"><a href="#公式-3" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> $$ P(\bar{x} - E[\bar{x}]\ge t) \le exp\left( -\frac{2n^2t^2}{\sum_{i=1}^n w_i^2(b_i-a_i)^2} \right)$$  </p>
+</blockquote>
+<h2 id="直观与讨论-3"><a href="#直观与讨论-3" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>与简单的Hoeffding 不等式类似，唯一区别在于是加权平均数。</p>
+<h1 id="Bennett’s-inequality"><a href="#Bennett’s-inequality" class="headerlink" title="Bennett’s inequality"></a>Bennett’s inequality</h1><h2 id="条件-4"><a href="#条件-4" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $b_i-a_i=c_i \le C$, $\bar{X} = \frac{1}{n}( x_1 + \cdots +  x_n)$ ,<br>$\sigma^2 = \sum_{i=1}^nE[x_i^2]$, t为任意实数</p>
+</blockquote>
+<h2 id="公式-4"><a href="#公式-4" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> $$ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{\sigma^2}{C^2} h(\frac{Ct}{n\sigma^2})\right)$$<br>$$ h(u) = (1+u)log(1+u) - u $$</p>
+</blockquote>
+<h2 id="直观与讨论-4"><a href="#直观与讨论-4" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p> 因为利用了方差的信息，这个界更加细致。  </p>
+<h1 id="Bernstein’s-inequalities"><a href="#Bernstein’s-inequalities" class="headerlink" title="Bernstein’s inequalities"></a>Bernstein’s inequalities</h1><h2 id="条件-5"><a href="#条件-5" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$x_i, \cdots, x_n$ 是一族独立的随机变量，且  $a_i&lt; x_i &lt; b_i$, $b_i-a_i=c_i \le C$, $\bar{X} = \frac{1}{n}(x_1 + \cdots + c_n)$ , $\sigma^2 = \sum_{i=1}^nE[x_i^2]$, t为任意实数</p>
+</blockquote>
+<h2 id="公式-5"><a href="#公式-5" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> $$ P(\bar{X} -E[\bar{X}] \ge t) \le exp\left( -\frac{t^2/2 }{n^2\sigma^2 +  Ctn/3} \right)$$  </p>
+</blockquote>
+<h2 id="直观与讨论-5"><a href="#直观与讨论-5" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>将Bennett不等式中的h函数用更松的形式代换, 可以证明这个不等式。</p>
+<p>$$h(u)\ge \frac{u^2}{2+2u/3}$$</p>
+<p>在Bernstein不等式中，我们可以看到，如果方差较小， 相同n和t的时候， 不等号右侧的概率值相比hoeffding不等式要小，说明Bernstein不等式通过考虑方差信息，获得了更加精细的结果。</p>
+<h1 id="Azuma’s-inequality"><a href="#Azuma’s-inequality" class="headerlink" title="Azuma’s inequality"></a>Azuma’s inequality</h1><p>前面讨论的一些不等式都要求随机变量独立，Azuma不等式研究的随机变量序列可以有相关性</p>
+<h2 id="条件-6"><a href="#条件-6" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p>$x_i, \cdots, x_n$ 是一族鞅序列，，且  $| x_i - x{i-1} | &lt; c_i$,   t为任意实数</p>
+</blockquote>
+<p>鞅指的是满足如下两个条件的随机过程<br>$$E[|x_n|] &lt;\infty$$<br>$$E[x_{n+1}|x_1, \cdots x_n]=x_n$$</p>
+<h2 id="公式-6"><a href="#公式-6" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> $$ P(x_N-x_0 \ge t) \le exp\left( -\frac{t^2  }{2\sum_{i=1}^Nc_i^2 } \right)$$  </p>
+</blockquote>
+<h2 id="直观与讨论-6"><a href="#直观与讨论-6" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>如果将鞅序列拆分成鞅差序列， 即令$y_i = x_i - x_{i-1}$, 那么$y_i$满足如下两条，为鞅差序列<br>$$E[|x_n|] &lt;\infty$$<br>$$E[x_{n+1}|\mathcal{F}_n]=0$$</p>
+<p>则$x_n-x_0 = \sum_{i=1}^N y_i$Azuma不等式可以看成鞅差序列的和偏离0的概率</p>
+<h1 id="Doob’s-martingale-inequality"><a href="#Doob’s-martingale-inequality" class="headerlink" title="Doob’s martingale inequality"></a>Doob’s martingale inequality</h1><h2 id="条件-7"><a href="#条件-7" class="headerlink" title="条件"></a>条件</h2><blockquote>
+<p> $x$是上鞅，即对任意两个时刻$s&lt;t$， $x_s \le E[x_t|\mathcal{F_s}]$</p>
+</blockquote>
+<h2 id="公式-7"><a href="#公式-7" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> $$ P(\sup_{0\le t \le T}x_t \ge C) \le  \frac{E[\max(x_T,0)]}{C}$$  </p>
+</blockquote>
+<h2 id="直观与讨论-7"><a href="#直观与讨论-7" class="headerlink" title="直观与讨论"></a>直观与讨论</h2><p>这个不等式讨论了上鞅序列在路径中的表现，即如果我们知道上鞅序列$X_t$在最后$T$时刻的表现，我们就能大概推测出在整个0到T时刻之间随机变量$x_t$大于某个值的概率。</p>
+<h1 id="整体讨论"><a href="#整体讨论" class="headerlink" title="整体讨论"></a>整体讨论</h1><p>上述讨论的公式形式比较单一，都是描述随机变量或者随机变量的和偏离其中心的概率值的大小。但是实际上我们根据上文中的结果，可以很容易的推导出其他变形形式。</p>
+<p>用Heoffding不等式举例，我们还可以有以下结果:</p>
+<ol>
+<li>当样本量为n的时候，以至少$1-\delta$的结果，我们可以有如下</li>
+</ol>
+<p>$$ E[\bar{X} ] - \bar{X} \le \sqrt{\frac{\sum_{i=1}^n(b_i-a_i)^2\ln\frac{1}{\delta }}{2n^2}}$$</p>
+<ol start="2">
+<li>同理，如果我们需要以至少$1-\delta$的概率保证差距小于$\epsilon$，则我们至少需要这么多样本(假设所有的$b_i &lt;b, \ a_i&gt;a$ )</li>
+</ol>
+<p>$$N = \frac{ (b -a )^2\ln\frac{1}{\delta }}{2\epsilon^2} $$</p>
+<p>类似这样的结论对于算法的收敛性分析和有限样本表现分析非常有用</p>
+<!-- 
+|            |                                                                                         |                                                               |                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| p          | 1-$\delta$                                                                              | $e^{-\frac{n\epsilon^2}{2\sigma^2 + \frac{14\eta\epsilon}{3}}}$ | 1-$\delta$                                                                      |
+| n          | n                                                                                       | n                                                             | $\frac{((2\sigma^2)+\frac{14\eta\epsilon}{3})\ln\frac{1}{\delta} }{\epsilon^2}$ |
+| $\epsilon$ | $\sqrt{\frac{2\sigma^2\ln\frac{2}{\delta}}{n}}+\frac{7\eta\ln\frac{2}{\delta}}{3(n-1)}$ | $\epsilon$                                                    | $\epsilon$                                                                      |
+|            |                                                                                         |                                                               |                                                                                 |
+
+ 
+ -->
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/17/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/17/2/" class="post-title-link" itemprop="url">分位数回归</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-17T00:00:00+08:00">2020-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-18 10:49:07" itemprop="dateModified" datetime="2020-04-18T10:49:07+08:00">2020-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">math</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/17/2/" class="post-meta-item leancloud_visitors" data-flag-title="分位数回归" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="分位数回归的直观"><a href="#分位数回归的直观" class="headerlink" title="分位数回归的直观"></a>分位数回归的直观</h1><p>给定一些样本数据 $(x_i, y_i)$，我们可以理解成 给定一个 $x_i$, 我们就有一个 $Y_i$ 的分布，$y_i$ 是一个采样出来的样本，被我们所观测。 最小二乘估计是要去拟合 $x$ 和 $mean(Y)$ 之间的关系。 而分位数回归则是要拟合某分位数。</p>
+<span id="more"></span>
+
+<p><img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2019/12/1575889988287.png" alt="分位数回归的结果"></p>
+<h1 id="分位数回归的数学方法"><a href="#分位数回归的数学方法" class="headerlink" title="分位数回归的数学方法"></a>分位数回归的数学方法</h1><p>随机变量 $Y$ 的 $\tau$ 分位数 的定义是<br>$$ Q_{Y}(\tau)=F_{Y}^{-1}(\tau)=\inf\left\lbrace y:F_{Y}(y)\geq\tau\right\rbrace $$</p>
+<p>为了简单起见，我们定义如下函数</p>
+<p>$$ \rho_{\tau}(y)=y(\tau-\mathbb{I}_{(y&lt;0)}) $$</p>
+<p>考虑如下最优化问题的最优解 $u^*$</p>
+<p>$$ \underset{u}{\min}E(\rho_{\tau}(Y-u))=\underset{u}{\min}\left\lbrace(\tau-1)\int_{-\infty}^{u}(y-u)dF_{Y}(y)+\tau\int_{u}^{\infty}(y-u)dF_{Y}(y)\right\rbrace  \tag{1}$$ </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/17/2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/12/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/2/" class="post-title-link" itemprop="url">好用的软件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-18 10:49:41" itemprop="dateModified" datetime="2020-04-18T10:49:41+08:00">2020-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/others/" itemprop="url" rel="index"><span itemprop="name">others</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/2/" class="post-meta-item leancloud_visitors" data-flag-title="好用的软件" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总结一下自己在win10系统上用到的好用的软件，每次换新系统都必装的一些软件。原则是，方方面面用的顺手。</p>
+<!--  more -->
+
+<p>我以后遇到，会来更新这个list的，如果有大佬有好的私房软件，欢迎在底下留言呀。</p>
+<h1 id="小众神器们"><a href="#小众神器们" class="headerlink" title="小众神器们"></a>小众神器们</h1><ul>
+<li><p>文件内容搜索     FileLocator Lite</p>
+</li>
+<li><p>文件搜索       Everything</p>
+</li>
+<li><p>快捷搜索       Listary</p>
+</li>
+<li><p>将远程ssh网盘等映射成本地  RaiDriver</p>
+</li>
+<li><p>小书匠，写markdown 神器</p>
+</li>
+<li><p>图片查看    Honey View</p>
+</li>
+<li><p>对比两个文件的diff Beyond Compare</p>
+</li>
+<li><p>压缩软件必备 Bandizip</p>
+</li>
+<li><p>好看的cmd，内置了bash命令支持 Cmder</p>
+</li>
+<li><p>视频播放器 Potplayer</p>
+</li>
+<li><p>文件多地自动备份 goodsync</p>
+</li>
+<li><p>与latex配合的很好的简单pdf阅读器 sumatra</p>
+</li>
+<li><p>截图神器 snipaste</p>
+</li>
+<li><p>连接远程服务器神器 mobaxterm</p>
+</li>
+<li><p>录屏生成gif screentogif</p>
+</li>
+<li><p>网络流量管理 fiddler</p>
+</li>
+<li><p>微博备份 稳部落</p>
+</li>
+</ul>
+<h1 id="大众常规好用"><a href="#大众常规好用" class="headerlink" title="大众常规好用"></a>大众常规好用</h1><ul>
+<li><p>文本编辑器  vscode</p>
+</li>
+<li><p>latex编辑器 texstudio</p>
+</li>
+<li><p>记笔记 onenote</p>
+</li>
+<li><p>win10 pdf标注软件  xodo</p>
+</li>
+<li><p>常规pdf阅读器  pdf-xchange</p>
+</li>
+<li><p>日程任务规划   microsoft todo</p>
+</li>
+</ul>
+<p> .</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/12/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/1/" class="post-title-link" itemprop="url">静态博客网页中的网易云音乐播放器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-29 18:07:25" itemprop="dateModified" datetime="2020-04-29T18:07:25+08:00">2020-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/1/" class="post-meta-item leancloud_visitors" data-flag-title="静态博客网页中的网易云音乐播放器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>(终于填了<a href="/2018/05/06/1/">之前</a>的坑)</p>
+<p>一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。</p>
+<p>可以先体验一下, <a href="/music">点这里哦</a></p>
+ <!--  more -->
+<h1 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h1><p> 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
+<p> 简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
+<h1 id="网易云音乐api"><a href="#网易云音乐api" class="headerlink" title="网易云音乐api"></a>网易云音乐api</h1><p> 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://y-cloud-music-api.herokuapp.com/">https://y-cloud-music-api.herokuapp.com/</a></p>
+</blockquote>
+<p>api网址就是这个，想要看接口细节的话，可以通过点开链接看文档，也可以看我的代码实现的例子。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p> 首先上代码，代码在这里</p>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
+</blockquote>
+<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用  <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
+<p>如果你直接点开html文件，可能会遇到问题，因为你是file：//协议打开的，需要是http：//协议（我猜的我不懂）。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>大概分这么几步</p>
+<ol>
+<li>先写个网页ui</li>
+<li>引用APlayer模块</li>
+<li>跟网易云音乐api交互，获得歌曲信息</li>
+<li>把歌曲信息传给APlayer进行播放。</li>
+</ol>
+<p>新版本修改了逻辑，我先获取第一首歌的信息，然后传给播放器播放，之后再去获取剩下的，并且所有api的交互都是用axio进行异步操作，保证网页的流畅性，可以一边播放一边获取剩下的歌的信息，这样就不会出现网页等好久都刷不出来的情况了。等第一首歌放到一半，后面的肯定也都加载出来了，完美~</p>
+<h2 id="网页ui"><a href="#网页ui" class="headerlink" title="网页ui"></a>网页ui</h2><p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。<br>其实就是一个输入框，一个提交按钮，一个播放器占位符,<br>gist代码的27行以上。</p>
+<h2 id="APlayer-模块"><a href="#APlayer-模块" class="headerlink" title="APlayer 模块"></a>APlayer 模块</h2><p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
+<p>文档在这里：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
+</blockquote>
+<p>需要传几个参数，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;player1&#x27;</span>),</span><br><span class="line">    lrcType: <span class="number">1</span>,</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    audio: first_song,</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>container是之前html代码预留的div<br>lrcType是歌词的类型，我这里选1，具体可以看文档<br>fixed: 是否开启吸底模式,<br>audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
+<h2 id="歌曲信息"><a href="#歌曲信息" class="headerlink" title="歌曲信息"></a>歌曲信息</h2><p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">&quot;subdiv2&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p> 首先获取输入框的歌单id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> playlist =   downloadplaylist(input.textContent);</span><br><span class="line">playlist = <span class="keyword">await</span> playlist; </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p> 然后获取歌单中所有歌曲的id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_song = <span class="keyword">await</span>  loadplaylist([playlist[<span class="number">0</span>]]) ; </span><br></pre></td></tr></table></figure>
+
+<p>先获取第一首歌的信息，之后传给播放器，开始播放。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rest_songs =  <span class="keyword">await</span>  loadplaylist(playlist.slice(<span class="number">1</span>)) ;</span><br><span class="line"></span><br><span class="line">ap.list.add(rest_songs);</span><br></pre></td></tr></table></figure>
+<p>之后再同步获取剩下的歌曲信息，并且加到播放器中去。</p>
+<p>我代码的逻辑是：</p>
+<p>downloadplaylist 函数输入为网易云音乐的歌单id，返回值为歌单中所有歌曲的id。</p>
+<p>loadplaylist 函数的输入为所有歌曲的id，输出为上面说到的audio需要的 array</p>
+<p>gist代码 160-173行是调用其他几个小函数与api进行交互，分别获取信息</p>
+<p>这里注意我们143到152行提出get请求后，这些请求是以async的方式同时请求出去的，互相不阻塞。 直到所有的get请求都发出去了，我们再利用await的方法把结果都拿到（154-156行）， 这样性能会比较好。</p>
+<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到  res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>主要是学习了axio的使用，以及async 和await的使用。<br>此外82到93行简单试验了一下addEventListener的用法。</p>
+<p>作为一个外行，如果有更好的想法，欢迎与我交流，可以在博文下面留言，也可以去博客的留言板（Board）留言。</p>
+<blockquote>
+<p>我博客音乐的网址： <a target="_blank" rel="noopener" href="https://www.blog.wyue.site/music">https://www.blog.wyue.site/music</a></p>
+</blockquote>
+<blockquote>
+<p>APlayer 网址： <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">https://aplayer.js.org/#/</a></p>
+</blockquote>
+<blockquote>
+<p>axio 网址：<a target="_blank" rel="noopener" href="http://axios-js.com/">http://axios-js.com/</a></p>
+</blockquote>
+<p>.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/09/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/1/" class="post-title-link" itemprop="url">连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-09 00:00:00 / 修改时间：21:24:30" itemprop="dateCreated datePublished" datetime="2020-04-09T00:00:00+08:00">2020-04-09</time>
+            </span>
+
+          
+            <span id="/2020/04/09/1/" class="post-meta-item leancloud_visitors" data-flag-title="连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2019/03/01/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/01/1/" class="post-title-link" itemprop="url">Latex 写中文毕业论文</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-01T00:00:00+08:00">2019-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-09 00:15:03" itemprop="dateModified" datetime="2020-05-09T00:15:03+08:00">2020-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/01/1/" class="post-meta-item leancloud_visitors" data-flag-title="Latex 写中文毕业论文" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近疫情在家写毕业论文，前期折腾了一下latex模板的相关事情，算是搞的比较清楚了，所以后期论文写起来也比较顺利，遇到问题也可以随时解决。现在论文也搞得差不多了，准备记录一下。</p>
+<!--  more -->
+
+<p>主要分成下面几个部分来总结一下latex写中文毕业论文的相关问题</p>
+<ol>
+<li>latex安装与编辑器的使用</li>
+<li>模板与编译器</li>
+<li>论文中会遇到的一些问题及解决办法</li>
+</ol>
+<h1 id="latex安装与编辑器的使用"><a href="#latex安装与编辑器的使用" class="headerlink" title="latex安装与编辑器的使用"></a>latex安装与编辑器的使用</h1><h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p>肯定有很多人 <del>（包括我自己）</del>还在使用甚至还在推荐别人使用CTeX套装，注意我的用词不要引起歧义哈。我说的这个ctex套装指的是那个下载下来安装好就又有latex可以用，又帮你按了一个winedit的那个套装，一般是在下面这个网址下载的</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.ctex.org/HomePage">http://www.ctex.org/HomePage</a></p>
+</blockquote>
+<p>但是我想说的是，除非有什么上古代码必须要这个，<strong>尽量还是别安装这个了</strong>。<br>原因有两点</p>
+<ol>
+<li>太旧了，很久都没人维护了</li>
+<li>安装有风险，很多人报告有某种位置情况下会覆盖系统的Path变量</li>
+</ol>
+<p>那么去哪里下载什么呢，我建议下载最新的texlive，原因是：</p>
+<blockquote>
+<p>我看网上说还挺好用，然后我自己试了一下确实没出啥问题</p>
+</blockquote>
+<p>下载地址在这里：<a target="_blank" rel="noopener" href="https://www.tug.org/texlive/">https://www.tug.org/texlive/</a></p>
+<p>嫌弃官网慢的话，清华大学镜像也是挺不错的， 这里下载 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2019.iso">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2019.iso</a></p>
+<p>下载下来，挂载好镜像文件（这个就不写了哈，大家可以自己搜啥叫挂载镜像文件，或者来<a target="_blank" rel="noopener" href="https://buhuibaidu.now.sh/?s=windows%E6%8C%82%E8%BD%BDiso%E9%95%9C%E5%83%8F">这里看</a>），就可以安装了。<br>没记错的话里面有一个 install-tl-windows.bat 文件，双击就可以安装了。</p>
+<p>安装大约需要1个小时（都不一定够）安装好以后，可以把安装的路径加入系统变量Path里面，以便后面说的编辑器调用。安装路径指的是类似下面这样的路径，最后一定是bin\win32,因为这个文件夹里面才有各种exe程序。</p>
+<blockquote>
+<p>C:\texlive\2019\bin\win32</p>
+</blockquote>
+<h2 id="写论文用到的编辑器"><a href="#写论文用到的编辑器" class="headerlink" title="写论文用到的编辑器"></a>写论文用到的编辑器</h2><p>这个话题有点引战。。我就说我咋写的吧，我本人主要用texstudio，偶尔用vscode+latex workshop插件。</p>
+<p>texstudio官网下载就好，<a target="_blank" rel="noopener" href="http://www.texstudio.org/">http://www.texstudio.org/</a> ， 简单易用，几乎0配置，界面也友好。</p>
+<h1 id="模板与编译器"><a href="#模板与编译器" class="headerlink" title="模板与编译器"></a>模板与编译器</h1><p>我是北京交通大学的，我们学校没有官方latex模板，但是有大佬们做了一个非官方的，还是与word版本有些不同，我自己又改了改，终于算是几乎一模一样了。</p>
+<p>开源在这里，有需要的可以自取</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/xfdywy/bjtu-thesis-templete">https://github.com/xfdywy/bjtu-thesis-templete</a></p>
+</blockquote>
+<p>如果发现问题可以提issue，或者评论。</p>
+<p>模板基本就是一个.cls文件，在里面定义了论文的各个章节模块的格式。</p>
+<p>这个模板需要用xelatex进行编译，别忘了在编辑器里面把编译工具换成xelatex，texstudio默认的话好像是pdflatex。 </p>
+<p>.</p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="xelatex在windows-10系统上（至少在win10上）太慢了"><a href="#xelatex在windows-10系统上（至少在win10上）太慢了" class="headerlink" title="xelatex在windows 10系统上（至少在win10上）太慢了"></a>xelatex在windows 10系统上（至少在win10上）太慢了</h2><p>解决方法：在安装目录下找到xelatex.exe，就刚刚添加到Path里面的那个文件夹下面，然后</p>
+<ol>
+<li>右击</li>
+<li>属性</li>
+<li>兼容性</li>
+<li>以兼容模式运行这个程序</li>
+<li>windows7</li>
+</ol>
+<p>知乎上这个问题下面的回答大家也可以试试 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/53981204">https://www.zhihu.com/question/53981204</a> 。</p>
+<p>反正我做完了以后速度就还能接受了。不编译很多图片的情况下，100页左右的论文也就不到一分钟。</p>
+<p>推荐大家分章节写，平时都把别的章节注释掉，这样可以极大加快编译速度。</p>
+<h2 id="图标标题如何中英文两行，中文在上，英文在下"><a href="#图标标题如何中英文两行，中文在上，英文在下" class="headerlink" title="图标标题如何中英文两行，中文在上，英文在下"></a>图标标题如何中英文两行，中文在上，英文在下</h2><p>使用 \usepackage{bicaption} 这个包</p>
+<p>然后在论文开始之前设置如下</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\captionsetup[<span class="string">figure</span>][<span class="symbol">bi-first</span>]&#123;name=图&#125;</span><br><span class="line">\captionsetup[<span class="string">figure</span>][<span class="symbol">bi-second</span>]&#123;name=Figure&#125;</span><br><span class="line"></span><br><span class="line">\captionsetup[<span class="string">table</span>][<span class="symbol">bi-first</span>]&#123;name=表&#125;</span><br><span class="line">\captionsetup[<span class="string">table</span>][<span class="symbol">bi-second</span>]&#123;name=Table&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="如何在公式环境中单独标号一行"><a href="#如何在公式环境中单独标号一行" class="headerlink" title="如何在公式环境中单独标号一行"></a>如何在公式环境中单独标号一行</h2><p>一般我们如果给align或者equation环境中，公式会默认加标号，但是如果我们加上星号*，就会没有标号。</p>
+<p>奇怪的需求来了，我们想在align* 环境中给某一行加标号怎么办呢？在论文最开始的地方</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\newcommand</span><span class="keyword">\numberthis</span>&#123;<span class="keyword">\addtocounter</span>&#123;equation&#125;&#123;1&#125;<span class="keyword">\tag</span>&#123;<span class="keyword">\theequation</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>如果在align* 这样的环境中，想给某一行单独标号，可以在那一行最后用这个命令 \numberthis</p>
+<h2 id="算法框中文"><a href="#算法框中文" class="headerlink" title="算法框中文"></a>算法框中文</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[ruled,linesnumbered]&#123;algorithm2e&#125;</span><br><span class="line"><span class="keyword">\renewcommand</span>&#123;<span class="keyword">\algorithmcfname</span>&#125;&#123;算法&#125;</span><br><span class="line"><span class="keyword">\SetKwInput</span>&#123;KwIn&#125;&#123;输入&#125;</span><br><span class="line"><span class="keyword">\SetKwInput</span>&#123;KwOut&#125;&#123;输出&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>建议使用如下两个包</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;subfig&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后在正文中用</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line"> 	<span class="keyword">\centering</span> </span><br><span class="line"> 	<span class="keyword">\subfloat</span>[a ]&#123;</span><br><span class="line"> 		<span class="keyword">\label</span>&#123;fig&#125;</span><br><span class="line"> 		<span class="keyword">\includegraphics</span>[width=1.8in,height=1.5in]&#123;a.png&#125;&#125;</span><br><span class="line"> 	<span class="keyword">\bicaption</span>&#123;你好，世界&#125;&#123;Hello world &#125; </span><br><span class="line"> 	<span class="keyword">\label</span>&#123;fig1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;	</span><br></pre></td></tr></table></figure>
+<p>这样的代码，可以插入子图。</p>
+<h2 id="定理，定义，引理等"><a href="#定理，定义，引理等" class="headerlink" title="定理，定义，引理等"></a>定理，定义，引理等</h2><p>如下， 语法解释大概是这样</p>
+<p>\newtheorem{正文要用的环境名}{pdf上显示的名称}[按照谁编号]</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\newtheorem</span>&#123;theorem&#125;&#123;定理&#125;[section]</span><br><span class="line"><span class="keyword">\newtheorem</span>&#123;lemma&#125;&#123;引理&#125;[theorem]</span><br><span class="line"><span class="keyword">\newtheorem</span>&#123;corollary&#125;&#123;推论&#125; [theorem]</span><br><span class="line"><span class="keyword">\newtheorem</span>&#123;assumption&#125;&#123;假设&#125;[chapter]</span><br></pre></td></tr></table></figure>
+<h2 id="模板中的黑科技-（ugly-trick）"><a href="#模板中的黑科技-（ugly-trick）" class="headerlink" title="模板中的黑科技 （ugly trick）"></a>模板中的黑科技 <del>（ugly trick）</del></h2><p> \usepackage{fontspec}<br> \newfontfamily\myfont{times.ttf}</p>
+<p> 这个是为了调整因为字体到Times New Roman的</p>
+<p> 第二行是说我们以后可以用{\myfont ABC}这样的语法把ABC强行设成Times New Roman字体</p>
+<p> 需要电脑中有times.ttf这个文件，并且在系统路径中了。如果没有这个文件需要先下载，如果不在系统路径中，这可以把times.ttf文件复制一份放到latex项目的文件夹下。不然会提示找不到，报错。</p>
+<p> windows电脑应该都有这个文件吧， C:\Windows\Fonts 这个文件夹下。如果没有， git里面我放了一份，可以自取。</p>
+<h2 id="以后想到了再补充"><a href="#以后想到了再补充" class="headerlink" title="以后想到了再补充"></a>以后想到了再补充</h2><p>.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/05/21/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/21/1/" class="post-title-link" itemprop="url">Concentration Inequality(集中不等式)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-21T00:00:00+08:00">2018-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-17 18:23:41" itemprop="dateModified" datetime="2020-04-17T18:23:41+08:00">2020-04-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">math</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/05/21/1/" class="post-meta-item leancloud_visitors" data-flag-title="Concentration Inequality(集中不等式)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong><a href="/2020/04/17/1/">[更新啦，来这里看吧，终于把所有内容都写全了，各个不等式的形式还有他们之间的关联讨论等等]</a></strong></p>
+<p>Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。</p>
+<!--  more -->
+
+<p>这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，而是不等式之间的相互关系的归纳总结，包括：</p>
+<ul>
+<li>Markov’s inequality</li>
+<li>Chebyshev’s inequality</li>
+<li>Chernoff bounds</li>
+<li>Hoeffding’s inequality</li>
+<li>Bennett’s inequality </li>
+<li>Bernstein’s inequalities</li>
+<li>Azuma’s inequality</li>
+<li>Doob’s martingale inequality</li>
+</ul>
+<h1 id="Markov’s-inequality"><a href="#Markov’s-inequality" class="headerlink" title="Markov’s inequality"></a>Markov’s inequality</h1><h2 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h2><blockquote>
+<p>X 是非负随机变量, a&gt;0</p>
+</blockquote>
+<h2 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h2><blockquote>
+<p>$$ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} $$</p>
+</blockquote>
+<h2 id="直观："><a href="#直观：" class="headerlink" title="直观："></a>直观：</h2><p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， $P(X \le a)$ 就是0.2</p>
+<h2 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h2><p>Markov’s inequality 最简单，也最“松”，只用到了随机变量的期望信息。</p>
+<p>这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/05/06/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/06/1/" class="post-title-link" itemprop="url">手动输入网易云音乐歌单创建hexo 音乐播放器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-06T00:00:00+08:00">2018-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-29 18:07:25" itemprop="dateModified" datetime="2020-04-29T18:07:25+08:00">2020-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/05/06/1/" class="post-meta-item leancloud_visitors" data-flag-title="手动输入网易云音乐歌单创建hexo 音乐播放器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>!我终于来填坑啦！ <a href="/2020/04/12/1/">来这里看吧，</a></strong></p>
+<p>先挖个坑。欢迎点击左边的  <code>Music</code>来看看效果。也可以用这个链接<a href="https://blog.wyue.site/music/">https://blog.wyue.site/music/</a></p>
+<p>已经实现了的是在hexo博客上，搞一个音乐播放器。<br>播放器选的是aplayer。<br>通过输入网易云音乐的歌单id，来创建播放列表。可以手动输入歌单id。</p>
+<span id="more"></span>
+
+<p>提前感谢各位大佬给的网易云音乐api。</p>
+<p>学习到的几点：</p>
+<h2 id="javascript-http-get-请求处理"><a href="#javascript-http-get-请求处理" class="headerlink" title="javascript http get 请求处理"></a>javascript http get 请求处理</h2><h2 id="javascript-json-处理"><a href="#javascript-json-处理" class="headerlink" title="javascript json 处理"></a>javascript json 处理</h2><h2 id="javascript-function-循环等"><a href="#javascript-function-循环等" class="headerlink" title="javascript function 循环等"></a>javascript function 循环等</h2><h2 id="简单css"><a href="#简单css" class="headerlink" title="简单css"></a>简单css</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/05/06/1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/27/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/27/1/" class="post-title-link" itemprop="url">Jupyter lab 安装及多kernel配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-27T00:00:00+08:00">2018-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-12 17:14:24" itemprop="dateModified" datetime="2020-04-12T17:14:24+08:00">2020-04-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/27/1/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter lab 安装及多kernel配置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> Jupyter lab 是Jupyter notebook 的升级版，是ipython notebook的升级版。<br> 大体来说就是用浏览器作为IDE，编写代码边运行，并且保留结果，形成像notebook一样的一份文档。</p>
+ <!--  more -->
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p> Jupyter lab 的安装很简单，假定已经安装了anaconda了。那么已经有了Jupyter notebook了，这个时候安装只需要一句命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterlab</span><br><span class="line">或者</span><br><span class="line">conda install -c conda-forge jupyterlab</span><br></pre></td></tr></table></figure>
+
+<p>安装好了启动也是非常简单，在命令行输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab</span><br></pre></td></tr></table></figure>
+<p>就ok了。当然也可以进行一些配置, 与jupyter notebook 的配置完全一致。你可以输入<code>jupyter lab -h</code> 来进行查看。例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab --port=<span class="string">&#x27;8080&#x27;</span> --ip=<span class="string">&#x27;0.0.0.0&#x27;</span> --notebook-dir=<span class="string">&#x27;d:/&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>就是指运行在8080端口，可以从任意ip访问（可以远程机器直接连过来），工作路径为d盘根目录。</p>
+<p>看到一连串输出后就可以打开浏览器访问了，ip:port 就可以了。如果在本机就是localhost:8080(一般会弹出浏览器)。<br>这里需要配置一下密码登录，如果你不配置密码登录。你就需要输入一个token，显示在命令行里面，我觉得有点麻烦，还是设置一个密码比较好。</p>
+<h1 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h1><p>如果没有config文件(默认在  c:/User/&lt; your user name&gt;/.jupyter/jupyter_notebook_config.py )，执行下面这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
+<p>输入你的密码，生成对应的hash值，放到config文件的同目录下了（自动）</p>
+<p>应该已经可以了。试试在浏览器里面输入localhost:8080 ，如果还是不行，就手动把生成的 <code>jupyter_notebook_config.json</code> 里面的password后面的， 复制到 <code>jupyter_notebook_config.py</code> 中</p>
+<p>找到下面这行并修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.password &#x3D; u&#39;...刚才复制的那个密文&#39;</span><br></pre></td></tr></table></figure>
+<p>进去之后就是这样了<br><img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2018/4/1524829854782.jpg" alt="enter description here"></p>
+<p>下一个问题就是如何配置多个kernel了。</p>
+<h1 id="配置python2-python3-r的kernel"><a href="#配置python2-python3-r的kernel" class="headerlink" title="配置python2 python3 r的kernel"></a>配置python2 python3 r的kernel</h1><h2 id="R-kernel"><a href="#R-kernel" class="headerlink" title="R kernel"></a>R kernel</h2><p> 如果你已经安装了r，那么在r的命令行下输入</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="built_in">c</span>(<span class="string">&#x27;pbdZMQ&#x27;</span>, <span class="string">&#x27;repr&#x27;</span>, <span class="string">&#x27;devtools&#x27;</span>)) </span><br><span class="line">devtools::install_github(<span class="string">&#x27;IRkernel/IRkernel&#x27;</span>) </span><br><span class="line">IRkernel::installspec()</span><br></pre></td></tr></table></figure>
+
+<h2 id="多个python-kernel"><a href="#多个python-kernel" class="headerlink" title="多个python kernel"></a>多个python kernel</h2><p>如果你的多个python 是安装在多个环境中的，就是用activate &lt; env_name &gt;这样的语句可以进入不同的环境的话，可以这样操作，下面假定python 3.5 安装在py35 的环境里面，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acitvate py35   (or <span class="built_in">source</span> activate py35)</span><br><span class="line">python -m ipykernel install --name py35</span><br><span class="line">deactivate (or <span class="built_in">source</span> deactivate)</span><br></pre></td></tr></table></figure>
+<p>其他同理。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/25/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/25/1/" class="post-title-link" itemprop="url">服务器升级记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-25T00:00:00+08:00">2018-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-12 17:14:21" itemprop="dateModified" datetime="2020-04-12T17:14:21+08:00">2020-04-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/25/1/" class="post-meta-item leancloud_visitors" data-flag-title="服务器升级记录" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> 最近学校的服务器被信息中心检测出来有很多高危漏洞，给了个通知限期整改。<br> 主要修改了<br> openssh<br> vnc<br> apache<br> mysql<br> 记录如下：</p>
+ <!--  more -->
+<h1 id="openssh"><a href="#openssh" class="headerlink" title="openssh"></a>openssh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.syringanetworks.net/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openssh-7.5p1 </span><br><span class="line">./configure --prefix=/usr --sysconfdir=/etc/ssh --with-md5-passwords --with-pam --with-zlib --with-openssl-includes=/usr --with-privsep-path=/var/lib/sshd </span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h2 id="一些辅助工作"><a href="#一些辅助工作" class="headerlink" title="一些辅助工作"></a>一些辅助工作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">install -v -m755    contrib/ssh-copy-id /usr/bin </span><br><span class="line">install -v -m644    contrib/ssh-copy-id.1 /usr/share/man/man1 </span><br><span class="line">install -v -m755 -d /usr/share/doc/openssh-7.5p1 </span><br><span class="line">install -v -m644    INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-7.5p1 </span><br><span class="line"></span><br><span class="line">cp -p contrib/RedHat/sshd.init /etc/init.d/sshd </span><br><span class="line">chmod +x /etc/init.d/sshd </span><br></pre></td></tr></table></figure>
+<h2 id="修改-ssh的配置"><a href="#修改-ssh的配置" class="headerlink" title="修改 ssh的配置"></a>修改 ssh的配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;PermitRootLogin yes&quot;</span> &gt;&gt; /etc/ssh/sshd_config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;X11Forwarding yes&#x27;</span> &gt;&gt; /etc/ssh/sshd_config </span><br><span class="line">或者直接进去修改</span><br><span class="line">vim /etc/ssh/sshd_config </span><br></pre></td></tr></table></figure>
+
+<h2 id="启动和开机启动"><a href="#启动和开机启动" class="headerlink" title="启动和开机启动"></a>启动和开机启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br><span class="line">chkconfig --add sshd</span><br><span class="line">chkconfig sshd on</span><br><span class="line">chkconfig --list |grep sshd</span><br></pre></td></tr></table></figure>
+<p> 大功告成</p>
+<h1 id="vnc"><a href="#vnc" class="headerlink" title="vnc"></a>vnc</h1><p>关闭就ok了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vncserver stop</span><br></pre></td></tr></table></figure>
+
+<h1 id="apache-httpd"><a href="#apache-httpd" class="headerlink" title="apache httpd"></a>apache httpd</h1><p>将旧版本的httpd 升级到2.4.33</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.gz</span><br><span class="line">wget http://ftp.yz.yamagata-u.ac.jp/pub/network/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">tar xzvf apr-1.6.3.tar.gz</span><br><span class="line">mv apr-1.6.3 httpd-2.4.33/srclib/apr</span><br><span class="line">tar xzvf apr-util-1.6.1.tar.gz </span><br><span class="line">mv apr-util-1.6.1 httpd-2.4.33/srclib/apr-util</span><br><span class="line">cd httpd-2.4.33</span><br><span class="line">./configure --prefix=/usr/local/httpd24 --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-included-apr  --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">cp /usr/local/httpd24/bin/apachectl  /etc/init.d/httpd24</span><br><span class="line">service httpd24 restart</span><br></pre></td></tr></table></figure>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>vim 打开 /etc/init.d/httpd24 , 然后再第二行加上下面这两行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"></span><br><span class="line"># description:  myservice</span><br></pre></td></tr></table></figure>
+<p>之后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add httpd24</span><br><span class="line">chkconfig  httpd24 on  </span><br><span class="line">chkconfig --list </span><br></pre></td></tr></table></figure>
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><blockquote>
+<p>httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.0.1 for ServerName</p>
+</blockquote>
+<p>在安装目录下找到httpd.conf(我这里就是/usr/local/httpd24/conf/httpd.conf )，把ServerName <a target="_blank" rel="noopener" href="http://www.example.com/">www.example.com:80</a> 前面的#去掉再重启就ok了。</p>
+<h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><p> 将旧版本的mysql升级到8.0版本，参照<a target="_blank" rel="noopener" href="https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/">该处</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el6-11.noarch.rpm</span><br><span class="line">yum --enablerepo&#x3D;mysql80-community install mysql-community-server</span><br><span class="line">service mysqld start</span><br><span class="line">chkconfig --levels 235 mysqld on</span><br></pre></td></tr></table></figure>
+<p> 之后就是配置mysql数据库了，注意到在执行 service mysqld start 的时候。屏幕上会显示出一个临时的root 密码 </p>
+<blockquote>
+<p>A temporary password is generated for root@localhost: V9R.Blr:baQH</p>
+</blockquote>
+<p> 用这个密码登录后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root123&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果出现</p>
+<blockquote>
+<p>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</p>
+</blockquote>
+<p>说明密码太简单不符合要求，设置一本复杂的就行。如果实在嫌麻烦，先修改后，输入这样的代码先查看进行密码检查的变量，再根据需要修改这些变量。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">LIKE</span> <span class="string">&#x27;validate_password%&#x27;</span>; </span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password_length<span class="operator">=</span><span class="number">3</span>;  </span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/24/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/24/1/" class="post-title-link" itemprop="url">查看linux文件大小等文件相关操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-24T00:00:00+08:00">2018-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-12 17:16:14" itemprop="dateModified" datetime="2020-04-12T17:16:14+08:00">2020-04-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/24/1/" class="post-meta-item leancloud_visitors" data-flag-title="查看linux文件大小等文件相关操作" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--  more -->
+
+<p>查看各个“盘”使用大小，总大小等</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+<p>这里， -h 表示用k，m，g等单位显示大小信息，方便查看<br>查看文件夹已使用大小</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1</span><br></pre></td></tr></table></figure>
+<p>这里， -h 同上， –max-depth 表示显示目录的层级最深是多少层</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
+<p>查看当前目录下的文件和文件夹，及相关信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp file dir</span><br><span class="line">\cp -f file dir</span><br><span class="line"></span><br><span class="line">cp -r dir dir</span><br><span class="line">\cp -rf dir dir</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果需要覆盖目标文件夹里面的文件，并且没有提示，需要用第二种方法，否则哪怕加了<code>-f</code> 系统也会提示是否覆盖。这是因为系统一般都会配置别名，你输入的是<code>cp</code>,但是实际上执行的是<code>cp -i </code> 所以无论如何也会有覆盖提示了。<br>如果需要复制整个文件夹及里面的文件，需要用 <code>-r</code>,同理，如果要强制覆盖，也需要在cp前面加斜杠。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/23/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/23/1/" class="post-title-link" itemprop="url">vnc 连接服务器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-23T00:00:00+08:00">2018-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-12 17:14:44" itemprop="dateModified" datetime="2020-04-12T17:14:44+08:00">2020-04-12</time>
+              </span>
+
+          
+            <span id="/2018/04/23/1/" class="post-meta-item leancloud_visitors" data-flag-title="vnc 连接服务器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>vnc 连接服务器 使用 Xfce desktop tab 键不能自动补全<br>这是因为tab键被系统默认为是 switch window的快捷键了，修改了就好了</p>
+<!--  more -->
+
+<blockquote>
+<p>Application Menu &gt; Settings &gt; Window Manager<br>选择 Keyboard 标签 清除 Switch<br>window  的快捷键设置</p>
+</blockquote>
+<p>vnc 连接服务器 使用xfce desktop  系统时间，桌面切换等图标没有靠右，类似于windows右下键的时间状态栏等，看起来很难受。设置方法为：</p>
+<blockquote>
+<p>面板空白处右击 &gt; panel &gt; panel preferences &gt; items<br>点右边的加号，新建一个separator（分隔符），选中新建的separator，用上下按钮调整位置，分隔符后面的都靠右<br>双击 separator，保证 设置成expand<br>完成， 最终设置大概是这样<br><img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/xsj/2018/4/1523849612319.jpg" alt="vnc panel"></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/15/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/15/1/" class="post-title-link" itemprop="url">折腾linux服务器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-04-15 00:00:00 / 修改时间：17:38:40" itemprop="dateCreated datePublished" datetime="2018-04-15T00:00:00+08:00">2018-04-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/15/1/" class="post-meta-item leancloud_visitors" data-flag-title="折腾linux服务器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>学校里有一台服务器，最近又起了折腾之心。于是就修修补补，在服务器上装上了docker，nginx，架了一个网盘服务nextcloud。下面记录一下遇到的坑，还有解决办法。</p>
+<p> 注明一下，一下所有操作都是在centos6.9 ，内核版本2.6.32-696.3.2.el6.x86_64 上做的。<br> 查看内核版本和 发行版本号的命令：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;issue (此命令可用于docker内系统版本号查询)</span><br><span class="line">uname -a</span><br><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<h1 id="yum-换阿里云的源"><a href="#yum-换阿里云的源" class="headerlink" title="yum 换阿里云的源"></a>yum 换阿里云的源</h1><p>这一步不是必须的，但是换上之后速度太爽了</p>
+<ol>
+<li>备份 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure></li>
+<li>下载新的CentOS-Base.repo 到/etc/yum.repos.d/</li>
+</ol>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum<span class="selector-class">.repos</span>.d/CentOS-Base<span class="selector-class">.repo</span> http:<span class="comment">//mirrors.aliyun.com/repo/Centos-6.repo</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>将不需要的repo关掉（这一步不是必须的）</li>
+</ol>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim xxx.repo</span><br></pre></td></tr></table></figure>
+<p>改成 enabled=0</p>
+<ol start="4">
+<li>更新</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/04/15/1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/04/09/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/09/1/" class="post-title-link" itemprop="url">支持Python3的腾讯云 对象存储 cos python3 sdk</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-09 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-09T00:00:00+08:00">2018-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-04-24 10:23:54" itemprop="dateModified" datetime="2018-04-24T10:23:54+08:00">2018-04-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/09/1/" class="post-meta-item leancloud_visitors" data-flag-title="支持Python3的腾讯云 对象存储 cos python3 sdk" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天填了一天的坑。成果是 qcloud_cos_py3.<br>腾讯云的cos python sdk cos-python-sdk-v5 只支持python2.7， 而我的qt项目要 python3.* .</p>
+<p>于是就自己动手写了一个Python 3.* 的sdk。</p>
+<p>其实也就是在2.7版本的基础上，修改了所有不兼容的函数和用法。<br>这里先贴一个地址，如果有需要的可以自取，我自己试用了基本功能，没发现bug。并且大部分都是与源代码保持一致，有bug的可能性很小。</p>
+<p>下载文件就可以直接import的：<br> <a target="_blank" rel="noopener" href="https://github.com/xfdywy/qcloud_cos_py3">https://github.com/xfdywy/qcloud_cos_py3</a></p>
+<p> 可以像官方那样安装后直接import的：<br> <a target="_blank" rel="noopener" href="https://github.com/xfdywy/cos-python-sdk-v5">https://github.com/xfdywy/cos-python-sdk-v5</a></p>
+<p> 有问题请留言或者去github提issue。</p>
+<p> 后续会把心得（填坑过程）贴出来。一周内把。督促一下自己。</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/04/09/1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2018/03/29/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/03/29/1/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-29 00:00:19" itemprop="dateCreated datePublished" datetime="2018-03-29T00:00:19+08:00">2018-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-12-10 14:07:16" itemprop="dateModified" datetime="2018-12-10T14:07:16+08:00">2018-12-10</time>
+              </span>
+
+          
+            <span id="/2018/03/29/1/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="WangYue"
+      src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+  <p class="site-author-name" itemprop="name">WangYue</p>
+  <div class="site-description" itemprop="description">A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xfdywy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xfdywy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wyueblog" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wyueblog" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://jq.qq.com/?_wv=1027&k=5Zl8l0J" title="QQ → https:&#x2F;&#x2F;jq.qq.com&#x2F;?_wv&#x3D;1027&amp;k&#x3D;5Zl8l0J" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.wyue.site/',]
+      });
+      });
+  </script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
+      appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
+      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      avatar     : 'retro',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://api.blog.leancloud.wyue.site'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

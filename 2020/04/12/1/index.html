@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.wyue.site","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦   大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。  简而言之就是利用网易云音乐的api，通过网易云音乐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态博客网页中的网易云音乐播放器">
+<meta property="og:url" content="https://blog.wyue.site/2020/04/12/1/index.html">
+<meta property="og:site_name" content="WangYue&#39;s  blog">
+<meta property="og:description" content="(终于填了之前的坑) 一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。 可以先体验一下, 点这里哦   大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。  简而言之就是利用网易云音乐的api，通过网易云音乐">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-29T10:07:25.219Z">
+<meta property="article:author" content="WangYue">
+<meta property="article:tag" content="music">
+<meta property="article:tag" content="hexo blog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.wyue.site/2020/04/12/1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>静态博客网页中的网易云音乐播放器 | WangYue's  blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?734f4e3c2217ead003bc35423296c5df";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WangYue's  blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于我">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-所有日志">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有日志</a>
+
+  </li>
+        <li class="menu-item menu-item-写作计划">
+
+    <a href="/plan" rel="section"><i class="fa fa-list fa-fw"></i>写作计划</a>
+
+  </li>
+        <li class="menu-item menu-item-网站地图">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站地图</a>
+
+  </li>
+        <li class="menu-item menu-item-留言板">
+
+    <a href="/board" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-音乐播放">
+
+    <a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐播放</a>
+
+  </li>
+        <li class="menu-item menu-item-时钟">
+
+    <a href="/clock" rel="section"><i class="fa fa-clock fa-fw"></i>时钟</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.wyue.site/2020/04/12/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+      <meta itemprop="name" content="WangYue">
+      <meta itemprop="description" content="A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WangYue's  blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          静态博客网页中的网易云音乐播放器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-29 18:07:25" itemprop="dateModified" datetime="2020-04-29T18:07:25+08:00">2020-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/1/" class="post-meta-item leancloud_visitors" data-flag-title="静态博客网页中的网易云音乐播放器" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/12/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/12/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>(终于填了<a href="/2018/05/06/1/">之前</a>的坑)</p>
+<p>一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。</p>
+<p>可以先体验一下, <a href="/music">点这里哦</a></p>
+ <!--  more -->
+<h1 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h1><p> 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
+<p> 简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
+<h1 id="网易云音乐api"><a href="#网易云音乐api" class="headerlink" title="网易云音乐api"></a>网易云音乐api</h1><p> 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://y-cloud-music-api.herokuapp.com/">https://y-cloud-music-api.herokuapp.com/</a></p>
+</blockquote>
+<p>api网址就是这个，想要看接口细节的话，可以通过点开链接看文档，也可以看我的代码实现的例子。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p> 首先上代码，代码在这里</p>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
+</blockquote>
+<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用  <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
+<p>如果你直接点开html文件，可能会遇到问题，因为你是file：//协议打开的，需要是http：//协议（我猜的我不懂）。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>大概分这么几步</p>
+<ol>
+<li>先写个网页ui</li>
+<li>引用APlayer模块</li>
+<li>跟网易云音乐api交互，获得歌曲信息</li>
+<li>把歌曲信息传给APlayer进行播放。</li>
+</ol>
+<p>新版本修改了逻辑，我先获取第一首歌的信息，然后传给播放器播放，之后再去获取剩下的，并且所有api的交互都是用axio进行异步操作，保证网页的流畅性，可以一边播放一边获取剩下的歌的信息，这样就不会出现网页等好久都刷不出来的情况了。等第一首歌放到一半，后面的肯定也都加载出来了，完美~</p>
+<h2 id="网页ui"><a href="#网页ui" class="headerlink" title="网页ui"></a>网页ui</h2><p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。<br>其实就是一个输入框，一个提交按钮，一个播放器占位符,<br>gist代码的27行以上。</p>
+<h2 id="APlayer-模块"><a href="#APlayer-模块" class="headerlink" title="APlayer 模块"></a>APlayer 模块</h2><p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
+<p>文档在这里：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
+</blockquote>
+<p>需要传几个参数，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;player1&#x27;</span>),</span><br><span class="line">    lrcType: <span class="number">1</span>,</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    audio: first_song,</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>container是之前html代码预留的div<br>lrcType是歌词的类型，我这里选1，具体可以看文档<br>fixed: 是否开启吸底模式,<br>audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
+<h2 id="歌曲信息"><a href="#歌曲信息" class="headerlink" title="歌曲信息"></a>歌曲信息</h2><p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">&quot;subdiv2&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p> 首先获取输入框的歌单id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> playlist =   downloadplaylist(input.textContent);</span><br><span class="line">playlist = <span class="keyword">await</span> playlist; </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p> 然后获取歌单中所有歌曲的id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_song = <span class="keyword">await</span>  loadplaylist([playlist[<span class="number">0</span>]]) ; </span><br></pre></td></tr></table></figure>
+
+<p>先获取第一首歌的信息，之后传给播放器，开始播放。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rest_songs =  <span class="keyword">await</span>  loadplaylist(playlist.slice(<span class="number">1</span>)) ;</span><br><span class="line"></span><br><span class="line">ap.list.add(rest_songs);</span><br></pre></td></tr></table></figure>
+<p>之后再同步获取剩下的歌曲信息，并且加到播放器中去。</p>
+<p>我代码的逻辑是：</p>
+<p>downloadplaylist 函数输入为网易云音乐的歌单id，返回值为歌单中所有歌曲的id。</p>
+<p>loadplaylist 函数的输入为所有歌曲的id，输出为上面说到的audio需要的 array</p>
+<p>gist代码 160-173行是调用其他几个小函数与api进行交互，分别获取信息</p>
+<p>这里注意我们143到152行提出get请求后，这些请求是以async的方式同时请求出去的，互相不阻塞。 直到所有的get请求都发出去了，我们再利用await的方法把结果都拿到（154-156行）， 这样性能会比较好。</p>
+<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到  res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>主要是学习了axio的使用，以及async 和await的使用。<br>此外82到93行简单试验了一下addEventListener的用法。</p>
+<p>作为一个外行，如果有更好的想法，欢迎与我交流，可以在博文下面留言，也可以去博客的留言板（Board）留言。</p>
+<blockquote>
+<p>我博客音乐的网址： <a target="_blank" rel="noopener" href="https://www.blog.wyue.site/music">https://www.blog.wyue.site/music</a></p>
+</blockquote>
+<blockquote>
+<p>APlayer 网址： <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">https://aplayer.js.org/#/</a></p>
+</blockquote>
+<blockquote>
+<p>axio 网址：<a target="_blank" rel="noopener" href="http://axios-js.com/">http://axios-js.com/</a></p>
+</blockquote>
+<p>.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>WangYue
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.wyue.site/2020/04/12/1/" title="静态博客网页中的网易云音乐播放器">https://blog.wyue.site/2020/04/12/1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/music/" rel="tag"><i class="fa fa-tag"></i> music</a>
+              <a href="/tags/hexo-blog/" rel="tag"><i class="fa fa-tag"></i> hexo blog</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/09/1/" rel="prev" title="连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵">
+      <i class="fa fa-chevron-left"></i> 连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/12/2/" rel="next" title="好用的软件">
+      好用的软件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%A6%82%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">大概思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90api"><span class="nav-number">2.</span> <span class="nav-text">网易云音乐api</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5ui"><span class="nav-number">4.1.</span> <span class="nav-text">网页ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APlayer-%E6%A8%A1%E5%9D%97"><span class="nav-number">4.2.</span> <span class="nav-text">APlayer 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%8C%E6%9B%B2%E4%BF%A1%E6%81%AF"><span class="nav-number">4.3.</span> <span class="nav-text">歌曲信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="WangYue"
+      src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/avatar.png">
+  <p class="site-author-name" itemprop="name">WangYue</p>
+  <div class="site-description" itemprop="description">A math PH.D. student, doning research at MSRA. <br> Machine learning, Python, Linux, 阅读， Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xfdywy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xfdywy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wyueblog" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wyueblog" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://jq.qq.com/?_wv=1027&k=5Zl8l0J" title="QQ → https:&#x2F;&#x2F;jq.qq.com&#x2F;?_wv&#x3D;1027&amp;k&#x3D;5Zl8l0J" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备20014491号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'jPHYF3KHQe5aLa7kSx6Rnniz-gzGzoHsz',
+      appKey     : '8kILSdvdQUmR34U4lzSMAsuv',
+      placeholder: "留下邮箱可以获得回复邮件提醒哦",
+      avatar     : 'retro',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://api.blog.leancloud.wyue.site'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
