@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2016/05/06/1/</url>
+    <url>/2016/01/01/1/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
@@ -18,27 +18,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>c++ notebook</title>
-    <url>/2016/08/10/2/</url>
-    <content><![CDATA[<p>就用这个帖子记录一下自己学习c++遇到的一些小细节吧</p>
-<p>#1 atof</p>
-<blockquote>
-<p>http://blog.csdn.net/zhaoyl03/article/details/8176387</p>
-</blockquote>
-<p>它将ascII字符串转换为相应的单精度浮点数，比如传入"1.234"，经过处理后就返回float类型的数1.234 。类似的还有atoi 、atol、itoa、ftoa等等。</p>
-<p>#2 随机数</p>
-<blockquote>
-<p>http://www.cnblogs.com/egmkang/archive/2012/09/06/2673253.html</p>
-</blockquote>
-<p>　　标准把随机数抽象成随机数引擎和分布两部分.引擎用来产生随机数,分布产生特定分布的随机数(比如平均分布,正太分布等).</p>
-<p>　　标准提供三种常用的引擎:linear_congruential_engine,mersenne_twister_engine和subtract_with_carry_engine.第一种是线性同余算法,第二种是梅森旋转算法,第三种带进位的线性同余算法.第一种是最常用的,而且速度也是非常快的; 第二种号称是最好的伪随机数生成器;第三种没用过....</p>
-<p>　　随机数引擎接受一个整形参数当作种子,不提供的话,会使用默认值. 推荐使用random_device来产生一个随机数当作种子.(windows下爱咋整咋整,谁叫windows的random_device是调用rand_s)</p>
-]]></content>
-      <tags>
-        <tag>-c++程序人生</tag>
-      </tags>
   </entry>
   <entry>
     <title>Latex 写中文毕业论文</title>
@@ -138,6 +117,33 @@
       </tags>
   </entry>
   <entry>
+    <title>c++ notebook</title>
+    <url>/2016/08/10/2/</url>
+    <content><![CDATA[<p>就用这个帖子记录一下自己学习c++遇到的一些小细节吧</p>
+<p>#1 atof</p>
+<blockquote>
+<p>http://blog.csdn.net/zhaoyl03/article/details/8176387</p>
+</blockquote>
+<p>它将ascII字符串转换为相应的单精度浮点数，比如传入"1.234"，经过处理后就返回float类型的数1.234 。类似的还有atoi 、atol、itoa、ftoa等等。</p>
+<p>#2 随机数</p>
+<blockquote>
+<p>http://www.cnblogs.com/egmkang/archive/2012/09/06/2673253.html</p>
+</blockquote>
+<p>　　标准把随机数抽象成随机数引擎和分布两部分.引擎用来产生随机数,分布产生特定分布的随机数(比如平均分布,正太分布等).</p>
+<p>　　标准提供三种常用的引擎:linear_congruential_engine,mersenne_twister_engine和subtract_with_carry_engine.第一种是线性同余算法,第二种是梅森旋转算法,第三种带进位的线性同余算法.第一种是最常用的,而且速度也是非常快的; 第二种号称是最好的伪随机数生成器;第三种没用过....</p>
+<p>　　随机数引擎接受一个整形参数当作种子,不提供的话,会使用默认值. 推荐使用random_device来产生一个随机数当作种子.(windows下爱咋整咋整,谁叫windows的random_device是调用rand_s)</p>
+]]></content>
+      <tags>
+        <tag>-c++程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2018/03/29/1/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>折腾linux服务器</title>
     <url>/2018/04/15/1/</url>
     <content><![CDATA[<p>学校里有一台服务器，最近又起了折腾之心。于是就修修补补，在服务器上装上了docker，nginx，架了一个网盘服务nextcloud。下面记录一下遇到的坑，还有解决办法。</p>
@@ -198,12 +204,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2018/03/29/1/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>vnc 连接服务器</title>
     <url>/2018/04/23/1/</url>
     <content><![CDATA[<p>vnc 连接服务器 使用 Xfce desktop tab 键不能自动补全 这是因为tab键被系统默认为是 switch window的快捷键了，修改了就好了</p>
@@ -219,6 +219,73 @@
         <tag>xfce</tag>
         <tag>自动补全</tag>
         <tag>状态栏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redhat6.2相关配置（yum，r，rstudio，ipythonnotebook）</title>
+    <url>/2016/04/01/1/</url>
+    <content><![CDATA[<p>菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。</p>
+<p>#一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a</p>
+<p>#安装yum：</p>
+<p>见下文详解转载自</p>
+<blockquote>
+<p>http://blog.csdn.net/zcyhappy1314/article/details/17580943</p>
+</blockquote>
+<p>#配置epel 利用这个链接选择符合版本号的epel &gt;https://fedoraproject.org/wiki/EPEL/zh-cn</p>
+<p>之后下载安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.yun-idc.com&#x2F;epel&#x2F;6&#x2F;i386&#x2F;epel-release-6-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh epel-release-6-8.noarch.rpm </span><br></pre></td></tr></table></figure>
+<p>#安装R</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install R</span><br><span class="line"></span><br><span class="line">tar vxzf R-3.2.2.tar.gz</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;home&#x2F;rstudio&#x2F;R --with-readline&#x3D;yes --with-libpng&#x3D;yes --with-x&#x3D;no --enable-R-shlib</span><br><span class="line"></span><br><span class="line">make </span><br><span class="line"></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;home&#x2F;rstudio&#x2F;R&#x2F;bin&#x2F;R &#x2F;usr&#x2F;local&#x2F;bin&#x2F;R</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#安装rstudio</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download2.rstudio.org&#x2F;rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line">yum install --nogpgcheck rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line"> rstudio-server verify-installation</span><br></pre></td></tr></table></figure>
+<p>#配置ipython notebook 见下文，转载自</p>
+<blockquote>
+<p>http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/</p>
+</blockquote>
+<p>jupyter 配置文件最终应如下： jupyter_notebook_config.py</p>
+<p>c = get_config() c = get_config()</p>
+<p>c.IPKernelApp.pylab = 'inline'<br />
+c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:8e71ef9</em>*****3bad'</p>
+<p>c.NotebookApp.port = 9999</p>
+<p>##安装yum</p>
+<blockquote>
+<p>YUM是Redhat Linux在线安装更新及软件的工具，但是这 是RHEL5的收费功能，如果没有购买Redhat的服务时不能使用RHEL5的更新源的，会提示注册。 由于CentOS是从Redhat演化而来的免费Linux版本，因此可以利用CentOS的yum更新源来实现RHEL5的YUM功能。配置方法如下： 检查yum是否安装，默认情况下都是安装好的，总共4各包。 [root@linux-a ~]# rpm -qa |grep yum yum-metadata-parser-1.0-8.fc6 yum-3.0.1-5.el5 yum-rhn-plugin-0.4.3-1.el5 yum-updatesd-3.0.1-5.el5 1、卸载掉系统redhat自带的yum rpm -qa |grep yum |xargs rpm -e --nodeps</p>
+<p>2 下载相关的centos yum插件 主要有python-iniparse-0.3.1-2.1.el6.noarch.rpm yum-3.2.29-40.el6.centos.noarch.rpm yum-metadata-parser-1.1.2-16.el6.x86_64.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>其中版本号和安装的系统版本，以及是32位系统和64位系统有关系，可根据实际情况，自行调整下载路径<br />
+下载地址：http://mirrors.163.com/centos/</p>
+<p>在linux可以使用命令直接下载到本地也可以 wget http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm 注意：如果下载不了可能是小版本号有变化，可以直接下载后在上传到linux服务器或者到http://mirrors.163.com/centos/6/os/i386/Packages/ 页面按照上述 rpm 的开头搜索具体的名称即可。</p>
+<p>3 安装下载的yum包（如果没权限可以先修改权限 chmod 777 *）</p>
+<p>rpm -ivh python-iniparse-0.3.1-2.1.el6.noarch.rpm rpm -ivh yum-metadata-parser-1.1.2-16.el6.i686.rpm rpm -ivh yum-3.2.29-40.el6.centos.noarch.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
+<p>最后两个需要一起安装，有相互依赖关系</p>
+<p>4 下载配置文件CentOS6-Base-163.repo wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</p>
+<p>5 修改CentOS6-Base-163.repo ，将其中的<span class="math inline">\(releasever 更改为centos的版本 vi CentOS6-Base-163.repo（使用 vi 命令编辑文件） ：%s/\)</span>releasever/6 （在 vi 命令模式下执行上述命令）</p>
+<p>6 把配置文件放到指定目录 并且删除原来的配置文件 cd /etc/yum.repos.d rm -fr * mv /home/CentOS6-Base-163.repo ./</p>
+<p>7 清除缓存 yum clean all</p>
+<p>8 配置获取yum列表 yum makecache</p>
+</blockquote>
+<p>##配置ipythonnotebook远程访问</p>
+<blockquote>
+<p>首先创建一个名为 nbserver 的配置文件 3：</p>
+<p>ipython profile create nbserver 设置登陆密码：</p>
+<p>IN [1]: from IPython.lib import passwd IN [2]: passwd() Enter password: Verify password: Out[2]: 'sha1:xxxxxxxxxxxxxxxxxxxxxxxxx' 创建私人证书：</p>
+<p>openssl req -x509 -nodes -days 10000 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem 进入 nbserver 配置文件所在目录 4 并打开 ipython_notebook_config.py，设置以下属性：</p>
+<p>c = get_config()</p>
+<p>c.IPKernerlApp.pylab = 'inline' c.NotebookApp.ip = '*' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:xxxx your hashed password' c.Notebook.App.port = 9999<br />
+可设为其他端口 为使 Notebook 正常工作，需在防火墙中打开上面设置的端口。可以编辑 /etc/sysconfig/iptables，在最后一条 REJECT 语句前加入：</p>
+<p>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT -A OUTPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT 用下面这条命令运行服务端：</p>
+<p>ipython notebook --profile=nbserver --certfile=/path/to/your/mycert.pem 在本地计算机中打开浏览器，输入</p>
+<p>https://ip/of/your/server:9999 即可打开客户端。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>yum</tag>
+        <tag>r</tag>
+        <tag>rstudio</tag>
+        <tag>ipythonnotebook</tag>
+        <tag>redhat 6.2</tag>
       </tags>
   </entry>
   <entry>
@@ -302,73 +369,6 @@
         <tag>openssh</tag>
         <tag>mysql</tag>
         <tag>apache httpd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redhat6.2相关配置（yum，r，rstudio，ipythonnotebook）</title>
-    <url>/2016/04/01/1/</url>
-    <content><![CDATA[<p>菜鸟历经多次失败，多次尝试，百度了n次，谷歌了n次之后，终于搞定了一系列的配置。太浪费时间了。。。必须记录下载，以后就方便了。</p>
-<p>#一些操作： 查看端口占用 netstat -tunlp |grep 22 卸载 自己编译的软件 make uninstall 查询版本号 uname -a</p>
-<p>#安装yum：</p>
-<p>见下文详解转载自</p>
-<blockquote>
-<p>http://blog.csdn.net/zcyhappy1314/article/details/17580943</p>
-</blockquote>
-<p>#配置epel 利用这个链接选择符合版本号的epel &gt;https://fedoraproject.org/wiki/EPEL/zh-cn</p>
-<p>之后下载安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.yun-idc.com&#x2F;epel&#x2F;6&#x2F;i386&#x2F;epel-release-6-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh epel-release-6-8.noarch.rpm </span><br></pre></td></tr></table></figure>
-<p>#安装R</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install R</span><br><span class="line"></span><br><span class="line">tar vxzf R-3.2.2.tar.gz</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;home&#x2F;rstudio&#x2F;R --with-readline&#x3D;yes --with-libpng&#x3D;yes --with-x&#x3D;no --enable-R-shlib</span><br><span class="line"></span><br><span class="line">make </span><br><span class="line"></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;home&#x2F;rstudio&#x2F;R&#x2F;bin&#x2F;R &#x2F;usr&#x2F;local&#x2F;bin&#x2F;R</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>#安装rstudio</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download2.rstudio.org&#x2F;rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line">yum install --nogpgcheck rstudio-server-rhel-0.99.893-x86_64.rpm</span><br><span class="line"></span><br><span class="line"> rstudio-server verify-installation</span><br></pre></td></tr></table></figure>
-<p>#配置ipython notebook 见下文，转载自</p>
-<blockquote>
-<p>http://mindonmind.github.io/2013/02/08/ipython-notebook-interactive-computing-new-era/</p>
-</blockquote>
-<p>jupyter 配置文件最终应如下： jupyter_notebook_config.py</p>
-<p>c = get_config() c = get_config()</p>
-<p>c.IPKernelApp.pylab = 'inline'<br />
-c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:8e71ef9</em>*****3bad'</p>
-<p>c.NotebookApp.port = 9999</p>
-<p>##安装yum</p>
-<blockquote>
-<p>YUM是Redhat Linux在线安装更新及软件的工具，但是这 是RHEL5的收费功能，如果没有购买Redhat的服务时不能使用RHEL5的更新源的，会提示注册。 由于CentOS是从Redhat演化而来的免费Linux版本，因此可以利用CentOS的yum更新源来实现RHEL5的YUM功能。配置方法如下： 检查yum是否安装，默认情况下都是安装好的，总共4各包。 [root@linux-a ~]# rpm -qa |grep yum yum-metadata-parser-1.0-8.fc6 yum-3.0.1-5.el5 yum-rhn-plugin-0.4.3-1.el5 yum-updatesd-3.0.1-5.el5 1、卸载掉系统redhat自带的yum rpm -qa |grep yum |xargs rpm -e --nodeps</p>
-<p>2 下载相关的centos yum插件 主要有python-iniparse-0.3.1-2.1.el6.noarch.rpm yum-3.2.29-40.el6.centos.noarch.rpm yum-metadata-parser-1.1.2-16.el6.x86_64.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
-<p>其中版本号和安装的系统版本，以及是32位系统和64位系统有关系，可根据实际情况，自行调整下载路径<br />
-下载地址：http://mirrors.163.com/centos/</p>
-<p>在linux可以使用命令直接下载到本地也可以 wget http://mirrors.163.com/centos/6/os/i386/Packages/python-iniparse-0.3.1-2.1.el6.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-metadata-parser-1.1.2-16.el6.i686.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-3.2.29-40.el6.centos.noarch.rpm wget http://mirrors.163.com/centos/6/os/i386/Packages/yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm 注意：如果下载不了可能是小版本号有变化，可以直接下载后在上传到linux服务器或者到http://mirrors.163.com/centos/6/os/i386/Packages/ 页面按照上述 rpm 的开头搜索具体的名称即可。</p>
-<p>3 安装下载的yum包（如果没权限可以先修改权限 chmod 777 *）</p>
-<p>rpm -ivh python-iniparse-0.3.1-2.1.el6.noarch.rpm rpm -ivh yum-metadata-parser-1.1.2-16.el6.i686.rpm rpm -ivh yum-3.2.29-40.el6.centos.noarch.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</p>
-<p>最后两个需要一起安装，有相互依赖关系</p>
-<p>4 下载配置文件CentOS6-Base-163.repo wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</p>
-<p>5 修改CentOS6-Base-163.repo ，将其中的<span class="math inline">\(releasever 更改为centos的版本 vi CentOS6-Base-163.repo（使用 vi 命令编辑文件） ：%s/\)</span>releasever/6 （在 vi 命令模式下执行上述命令）</p>
-<p>6 把配置文件放到指定目录 并且删除原来的配置文件 cd /etc/yum.repos.d rm -fr * mv /home/CentOS6-Base-163.repo ./</p>
-<p>7 清除缓存 yum clean all</p>
-<p>8 配置获取yum列表 yum makecache</p>
-</blockquote>
-<p>##配置ipythonnotebook远程访问</p>
-<blockquote>
-<p>首先创建一个名为 nbserver 的配置文件 3：</p>
-<p>ipython profile create nbserver 设置登陆密码：</p>
-<p>IN [1]: from IPython.lib import passwd IN [2]: passwd() Enter password: Verify password: Out[2]: 'sha1:xxxxxxxxxxxxxxxxxxxxxxxxx' 创建私人证书：</p>
-<p>openssl req -x509 -nodes -days 10000 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem 进入 nbserver 配置文件所在目录 4 并打开 ipython_notebook_config.py，设置以下属性：</p>
-<p>c = get_config()</p>
-<p>c.IPKernerlApp.pylab = 'inline' c.NotebookApp.ip = '*' c.NotebookApp.open_browser = False c.NotebookApp.password = u'sha1:xxxx your hashed password' c.Notebook.App.port = 9999<br />
-可设为其他端口 为使 Notebook 正常工作，需在防火墙中打开上面设置的端口。可以编辑 /etc/sysconfig/iptables，在最后一条 REJECT 语句前加入：</p>
-<p>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT -A OUTPUT -m state --state NEW -m tcp -p tcp --dport 9999 -j ACCEPT 用下面这条命令运行服务端：</p>
-<p>ipython notebook --profile=nbserver --certfile=/path/to/your/mycert.pem 在本地计算机中打开浏览器，输入</p>
-<p>https://ip/of/your/server:9999 即可打开客户端。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>yum</tag>
-        <tag>r</tag>
-        <tag>rstudio</tag>
-        <tag>ipythonnotebook</tag>
-        <tag>redhat 6.2</tag>
       </tags>
   </entry>
   <entry>
@@ -593,15 +593,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
-    <title>连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵</title>
-    <url>/2020/04/09/1/</url>
-    <content><![CDATA[
-]]></content>
-      <tags>
-        <tag>马氏链</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分位数回归</title>
     <url>/2020/04/17/2/</url>
     <content><![CDATA[<h1 id="分位数回归的直观">分位数回归的直观</h1>
@@ -630,6 +621,15 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
+    <title>连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵</title>
+    <url>/2020/04/09/1/</url>
+    <content><![CDATA[
+]]></content>
+      <tags>
+        <tag>马氏链</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World test 2018</title>
     <url>/2016/03/26/1/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -649,6 +649,218 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
 <figure>
 <img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/test.gif" alt="" /><figcaption>123</figcaption>
 </figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo(1)   hexo自定义域名以及解析</title>
+    <url>/2018/03/27/1/</url>
+    <content><![CDATA[<p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
+<ol type="1">
+<li>dns 解析的相关基础知识</li>
+<li>国内博客托管到 <a href="https://coding.net/pages/">coding</a> 国外托管到<a href="https://pages.github.com/">github</a></li>
+<li>同一个域名分别解析到这两个地址</li>
+<li>这两个博客托管网站上的设置。特别是github 有一个奇怪的CNAME 文件要放到根目录下，如何利用hexo直接生成</li>
+</ol>
+<p>这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。如果大家还不清楚的话，网上教程很多。也可以留言。</p>
+<p>下面就是详细内容啦。</p>
+<h1 id="dns-解析的相关基础知识">1.dns 解析的相关基础知识</h1>
+<p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
+<h2 id="dns-解析的基本流程">dns 解析的基本流程</h2>
+<p>这部分其实参考了很多 <a href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
+<ol type="1">
+<li><p>DNS 的定义和作用</p>
+<blockquote>
+<p>DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名查出IP地址。你可以把它想象成一本巨大的电话本。举例来说，如果你要访问域名<code>math.stackexchange.com</code>，首先要通过DNS查出它的IP地址是<code>151.101.129.69</code>。</p>
+</blockquote>
+<p>​</p></li>
+<li><p>DNS 解析的过程</p>
+<blockquote>
+<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<strong><em>ip地址</em></strong>和一个配套的<strong><em>域名</em></strong>(假设为 test.github.io).</p>
+<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<strong><em>域名</em></strong>的对应的<strong><em>ip地址</em></strong>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;$ dig wangyue.ml</span><br><span class="line">&gt;; &lt;&lt;&gt;&gt; DiG 9.9.5-3ubuntu0.16-Ubuntu &lt;&lt;&gt;&gt; wangyue.ml</span><br><span class="line">&gt;;; global options: +cmd</span><br><span class="line">&gt;;; Got answer:</span><br><span class="line">&gt;;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50601</span><br><span class="line">&gt;;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">&gt;;; OPT PSEUDOSECTION:</span><br><span class="line">&gt;; EDNS: version: 0, flags:; udp: 4000</span><br><span class="line">&gt;;; QUESTION SECTION:</span><br><span class="line">&gt;;wangyue.ml.                    IN      A</span><br><span class="line"></span><br><span class="line">&gt;;; ANSWER SECTION:</span><br><span class="line">&gt;wangyue.ml.             599     IN      CNAME   xfdywy.github.io.</span><br><span class="line">&gt;xfdywy.github.io.       3599    IN      CNAME   sni.github.map.fastly.net.</span><br><span class="line">&gt;sni.github.map.fastly.net. 29   IN      A       151.101.9.147</span><br><span class="line"></span><br><span class="line">&gt;;; Query time: 480 msec</span><br><span class="line">&gt;;; SERVER: 10.172.11.45#53(10.172.11.45)</span><br><span class="line">&gt;;; WHEN: Tue Mar 27 20:32:43 JST 2018</span><br><span class="line">&gt;;; MSG SIZE  rcvd: 124</span><br></pre></td></tr></table></figure>
+<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<strong><em>域名</em></strong>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<strong><em>IP地址</em></strong>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
+<blockquote>
+<ul>
+<li><a href="https://support.dnsimple.com/articles/a-record">A</a></li>
+<li>AAAA</li>
+<li><a href="https://support.dnsimple.com/articles/caa-record">CAA</a> (see note below)</li>
+<li><a href="https://support.dnsimple.com/articles/cname-record">CNAME</a></li>
+<li><a href="https://support.dnsimple.com/articles/mx-record">MX</a></li>
+<li><a href="https://support.dnsimple.com/articles/ns-record">NS</a></li>
+<li>TXT</li>
+<li><a href="https://support.dnsimple.com/articles/spf-record">SPF</a></li>
+<li><a href="https://support.dnsimple.com/articles/srv-record">SRV</a></li>
+<li>NAPTR</li>
+<li>HINFO</li>
+<li>SSHFP</li>
+</ul>
+</blockquote>
+<p><strong>我们今天只用到<code>CNAME</code></strong></p>
+</blockquote></li>
+</ol>
+<h1 id="申请域名">2 申请域名</h1>
+<p>这一步就是实际操作啦。申请域名当然去哪都行。这里提供两个，一个是国内的<a href="https://wanwang.aliyun.com/domain/">阿里云</a>，一个是国外的<a href="http://www.freenom.com">freenom</a> 。 操作大同小异，都是</p>
+<ol type="1">
+<li>注册账号，登录</li>
+<li>搜索并找到可用的域名，买下来（阿里云里面有一些挺便宜的域名。freenorm里面有一些收费的，也有挺多免费的，都是顶级域名，就是xxx.xxx 这种）</li>
+<li>这一步就结束啦。买下来的这个域名就属于你自己啦。例如<code>wangyue.ml</code>。</li>
+</ol>
+<h1 id="dns解析">3 dns解析</h1>
+<p>想要在浏览器里面输入 <code>wangyue.ml</code> 就能跳到这里。必不可少的一步就是要告诉全世界的电脑，这个域名现在指向这个地方啦。而这一步就是由 dns服务器来负责的。我们需要做的就是将<code>wangyue.ml</code> 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）.</p>
+<p>下面我们以freenorm购买的域名为例，实现一个域名绑定多个域名，这样我们就可以实现国内访问托管在coding上的blog，国外访问托管在github上的blog。这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。</p>
+<ol type="1">
+<li><p>freenom 买完域名之后，freenom提供了一个dns解析的服务。但是因为freenom的dns解析在国内可能不是很流畅，我选择<a href="https://www.cloudxns.net/">cloudXNS</a> 来做dns解析（真的不是打广告。。。。国内的也可以试试腾讯的dnspod） 。在这之前，我们需要把这个域名的控制权从freenom 交到 cloudXNS 的手上，方法就是按照 cloudXNS 提供的 dns server 地址，填到freenom的设置里面。具体操作流程为：</p>
+<blockquote>
+<p>购买完freenom后，从freenom首页，点击services -&gt; my domain -&gt; manage domain -&gt; Management Tools -&gt; Nameservers -&gt; Use custom nameservers (enter below) -&gt; 填入 cloudXNS 的 dns server地址</p>
+</blockquote>
+<blockquote>
+<p>如果你找不到my domain ， 请确认你是不是登录了。</p>
+</blockquote></li>
+<li><p>cloudXNS的 dns server 怎么获取 ： 同理。登录cloudXNS之后，选择 管理控制台 -》 我的域名 -》 添加域名，填写你刚刚在freenom购买的域名，这个时候提示域名未接管，然后会告诉你server地址是多少，怎么操作。</p></li>
+<li><p>等待一段时间，大约1~5分钟。等待接管。</p></li>
+<li><p>等到cloudXNS 接管状态显示已接管的时候，点击域名进行管理(以下假定购买的域名是wangyue.ml)。添加记录。</p>
+<ol type="1">
+<li>主机记录这里空着的话，表示这条记录解析的是 wangyue.ml , 如果写www， 表示这条记录解析的是www.wangyue.ml 。 剩下的同理</li>
+<li>记录类型填A的话，后面的记录值填写IP地址。这种情况一般适用于自己买了虚拟主机，分配了一个固定 ip，然后直接解析到那个ip就行。我们这里选CNAME，解析到原始域名。（即wangyue.ml 解析到 xxx.github.io 这种）</li>
+<li>然后在线路类型选全网默认，然后记录值填xxx.coding.me(记得把xxx换成自己的.....).然后保存就好。</li>
+<li>到上一步，我们就算已经把我们新买到的域名解析到原始的域名了。为了实现国外用户访问托管到github的博客，我们再同样添加一条记录，只不过线路选择海外默认，记录值填xxx.github.io</li>
+<li>dns 服务器端的设置就算完全结束了。下面我们需要分别到github和coding上去设置，使得我们能用新地址访问他们。（这里完全是因为github和coding的设定因素，如果你是绑定到自己的服务器的ip上去，到了这一步就已经完全结束了，可以跳过下一节）</li>
+</ol></li>
+<li><p>注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。不过别忘了继续往下看，下面的也很重要。</p></li>
+</ol>
+<h1 id="github和coding的设置">4.github和coding的设置</h1>
+<p>可能是从安全的角度和服务器负载的角度，github和coding要求自定义域名绑定的时候还要分别在自己的网站上设置一下（前半句我完全乱猜的，后半句是真的 ，认真脸）</p>
+<h2 id="coding的设置">coding的设置</h2>
+<p>首先你需要是银牌会员，个人信息填完全了就自动是了。</p>
+<p>进入到你托管博客的那个项目，然后点page 服务， 自定义域名 ，填上 wangyue.ml. 搞定。</p>
+<h2 id="github的设置">github的设置</h2>
+<p>进入github你托管博客的那个项目，点setting，GitHub Pages ，Custom domain ， 输入wangyue.ml，点save。暂时搞定。</p>
+<p>为什么说暂时搞定呢，因为你仔细看你github的这个repository, 你会发现一个叫做CNAME 的文件出现在根目录下，里面只有一行，就是 wangyue.ml . github 需要依赖这个文件来让你用自己的域名来访问你的blog。</p>
+<p><strong><em>但是</em></strong> 问题出现在，你每次部署blog之后，就是<code>hexo g</code> <code>hexo d</code> 之后这个文件都会消失。因为你本地目录下并没有这个文件，所以要想办法让hexo编译的时候就生成这个文件。</p>
+<p><strong><em>但是</em></strong> 问题出在hexo编译都是md文件，而且会渲染成html文件。那么怎么办呢。</p>
+<h1 id="github-cname-文件">5.github CNAME 文件</h1>
+<p>答案就是你把github生成的CNAME 文件放一份到你的 you blog/source/ 文件夹下，或者自己手写也行，注意文件名没有后缀，就叫CNAME， 文件内容就写你的域名 <code>wangyue.ml</code>。</p>
+<p>然后，最最关键的一步，你要去你blog的根目录下，修改 _config.yml 文件。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
+<p>之后就愉快的</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d </span><br></pre></td></tr></table></figure>
+<p>再次提醒注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。</p>
+<h1 id="至此大功告成">至此，大功告成</h1>
+]]></content>
+      <categories>
+        <category>hexo related</category>
+      </categories>
+      <tags>
+        <tag>自定义域名</tag>
+        <tag>github page</tag>
+        <tag>coding page</tag>
+        <tag>hexo</tag>
+        <tag>dns</tag>
+        <tag>CNAME</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>静态博客网页中的网易云音乐播放器</title>
+    <url>/2020/04/12/1/</url>
+    <content><![CDATA[<p>(终于填了<a href="/2018/05/06/1/">之前</a>的坑)</p>
+<p>一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。</p>
+<p>可以先体验一下, <a href="/music">点这里哦</a></p>
+<p><span id="more"></span></p>
+<p># 大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
+<p>简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
+<p># 网易云音乐api 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
+<blockquote>
+<p><a href="https://y-cloud-music-api.herokuapp.com/">https://y-cloud-music-api.herokuapp.com/</a></p>
+</blockquote>
+<p>api网址就是这个，想要看接口细节的话，可以通过点开链接看文档，也可以看我的代码实现的例子。</p>
+<h1 id="代码">代码</h1>
+<p>首先上代码，代码在这里</p>
+<blockquote>
+<p><a href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
+</blockquote>
+<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用 <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
+<p>如果你直接点开html文件，可能会遇到问题，因为你是file：//协议打开的，需要是http：//协议（我猜的我不懂）。</p>
+<h1 id="分析">分析</h1>
+<p>大概分这么几步</p>
+<ol type="1">
+<li>先写个网页ui</li>
+<li>引用APlayer模块</li>
+<li>跟网易云音乐api交互，获得歌曲信息</li>
+<li>把歌曲信息传给APlayer进行播放。</li>
+</ol>
+<p>新版本修改了逻辑，我先获取第一首歌的信息，然后传给播放器播放，之后再去获取剩下的，并且所有api的交互都是用axio进行异步操作，保证网页的流畅性，可以一边播放一边获取剩下的歌的信息，这样就不会出现网页等好久都刷不出来的情况了。等第一首歌放到一半，后面的肯定也都加载出来了，完美~</p>
+<h2 id="网页ui">网页ui</h2>
+<p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。 其实就是一个输入框，一个提交按钮，一个播放器占位符, gist代码的27行以上。</p>
+<h2 id="aplayer-模块">APlayer 模块</h2>
+<p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
+<p>文档在这里： &gt; <a href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
+<p>需要传几个参数，比如</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;player1&#x27;</span>),</span><br><span class="line">    lrcType: <span class="number">1</span>,</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    audio: first_song,</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>container是之前html代码预留的div lrcType是歌词的类型，我这里选1，具体可以看文档 fixed: 是否开启吸底模式, audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
+<h2 id="歌曲信息">歌曲信息</h2>
+<p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">&quot;subdiv2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>首先获取输入框的歌单id</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> playlist =   downloadplaylist(input.textContent);</span><br><span class="line">playlist = <span class="keyword">await</span> playlist; </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>然后获取歌单中所有歌曲的id</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> first_song = <span class="keyword">await</span>  loadplaylist([playlist[<span class="number">0</span>]]) ; </span><br></pre></td></tr></table></figure>
+<p>先获取第一首歌的信息，之后传给播放器，开始播放。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rest_songs =  <span class="keyword">await</span>  loadplaylist(playlist.slice(<span class="number">1</span>)) ;</span><br><span class="line"></span><br><span class="line">ap.list.add(rest_songs);</span><br></pre></td></tr></table></figure>
+<p>之后再同步获取剩下的歌曲信息，并且加到播放器中去。</p>
+<p>我代码的逻辑是：</p>
+<p>downloadplaylist 函数输入为网易云音乐的歌单id，返回值为歌单中所有歌曲的id。</p>
+<p>loadplaylist 函数的输入为所有歌曲的id，输出为上面说到的audio需要的 array</p>
+<p>gist代码 160-173行是调用其他几个小函数与api进行交互，分别获取信息</p>
+<p>这里注意我们143到152行提出get请求后，这些请求是以async的方式同时请求出去的，互相不阻塞。 直到所有的get请求都发出去了，我们再利用await的方法把结果都拿到（154-156行）， 这样性能会比较好。</p>
+<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到 res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
+<h1 id="总结">总结</h1>
+<p>主要是学习了axio的使用，以及async 和await的使用。 此外82到93行简单试验了一下addEventListener的用法。</p>
+<p>作为一个外行，如果有更好的想法，欢迎与我交流，可以在博文下面留言，也可以去博客的留言板（Board）留言。</p>
+<blockquote>
+<p>我博客音乐的网址： https://www.blog.wyue.site/music</p>
+</blockquote>
+<blockquote>
+<p>APlayer 网址： https://aplayer.js.org/#/</p>
+</blockquote>
+<blockquote>
+<p>axio 网址：http://axios-js.com/</p>
+</blockquote>
+<p>.</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>hexo blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手动输入网易云音乐歌单创建hexo 音乐播放器</title>
+    <url>/2018/05/06/1/</url>
+    <content><![CDATA[<p><strong>!我终于来填坑啦！ <a href="/2020/04/12/1/">来这里看吧，</a></strong></p>
+<p>先挖个坑。欢迎点击左边的 <code>Music</code>来看看效果。也可以用这个链接<a href="https://blog.wyue.site/music/">https://blog.wyue.site/music/</a></p>
+<p>已经实现了的是在hexo博客上，搞一个音乐播放器。 播放器选的是aplayer。 通过输入网易云音乐的歌单id，来创建播放列表。可以手动输入歌单id。</p>
+<span id="more"></span>
+<p>提前感谢各位大佬给的网易云音乐api。</p>
+<p>学习到的几点： ## javascript http get 请求处理 ## javascript json 处理 ## javascript function 循环等 ## 简单css</p>
+<p>生成音乐页面的全部的code 在这里 &gt; https://gist.githubusercontent.com/xfdywy/e7fcaaf6f1c12975455f08478881c3cf/raw/154f07a9a853bd1b1ceaa9f6bb43983b85167fcc/music.md</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>aplayer</tag>
+        <tag>网易云音乐api</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博文</title>
+    <url>/2016/03/01/1/</url>
+    <content><![CDATA[<p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。</p>
+<p>通过下面的命令，就可以创建新文章 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new 新的开始</span><br></pre></td></tr></table></figure></p>
+<p>感觉非常好。</p>
 ]]></content>
   </entry>
   <entry>
@@ -678,11 +890,13 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博文</title>
-    <url>/2016/03/01/1/</url>
-    <content><![CDATA[<p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。</p>
-<p>通过下面的命令，就可以创建新文章 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new 新的开始</span><br></pre></td></tr></table></figure></p>
-<p>感觉非常好。</p>
+    <title>&#39;wangyuehahah&#39;</title>
+    <url>/2016/03/02/1/</url>
+    <content><![CDATA[<p>###i just want to have a try</p>
+<blockquote>
+<p>hallo world</p>
+</blockquote>
+<p>this is 20160402</p>
 ]]></content>
   </entry>
   <entry>
@@ -730,16 +944,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
         <tag>日常办公</tag>
         <tag>工具</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>&#39;wangyuehahah&#39;</title>
-    <url>/2016/03/02/1/</url>
-    <content><![CDATA[<p>###i just want to have a try</p>
-<blockquote>
-<p>hallo world</p>
-</blockquote>
-<p>this is 20160402</p>
-]]></content>
   </entry>
   <entry>
     <title>新开一坑，读书笔记</title>
@@ -864,210 +1068,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </categories>
       <tags>
         <tag>python程序人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo(1)   hexo自定义域名以及解析</title>
-    <url>/2018/03/27/1/</url>
-    <content><![CDATA[<p>最近又有点空，把丢弃好久的blog又拿出来折腾了一番。申请了一个付费域名 <a href="http://blog.wyue.site">blog.wyue.site</a>不得不说，在msra这一年多依赖，不知不觉代码能力比以前还是提高了很多的<del>（自吹一波。。。溜了）</del>。 这次想要记录一下，hexo博客搭建过程中个性化域名的相关事情。主要是从个性化域名的绑定，到dns的解析的整个过程。涉及到的坑主要有</p>
-<ol type="1">
-<li>dns 解析的相关基础知识</li>
-<li>国内博客托管到 <a href="https://coding.net/pages/">coding</a> 国外托管到<a href="https://pages.github.com/">github</a></li>
-<li>同一个域名分别解析到这两个地址</li>
-<li>这两个博客托管网站上的设置。特别是github 有一个奇怪的CNAME 文件要放到根目录下，如何利用hexo直接生成</li>
-</ol>
-<p>这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。如果大家还不清楚的话，网上教程很多。也可以留言。</p>
-<p>下面就是详细内容啦。</p>
-<h1 id="dns-解析的相关基础知识">1.dns 解析的相关基础知识</h1>
-<p>这方面我也是现学现卖。水平大概是刚刚好能把这个博客搭起来并且正确设置成自定义域名的水平。要是有什么不对的，欢迎留言指正.</p>
-<h2 id="dns-解析的基本流程">dns 解析的基本流程</h2>
-<p>这部分其实参考了很多 <a href="https://www.cloudxns.net/Support/detail/id/737.html">这里</a>，<a href="https://support.dnsimple.com/categories/dns/">这里</a>，还有<a href="http://www.ruanyifeng.com/blog/2016/06/dns.html">这里</a> 的内容。具体可以参考前面三个网址。我这里大概点到后面会涉及的几个概念。</p>
-<ol type="1">
-<li><p>DNS 的定义和作用</p>
-<blockquote>
-<p>DNS （Domain Name System 的缩写）的作用非常简单，就是根据域名查出IP地址。你可以把它想象成一本巨大的电话本。举例来说，如果你要访问域名<code>math.stackexchange.com</code>，首先要通过DNS查出它的IP地址是<code>151.101.129.69</code>。</p>
-</blockquote>
-<p>​</p></li>
-<li><p>DNS 解析的过程</p>
-<blockquote>
-<p>就拿博客来举例。假设你在github上托管了一个网站，github给你分配了一个<strong><em>ip地址</em></strong>和一个配套的<strong><em>域名</em></strong>(假设为 test.github.io).</p>
-<p>那么你在请求 test.github.io 的时候，就要先从dns服务器上找到这个<strong><em>域名</em></strong>的对应的<strong><em>ip地址</em></strong>，如果你用的是linux服务器，你可以输入<code>dig test.github.io</code> 来查看这个过程。拿我这博客来说吧，输入 <code>dig wangyue.ml</code>, 应该就能看到如下字符</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;$ dig wangyue.ml</span><br><span class="line">&gt;; &lt;&lt;&gt;&gt; DiG 9.9.5-3ubuntu0.16-Ubuntu &lt;&lt;&gt;&gt; wangyue.ml</span><br><span class="line">&gt;;; global options: +cmd</span><br><span class="line">&gt;;; Got answer:</span><br><span class="line">&gt;;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50601</span><br><span class="line">&gt;;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">&gt;;; OPT PSEUDOSECTION:</span><br><span class="line">&gt;; EDNS: version: 0, flags:; udp: 4000</span><br><span class="line">&gt;;; QUESTION SECTION:</span><br><span class="line">&gt;;wangyue.ml.                    IN      A</span><br><span class="line"></span><br><span class="line">&gt;;; ANSWER SECTION:</span><br><span class="line">&gt;wangyue.ml.             599     IN      CNAME   xfdywy.github.io.</span><br><span class="line">&gt;xfdywy.github.io.       3599    IN      CNAME   sni.github.map.fastly.net.</span><br><span class="line">&gt;sni.github.map.fastly.net. 29   IN      A       151.101.9.147</span><br><span class="line"></span><br><span class="line">&gt;;; Query time: 480 msec</span><br><span class="line">&gt;;; SERVER: 10.172.11.45#53(10.172.11.45)</span><br><span class="line">&gt;;; WHEN: Tue Mar 27 20:32:43 JST 2018</span><br><span class="line">&gt;;; MSG SIZE  rcvd: 124</span><br></pre></td></tr></table></figure>
-<p>我们可以看到第14号表示某服务器将<code>wangyue.ml</code> 解析到了<code>xfdywy.github.io.</code>,再 进一步又解析到了<code>sni.github.map.fastly.net.</code>, 最后又解析到了 <code>151.101.9.147</code>. 可以看到前面两次都是解析到另一个<strong><em>域名</em></strong>（被称为 <code>CNAME</code>：规范名称记录（Canonical Name）），最后一次解析到了一个确定性的<strong><em>IP地址</em></strong>（被称为<code>A</code>：地址记录（Address），返回域名指向的IP地址。）。常见的dns类型记录有：</p>
-<blockquote>
-<ul>
-<li><a href="https://support.dnsimple.com/articles/a-record">A</a></li>
-<li>AAAA</li>
-<li><a href="https://support.dnsimple.com/articles/caa-record">CAA</a> (see note below)</li>
-<li><a href="https://support.dnsimple.com/articles/cname-record">CNAME</a></li>
-<li><a href="https://support.dnsimple.com/articles/mx-record">MX</a></li>
-<li><a href="https://support.dnsimple.com/articles/ns-record">NS</a></li>
-<li>TXT</li>
-<li><a href="https://support.dnsimple.com/articles/spf-record">SPF</a></li>
-<li><a href="https://support.dnsimple.com/articles/srv-record">SRV</a></li>
-<li>NAPTR</li>
-<li>HINFO</li>
-<li>SSHFP</li>
-</ul>
-</blockquote>
-<p><strong>我们今天只用到<code>CNAME</code></strong></p>
-</blockquote></li>
-</ol>
-<h1 id="申请域名">2 申请域名</h1>
-<p>这一步就是实际操作啦。申请域名当然去哪都行。这里提供两个，一个是国内的<a href="https://wanwang.aliyun.com/domain/">阿里云</a>，一个是国外的<a href="http://www.freenom.com">freenom</a> 。 操作大同小异，都是</p>
-<ol type="1">
-<li>注册账号，登录</li>
-<li>搜索并找到可用的域名，买下来（阿里云里面有一些挺便宜的域名。freenorm里面有一些收费的，也有挺多免费的，都是顶级域名，就是xxx.xxx 这种）</li>
-<li>这一步就结束啦。买下来的这个域名就属于你自己啦。例如<code>wangyue.ml</code>。</li>
-</ol>
-<h1 id="dns解析">3 dns解析</h1>
-<p>想要在浏览器里面输入 <code>wangyue.ml</code> 就能跳到这里。必不可少的一步就是要告诉全世界的电脑，这个域名现在指向这个地方啦。而这一步就是由 dns服务器来负责的。我们需要做的就是将<code>wangyue.ml</code> 与固定的ip地址绑定起来(A)，或者是与某已有域名绑定起来（CNAME）.</p>
-<p>下面我们以freenorm购买的域名为例，实现一个域名绑定多个域名，这样我们就可以实现国内访问托管在coding上的blog，国外访问托管在github上的blog。这里默认大家已经在coding和github上托管好自己的blog了。也就是说，可以用 username.github.io 和 username.coding.me 访问自己的博客了。</p>
-<ol type="1">
-<li><p>freenom 买完域名之后，freenom提供了一个dns解析的服务。但是因为freenom的dns解析在国内可能不是很流畅，我选择<a href="https://www.cloudxns.net/">cloudXNS</a> 来做dns解析（真的不是打广告。。。。国内的也可以试试腾讯的dnspod） 。在这之前，我们需要把这个域名的控制权从freenom 交到 cloudXNS 的手上，方法就是按照 cloudXNS 提供的 dns server 地址，填到freenom的设置里面。具体操作流程为：</p>
-<blockquote>
-<p>购买完freenom后，从freenom首页，点击services -&gt; my domain -&gt; manage domain -&gt; Management Tools -&gt; Nameservers -&gt; Use custom nameservers (enter below) -&gt; 填入 cloudXNS 的 dns server地址</p>
-</blockquote>
-<blockquote>
-<p>如果你找不到my domain ， 请确认你是不是登录了。</p>
-</blockquote></li>
-<li><p>cloudXNS的 dns server 怎么获取 ： 同理。登录cloudXNS之后，选择 管理控制台 -》 我的域名 -》 添加域名，填写你刚刚在freenom购买的域名，这个时候提示域名未接管，然后会告诉你server地址是多少，怎么操作。</p></li>
-<li><p>等待一段时间，大约1~5分钟。等待接管。</p></li>
-<li><p>等到cloudXNS 接管状态显示已接管的时候，点击域名进行管理(以下假定购买的域名是wangyue.ml)。添加记录。</p>
-<ol type="1">
-<li>主机记录这里空着的话，表示这条记录解析的是 wangyue.ml , 如果写www， 表示这条记录解析的是www.wangyue.ml 。 剩下的同理</li>
-<li>记录类型填A的话，后面的记录值填写IP地址。这种情况一般适用于自己买了虚拟主机，分配了一个固定 ip，然后直接解析到那个ip就行。我们这里选CNAME，解析到原始域名。（即wangyue.ml 解析到 xxx.github.io 这种）</li>
-<li>然后在线路类型选全网默认，然后记录值填xxx.coding.me(记得把xxx换成自己的.....).然后保存就好。</li>
-<li>到上一步，我们就算已经把我们新买到的域名解析到原始的域名了。为了实现国外用户访问托管到github的博客，我们再同样添加一条记录，只不过线路选择海外默认，记录值填xxx.github.io</li>
-<li>dns 服务器端的设置就算完全结束了。下面我们需要分别到github和coding上去设置，使得我们能用新地址访问他们。（这里完全是因为github和coding的设定因素，如果你是绑定到自己的服务器的ip上去，到了这一步就已经完全结束了，可以跳过下一节）</li>
-</ol></li>
-<li><p>注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。不过别忘了继续往下看，下面的也很重要。</p></li>
-</ol>
-<h1 id="github和coding的设置">4.github和coding的设置</h1>
-<p>可能是从安全的角度和服务器负载的角度，github和coding要求自定义域名绑定的时候还要分别在自己的网站上设置一下（前半句我完全乱猜的，后半句是真的 ，认真脸）</p>
-<h2 id="coding的设置">coding的设置</h2>
-<p>首先你需要是银牌会员，个人信息填完全了就自动是了。</p>
-<p>进入到你托管博客的那个项目，然后点page 服务， 自定义域名 ，填上 wangyue.ml. 搞定。</p>
-<h2 id="github的设置">github的设置</h2>
-<p>进入github你托管博客的那个项目，点setting，GitHub Pages ，Custom domain ， 输入wangyue.ml，点save。暂时搞定。</p>
-<p>为什么说暂时搞定呢，因为你仔细看你github的这个repository, 你会发现一个叫做CNAME 的文件出现在根目录下，里面只有一行，就是 wangyue.ml . github 需要依赖这个文件来让你用自己的域名来访问你的blog。</p>
-<p><strong><em>但是</em></strong> 问题出现在，你每次部署blog之后，就是<code>hexo g</code> <code>hexo d</code> 之后这个文件都会消失。因为你本地目录下并没有这个文件，所以要想办法让hexo编译的时候就生成这个文件。</p>
-<p><strong><em>但是</em></strong> 问题出在hexo编译都是md文件，而且会渲染成html文件。那么怎么办呢。</p>
-<h1 id="github-cname-文件">5.github CNAME 文件</h1>
-<p>答案就是你把github生成的CNAME 文件放一份到你的 you blog/source/ 文件夹下，或者自己手写也行，注意文件名没有后缀，就叫CNAME， 文件内容就写你的域名 <code>wangyue.ml</code>。</p>
-<p>然后，最最关键的一步，你要去你blog的根目录下，修改 _config.yml 文件。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
-<p>之后就愉快的</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d </span><br></pre></td></tr></table></figure>
-<p>再次提醒注意，dns设置不是即时生效的，不同地方需要不同的时间，有时候几分钟就好了，有时候要一晚上一天。总之设置好去睡一觉，第二天来看应该就没问题了。</p>
-<h1 id="至此大功告成">至此，大功告成</h1>
-]]></content>
-      <categories>
-        <category>hexo related</category>
-      </categories>
-      <tags>
-        <tag>自定义域名</tag>
-        <tag>github page</tag>
-        <tag>coding page</tag>
-        <tag>hexo</tag>
-        <tag>dns</tag>
-        <tag>CNAME</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>手动输入网易云音乐歌单创建hexo 音乐播放器</title>
-    <url>/2018/05/06/1/</url>
-    <content><![CDATA[<p><strong>!我终于来填坑啦！ <a href="/2020/04/12/1/">来这里看吧，</a></strong></p>
-<p>先挖个坑。欢迎点击左边的 <code>Music</code>来看看效果。也可以用这个链接<a href="https://blog.wyue.site/music/">https://blog.wyue.site/music/</a></p>
-<p>已经实现了的是在hexo博客上，搞一个音乐播放器。 播放器选的是aplayer。 通过输入网易云音乐的歌单id，来创建播放列表。可以手动输入歌单id。</p>
-<span id="more"></span>
-<p>提前感谢各位大佬给的网易云音乐api。</p>
-<p>学习到的几点： ## javascript http get 请求处理 ## javascript json 处理 ## javascript function 循环等 ## 简单css</p>
-<p>生成音乐页面的全部的code 在这里 &gt; https://gist.githubusercontent.com/xfdywy/e7fcaaf6f1c12975455f08478881c3cf/raw/154f07a9a853bd1b1ceaa9f6bb43983b85167fcc/music.md</p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>aplayer</tag>
-        <tag>网易云音乐api</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>静态博客网页中的网易云音乐播放器</title>
-    <url>/2020/04/12/1/</url>
-    <content><![CDATA[<p>(终于填了<a href="/2018/05/06/1/">之前</a>的坑)</p>
-<p>一直想做个博客中的音乐播放器，之前做的那个版本因为啥懂不懂就瞎写的，性能太差，搞不好就把网页搞卡死了。 最近重新修改了一下，新版本就流畅很多了。 纯前端实现，可以用在各种静态博客中，比如hexo，hugo等。</p>
-<p>可以先体验一下, <a href="/music">点这里哦</a></p>
-<p><span id="more"></span></p>
-<p># 大概思路 主要是用到APlayer这个组件，自己写的部分主要在于网易云音乐的部分。</p>
-<p>简而言之就是利用网易云音乐的api，通过网易云音乐的歌单id，获取音乐的url地址，歌词，歌名，歌手信息等。</p>
-<p># 网易云音乐api 关于网易云音乐的api，如果不滥用的话，可以用我搭在heroku上的这个</p>
-<blockquote>
-<p><a href="https://y-cloud-music-api.herokuapp.com/">https://y-cloud-music-api.herokuapp.com/</a></p>
-</blockquote>
-<p>api网址就是这个，想要看接口细节的话，可以通过点开链接看文档，也可以看我的代码实现的例子。</p>
-<h1 id="代码">代码</h1>
-<p>首先上代码，代码在这里</p>
-<blockquote>
-<p><a href="https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2">https://gist.github.com/xfdywy/57b61f13a1a4e48d69c611bdbff407d2</a></p>
-</blockquote>
-<p>自己copy下来到一个文件里面去， 搞一个http server， 然后用类似 <code>http://localhost:端口号</code> 就可以跑起来看效果了。 比如你用vscode，可以右击用 <code>open with live server</code>，又或者你用webstorm，直接点“浏览器打开”应该就可以。</p>
-<p>如果你直接点开html文件，可能会遇到问题，因为你是file：//协议打开的，需要是http：//协议（我猜的我不懂）。</p>
-<h1 id="分析">分析</h1>
-<p>大概分这么几步</p>
-<ol type="1">
-<li>先写个网页ui</li>
-<li>引用APlayer模块</li>
-<li>跟网易云音乐api交互，获得歌曲信息</li>
-<li>把歌曲信息传给APlayer进行播放。</li>
-</ol>
-<p>新版本修改了逻辑，我先获取第一首歌的信息，然后传给播放器播放，之后再去获取剩下的，并且所有api的交互都是用axio进行异步操作，保证网页的流畅性，可以一边播放一边获取剩下的歌的信息，这样就不会出现网页等好久都刷不出来的情况了。等第一首歌放到一半，后面的肯定也都加载出来了，完美~</p>
-<h2 id="网页ui">网页ui</h2>
-<p>我写的巨丑。。。。哪位大佬给改改，帮我改改吧。 其实就是一个输入框，一个提交按钮，一个播放器占位符, gist代码的27行以上。</p>
-<h2 id="aplayer-模块">APlayer 模块</h2>
-<p>根据APlayer的文档，new一个对象就好了，在gits文件的第200行。</p>
-<p>文档在这里： &gt; <a href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p>
-<p>需要传几个参数，比如</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;player1&#x27;</span>),</span><br><span class="line">    lrcType: <span class="number">1</span>,</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    audio: first_song,</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<p>container是之前html代码预留的div lrcType是歌词的类型，我这里选1，具体可以看文档 fixed: 是否开启吸底模式, audio: 参数是一个 array，每个元素是一个对象，每个对象需要的属性下面来说。</p>
-<h2 id="歌曲信息">歌曲信息</h2>
-<p>主要是歌曲的url地址，为了美观还需要歌词，封面等，需要通过api获取。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">&quot;subdiv2&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>首先获取输入框的歌单id</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> playlist =   downloadplaylist(input.textContent);</span><br><span class="line">playlist = <span class="keyword">await</span> playlist; </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-<p>然后获取歌单中所有歌曲的id</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> first_song = <span class="keyword">await</span>  loadplaylist([playlist[<span class="number">0</span>]]) ; </span><br></pre></td></tr></table></figure>
-<p>先获取第一首歌的信息，之后传给播放器，开始播放。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rest_songs =  <span class="keyword">await</span>  loadplaylist(playlist.slice(<span class="number">1</span>)) ;</span><br><span class="line"></span><br><span class="line">ap.list.add(rest_songs);</span><br></pre></td></tr></table></figure>
-<p>之后再同步获取剩下的歌曲信息，并且加到播放器中去。</p>
-<p>我代码的逻辑是：</p>
-<p>downloadplaylist 函数输入为网易云音乐的歌单id，返回值为歌单中所有歌曲的id。</p>
-<p>loadplaylist 函数的输入为所有歌曲的id，输出为上面说到的audio需要的 array</p>
-<p>gist代码 160-173行是调用其他几个小函数与api进行交互，分别获取信息</p>
-<p>这里注意我们143到152行提出get请求后，这些请求是以async的方式同时请求出去的，互相不阻塞。 直到所有的get请求都发出去了，我们再利用await的方法把结果都拿到（154-156行）， 这样性能会比较好。</p>
-<p>178-185行是把其中一首歌的信息封装到一个对象里面去，tmp。 然后把tmp放到 res这个array里面去， 不断循环这段代码就可以把歌单里面所有歌曲的信息都封装好了。</p>
-<h1 id="总结">总结</h1>
-<p>主要是学习了axio的使用，以及async 和await的使用。 此外82到93行简单试验了一下addEventListener的用法。</p>
-<p>作为一个外行，如果有更好的想法，欢迎与我交流，可以在博文下面留言，也可以去博客的留言板（Board）留言。</p>
-<blockquote>
-<p>我博客音乐的网址： https://www.blog.wyue.site/music</p>
-</blockquote>
-<blockquote>
-<p>APlayer 网址： https://aplayer.js.org/#/</p>
-</blockquote>
-<blockquote>
-<p>axio 网址：http://axios-js.com/</p>
-</blockquote>
-<p>.</p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>hexo blog</tag>
       </tags>
   </entry>
   <entry>
