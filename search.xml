@@ -138,12 +138,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2018/03/29/1/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>折腾linux服务器</title>
     <url>/2018/04/15/1/</url>
     <content><![CDATA[<p>学校里有一台服务器，最近又起了折腾之心。于是就修修补补，在服务器上装上了docker，nginx，架了一个网盘服务nextcloud。下面记录一下遇到的坑，还有解决办法。</p>
@@ -204,6 +198,12 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2018/03/29/1/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>vnc 连接服务器</title>
     <url>/2018/04/23/1/</url>
     <content><![CDATA[<p>vnc 连接服务器 使用 Xfce desktop tab 键不能自动补全 这是因为tab键被系统默认为是 switch window的快捷键了，修改了就好了</p>
@@ -219,6 +219,89 @@
         <tag>xfce</tag>
         <tag>自动补全</tag>
         <tag>状态栏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Concentration Inequality(集中不等式)</title>
+    <url>/2018/05/21/1/</url>
+    <content><![CDATA[<p><strong><a href="/2020/04/17/1/">[更新啦，来这里看吧，终于把所有内容都写全了，各个不等式的形式还有他们之间的关联讨论等等]</a></strong></p>
+<p>Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。</p>
+<!--  more -->
+<p>这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，而是不等式之间的相互关系的归纳总结，包括：</p>
+<ul>
+<li>Markov's inequality</li>
+<li>Chebyshev's inequality</li>
+<li>Chernoff bounds</li>
+<li>Hoeffding's inequality</li>
+<li>Bennett's inequality</li>
+<li>Bernstein's inequalities</li>
+<li>Azuma's inequality</li>
+<li>Doob's martingale inequality</li>
+</ul>
+<h1 id="markovs-inequality">Markov's inequality</h1>
+<h2 id="条件">条件：</h2>
+<blockquote>
+<p>X 是非负随机变量, a&gt;0</p>
+</blockquote>
+<h2 id="公式">公式：</h2>
+<blockquote>
+<p><span class="math display">\[ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} \]</span></p>
+</blockquote>
+<h2 id="直观">直观：</h2>
+<p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， <span class="math inline">\(P(X \le a)\)</span> 就是0.2</p>
+<h2 id="变形">变形</h2>
+<p>Markov's inequality 最简单，也最“松”，只用到了随机变量的期望信息。</p>
+<p>这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>Concentration Inequality</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器升级记录</title>
+    <url>/2018/04/25/1/</url>
+    <content><![CDATA[<p>最近学校的服务器被信息中心检测出来有很多高危漏洞，给了个通知限期整改。 主要修改了 openssh vnc apache mysql 记录如下：</p>
+<p><!--  more --></p>
+<h1 id="openssh">openssh</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://mirrors.syringanetworks.net/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openssh-7.5p1 </span><br><span class="line">./configure --prefix=/usr --sysconfdir=/etc/ssh --with-md5-passwords --with-pam --with-zlib --with-openssl-includes=/usr --with-privsep-path=/var/lib/sshd </span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h2 id="一些辅助工作">一些辅助工作</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">install -v -m755    contrib/ssh-copy-id /usr/bin </span><br><span class="line">install -v -m644    contrib/ssh-copy-id.1 /usr/share/man/man1 </span><br><span class="line">install -v -m755 -d /usr/share/doc/openssh-7.5p1 </span><br><span class="line">install -v -m644    INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-7.5p1 </span><br><span class="line"></span><br><span class="line">cp -p contrib/RedHat/sshd.init /etc/init.d/sshd </span><br><span class="line">chmod +x /etc/init.d/sshd </span><br></pre></td></tr></table></figure>
+<h2 id="修改-ssh的配置">修改 ssh的配置</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;PermitRootLogin yes&quot;</span> &gt;&gt; /etc/ssh/sshd_config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;X11Forwarding yes&#x27;</span> &gt;&gt; /etc/ssh/sshd_config </span><br><span class="line">或者直接进去修改</span><br><span class="line">vim /etc/ssh/sshd_config </span><br></pre></td></tr></table></figure>
+<h2 id="启动和开机启动">启动和开机启动</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br><span class="line">chkconfig --add sshd</span><br><span class="line">chkconfig sshd on</span><br><span class="line">chkconfig --list |grep sshd</span><br></pre></td></tr></table></figure>
+<p>大功告成</p>
+<h1 id="vnc">vnc</h1>
+<p>关闭就ok了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service vncserver stop</span><br></pre></td></tr></table></figure>
+<h1 id="apache-httpd">apache httpd</h1>
+<p>将旧版本的httpd 升级到2.4.33</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.gz</span><br><span class="line">wget http://ftp.yz.yamagata-u.ac.jp/pub/network/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">tar xzvf apr-1.6.3.tar.gz</span><br><span class="line">mv apr-1.6.3 httpd-2.4.33/srclib/apr</span><br><span class="line">tar xzvf apr-util-1.6.1.tar.gz </span><br><span class="line">mv apr-util-1.6.1 httpd-2.4.33/srclib/apr-util</span><br><span class="line">cd httpd-2.4.33</span><br><span class="line">./configure --prefix=/usr/local/httpd24 --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-included-apr  --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">cp /usr/local/httpd24/bin/apachectl  /etc/init.d/httpd24</span><br><span class="line">service httpd24 restart</span><br></pre></td></tr></table></figure>
+<h2 id="设置开机启动">设置开机启动</h2>
+<p>vim 打开 /etc/init.d/httpd24 , 然后再第二行加上下面这两行 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"></span><br><span class="line"># description:  myservice</span><br></pre></td></tr></table></figure> 之后 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chkconfig --add httpd24</span><br><span class="line">chkconfig  httpd24 on  </span><br><span class="line">chkconfig --list </span><br></pre></td></tr></table></figure> ## 遇到的坑 &gt; httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for ServerName</p>
+<p>在安装目录下找到httpd.conf(我这里就是/usr/local/httpd24/conf/httpd.conf )，把ServerName www.example.com:80 前面的#去掉再重启就ok了。</p>
+<h1 id="mysql">mysql</h1>
+<p>将旧版本的mysql升级到8.0版本，参照<a href="https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/">该处</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum localinstall https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el6-11.noarch.rpm</span><br><span class="line">yum --enablerepo&#x3D;mysql80-community install mysql-community-server</span><br><span class="line">service mysqld start</span><br><span class="line">chkconfig --levels 235 mysqld on</span><br></pre></td></tr></table></figure>
+<p>之后就是配置mysql数据库了，注意到在执行 service mysqld start 的时候。屏幕上会显示出一个临时的root 密码 &gt;A temporary password is generated for root@localhost: V9R.Blr:baQH</p>
+<p>用这个密码登录后执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root123&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>如果出现 &gt;ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</p>
+<p>说明密码太简单不符合要求，设置一本复杂的就行。如果实在嫌麻烦，先修改后，输入这样的代码先查看进行密码检查的变量，再根据需要修改这些变量。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">LIKE</span> <span class="string">&#x27;validate_password%&#x27;</span>; </span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password_length<span class="operator">=</span><span class="number">3</span>;  </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>vnc</tag>
+        <tag>openssh</tag>
+        <tag>mysql</tag>
+        <tag>apache httpd</tag>
       </tags>
   </entry>
   <entry>
@@ -289,50 +372,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
-    <title>服务器升级记录</title>
-    <url>/2018/04/25/1/</url>
-    <content><![CDATA[<p>最近学校的服务器被信息中心检测出来有很多高危漏洞，给了个通知限期整改。 主要修改了 openssh vnc apache mysql 记录如下：</p>
-<p><!--  more --></p>
-<h1 id="openssh">openssh</h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://mirrors.syringanetworks.net/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openssh-7.5p1 </span><br><span class="line">./configure --prefix=/usr --sysconfdir=/etc/ssh --with-md5-passwords --with-pam --with-zlib --with-openssl-includes=/usr --with-privsep-path=/var/lib/sshd </span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<h2 id="一些辅助工作">一些辅助工作</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">install -v -m755    contrib/ssh-copy-id /usr/bin </span><br><span class="line">install -v -m644    contrib/ssh-copy-id.1 /usr/share/man/man1 </span><br><span class="line">install -v -m755 -d /usr/share/doc/openssh-7.5p1 </span><br><span class="line">install -v -m644    INSTALL LICENCE OVERVIEW README* /usr/share/doc/openssh-7.5p1 </span><br><span class="line"></span><br><span class="line">cp -p contrib/RedHat/sshd.init /etc/init.d/sshd </span><br><span class="line">chmod +x /etc/init.d/sshd </span><br></pre></td></tr></table></figure>
-<h2 id="修改-ssh的配置">修改 ssh的配置</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;PermitRootLogin yes&quot;</span> &gt;&gt; /etc/ssh/sshd_config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;X11Forwarding yes&#x27;</span> &gt;&gt; /etc/ssh/sshd_config </span><br><span class="line">或者直接进去修改</span><br><span class="line">vim /etc/ssh/sshd_config </span><br></pre></td></tr></table></figure>
-<h2 id="启动和开机启动">启动和开机启动</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br><span class="line">chkconfig --add sshd</span><br><span class="line">chkconfig sshd on</span><br><span class="line">chkconfig --list |grep sshd</span><br></pre></td></tr></table></figure>
-<p>大功告成</p>
-<h1 id="vnc">vnc</h1>
-<p>关闭就ok了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service vncserver stop</span><br></pre></td></tr></table></figure>
-<h1 id="apache-httpd">apache httpd</h1>
-<p>将旧版本的httpd 升级到2.4.33</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.gz</span><br><span class="line">wget http://ftp.yz.yamagata-u.ac.jp/pub/network/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">tar xzvf apr-1.6.3.tar.gz</span><br><span class="line">mv apr-1.6.3 httpd-2.4.33/srclib/apr</span><br><span class="line">tar xzvf apr-util-1.6.1.tar.gz </span><br><span class="line">mv apr-util-1.6.1 httpd-2.4.33/srclib/apr-util</span><br><span class="line">cd httpd-2.4.33</span><br><span class="line">./configure --prefix=/usr/local/httpd24 --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-included-apr  --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">cp /usr/local/httpd24/bin/apachectl  /etc/init.d/httpd24</span><br><span class="line">service httpd24 restart</span><br></pre></td></tr></table></figure>
-<h2 id="设置开机启动">设置开机启动</h2>
-<p>vim 打开 /etc/init.d/httpd24 , 然后再第二行加上下面这两行 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"></span><br><span class="line"># description:  myservice</span><br></pre></td></tr></table></figure> 之后 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chkconfig --add httpd24</span><br><span class="line">chkconfig  httpd24 on  </span><br><span class="line">chkconfig --list </span><br></pre></td></tr></table></figure> ## 遇到的坑 &gt; httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1 for ServerName</p>
-<p>在安装目录下找到httpd.conf(我这里就是/usr/local/httpd24/conf/httpd.conf )，把ServerName www.example.com:80 前面的#去掉再重启就ok了。</p>
-<h1 id="mysql">mysql</h1>
-<p>将旧版本的mysql升级到8.0版本，参照<a href="https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/">该处</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum localinstall https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el6-11.noarch.rpm</span><br><span class="line">yum --enablerepo&#x3D;mysql80-community install mysql-community-server</span><br><span class="line">service mysqld start</span><br><span class="line">chkconfig --levels 235 mysqld on</span><br></pre></td></tr></table></figure>
-<p>之后就是配置mysql数据库了，注意到在执行 service mysqld start 的时候。屏幕上会显示出一个临时的root 密码 &gt;A temporary password is generated for root@localhost: V9R.Blr:baQH</p>
-<p>用这个密码登录后执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root123&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>如果出现 &gt;ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</p>
-<p>说明密码太简单不符合要求，设置一本复杂的就行。如果实在嫌麻烦，先修改后，输入这样的代码先查看进行密码检查的变量，再根据需要修改这些变量。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">LIKE</span> <span class="string">&#x27;validate_password%&#x27;</span>; </span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password_length<span class="operator">=</span><span class="number">3</span>;  </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>vnc</tag>
-        <tag>openssh</tag>
-        <tag>mysql</tag>
-        <tag>apache httpd</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>查看linux文件大小等文件相关操作</title>
     <url>/2018/04/24/1/</url>
     <content><![CDATA[<!--  more -->
@@ -349,93 +388,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Concentration Inequality(集中不等式)</title>
-    <url>/2018/05/21/1/</url>
-    <content><![CDATA[<p><strong><a href="/2020/04/17/1/">[更新啦，来这里看吧，终于把所有内容都写全了，各个不等式的形式还有他们之间的关联讨论等等]</a></strong></p>
-<p>Concentration inequality 刻画了一组随机变量的和（或者样本平均数）与其期望值的偏离程度，在算法收敛性分析过程中是非常有用的一类不等式。</p>
-<!--  more -->
-<p>这次主要总结一下最近一段时间遇到的集中不等式，不仅是不等式形式，而是不等式之间的相互关系的归纳总结，包括：</p>
-<ul>
-<li>Markov's inequality</li>
-<li>Chebyshev's inequality</li>
-<li>Chernoff bounds</li>
-<li>Hoeffding's inequality</li>
-<li>Bennett's inequality</li>
-<li>Bernstein's inequalities</li>
-<li>Azuma's inequality</li>
-<li>Doob's martingale inequality</li>
-</ul>
-<h1 id="markovs-inequality">Markov's inequality</h1>
-<h2 id="条件">条件：</h2>
-<blockquote>
-<p>X 是非负随机变量, a&gt;0</p>
-</blockquote>
-<h2 id="公式">公式：</h2>
-<blockquote>
-<p><span class="math display">\[ \operatorname{P}(X \geq a) \leq \frac{\operatorname{E}(X)}{a} \]</span></p>
-</blockquote>
-<h2 id="直观">直观：</h2>
-<p>一个随机变量的取值大于a的概率要小于其期望值除以a。直观很简单就是，假设10个人的平均工资是1块钱，那么如果超过2两个人的工资超过5块钱了，那么哪怕剩下来的人没有工资，这10个人的工资平均也超过1块钱了. 这里大家的工资就是随机变量X, a就是5， E(x)就是1， <span class="math inline">\(P(X \le a)\)</span> 就是0.2</p>
-<h2 id="变形">变形</h2>
-<p>Markov's inequality 最简单，也最“松”，只用到了随机变量的期望信息。</p>
-<p>这里“松”是指，对于相同的a，我们求出来的概率最小，或者要求相同的概率，得到的a最大（不必要）。</p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-      <tags>
-        <tag>Concentration Inequality</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World test 2018</title>
-    <url>/2016/03/26/1/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-<figure>
-<img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/test.gif" alt="" /><figcaption>123</figcaption>
-</figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>我与我的小可爱</title>
-    <url>/2018/02/14/1/</url>
-    <content><![CDATA[<figure>
-<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%91.png" alt="" /><figcaption>词云1</figcaption>
-</figure>
-<figure>
-<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%911.png" alt="" /><figcaption>词云</figcaption>
-</figure>
-<figure>
-<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180214161417.jpg" alt="" /><figcaption>微信图片_20180214161417</figcaption>
-</figure>
-<figure>
-<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/love.jpg" alt="" /><figcaption>lalal</figcaption>
-</figure>
-<h1 id="年10月4日">2016年10月4日</h1>
-<h1 id="年3月9日">2017年3月9日</h1>
-<h1 id="年2月14日">2018年2月14日</h1>
-]]></content>
-      <categories>
-        <category>book reading</category>
-      </categories>
-      <tags>
-        <tag>-读书笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -641,6 +593,15 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
+    <title>连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵</title>
+    <url>/2020/04/09/1/</url>
+    <content><![CDATA[
+]]></content>
+      <tags>
+        <tag>马氏链</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>分位数回归</title>
     <url>/2020/04/17/2/</url>
     <content><![CDATA[<h1 id="分位数回归的直观">分位数回归的直观</h1>
@@ -669,12 +630,51 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
-    <title>连续时间离散状态马氏链的转移概率矩阵与转移速率矩阵</title>
-    <url>/2020/04/09/1/</url>
-    <content><![CDATA[
+    <title>Hello World test 2018</title>
+    <url>/2016/03/26/1/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+<figure>
+<img data-src="https://img-1253424161.cos.ap-shanghai.myqcloud.com/test.gif" alt="" /><figcaption>123</figcaption>
+</figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>我与我的小可爱</title>
+    <url>/2018/02/14/1/</url>
+    <content><![CDATA[<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%91.png" alt="" /><figcaption>词云1</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E8%AF%8D%E4%BA%911.png" alt="" /><figcaption>词云</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180214161417.jpg" alt="" /><figcaption>微信图片_20180214161417</figcaption>
+</figure>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/xfdywy/blogResource@master/image/love.jpg" alt="" /><figcaption>lalal</figcaption>
+</figure>
+<h1 id="年10月4日">2016年10月4日</h1>
+<h1 id="年3月9日">2017年3月9日</h1>
+<h1 id="年2月14日">2018年2月14日</h1>
+]]></content>
+      <categories>
+        <category>book reading</category>
+      </categories>
       <tags>
-        <tag>马氏链</tag>
+        <tag>-读书笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -683,16 +683,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
     <content><![CDATA[<p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。</p>
 <p>通过下面的命令，就可以创建新文章 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new 新的开始</span><br></pre></td></tr></table></figure></p>
 <p>感觉非常好。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>&#39;wangyuehahah&#39;</title>
-    <url>/2016/03/02/1/</url>
-    <content><![CDATA[<p>###i just want to have a try</p>
-<blockquote>
-<p>hallo world</p>
-</blockquote>
-<p>this is 20160402</p>
 ]]></content>
   </entry>
   <entry>
@@ -740,6 +730,16 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
         <tag>日常办公</tag>
         <tag>工具</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>&#39;wangyuehahah&#39;</title>
+    <url>/2016/03/02/1/</url>
+    <content><![CDATA[<p>###i just want to have a try</p>
+<blockquote>
+<p>hallo world</p>
+</blockquote>
+<p>this is 20160402</p>
+]]></content>
   </entry>
   <entry>
     <title>新开一坑，读书笔记</title>
@@ -828,6 +828,42 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
         <tag>Jupyter lab</tag>
         <tag>python</tag>
         <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>支持Python3的腾讯云 对象存储 cos python3 sdk</title>
+    <url>/2018/04/09/1/</url>
+    <content><![CDATA[<p>今天填了一天的坑。成果是 qcloud_cos_py3. 腾讯云的cos python sdk cos-python-sdk-v5 只支持python2.7， 而我的qt项目要 python3.* .</p>
+<p>于是就自己动手写了一个Python 3.* 的sdk。</p>
+<p>其实也就是在2.7版本的基础上，修改了所有不兼容的函数和用法。 这里先贴一个地址，如果有需要的可以自取，我自己试用了基本功能，没发现bug。并且大部分都是与源代码保持一致，有bug的可能性很小。</p>
+<p>下载文件就可以直接import的： https://github.com/xfdywy/qcloud_cos_py3</p>
+<p>可以像官方那样安装后直接import的： https://github.com/xfdywy/cos-python-sdk-v5</p>
+<p>有问题请留言或者去github提issue。</p>
+<p>后续会把心得（填坑过程）贴出来。一周内把。督促一下自己。</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>py2to3</tag>
+        <tag>腾讯云cos</tag>
+        <tag>qcloud_cos_py3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python notebook</title>
+    <url>/2016/08/10/1/</url>
+    <content><![CDATA[<p>就用这个帖子记录一下自己学习python遇到的一些小细节吧</p>
+<p>#1 ndarray.swapaxes(axis1, axis2) : 交换两个轴的元素后的矩阵. &gt;http://blog.csdn.net/qq403977698/article/details/47254597 转魔方，始终的面对着的面向下为第一维度，水平为第二维度 #2 [x for x in list if r.match(x)] &gt;http://stackoverflow.com/questions/3640359/regular-expressions-search-in-list</p>
+<p>#3 names = df.columns.tolist()</p>
+<p>names[names.index('two')] = 'new_name'</p>
+<p>df.columns = names</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python程序人生</tag>
       </tags>
   </entry>
   <entry>
@@ -939,26 +975,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
       </tags>
   </entry>
   <entry>
-    <title>支持Python3的腾讯云 对象存储 cos python3 sdk</title>
-    <url>/2018/04/09/1/</url>
-    <content><![CDATA[<p>今天填了一天的坑。成果是 qcloud_cos_py3. 腾讯云的cos python sdk cos-python-sdk-v5 只支持python2.7， 而我的qt项目要 python3.* .</p>
-<p>于是就自己动手写了一个Python 3.* 的sdk。</p>
-<p>其实也就是在2.7版本的基础上，修改了所有不兼容的函数和用法。 这里先贴一个地址，如果有需要的可以自取，我自己试用了基本功能，没发现bug。并且大部分都是与源代码保持一致，有bug的可能性很小。</p>
-<p>下载文件就可以直接import的： https://github.com/xfdywy/qcloud_cos_py3</p>
-<p>可以像官方那样安装后直接import的： https://github.com/xfdywy/cos-python-sdk-v5</p>
-<p>有问题请留言或者去github提issue。</p>
-<p>后续会把心得（填坑过程）贴出来。一周内把。督促一下自己。</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>py2to3</tag>
-        <tag>腾讯云cos</tag>
-        <tag>qcloud_cos_py3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>手动输入网易云音乐歌单创建hexo 音乐播放器</title>
     <url>/2018/05/06/1/</url>
     <content><![CDATA[<p><strong>!我终于来填坑啦！ <a href="/2020/04/12/1/">来这里看吧，</a></strong></p>
@@ -976,22 +992,6 @@ c.NotebookApp.ip = '<em>' c.NotebookApp.open_browser = False c.NotebookApp.passw
         <tag>hexo</tag>
         <tag>aplayer</tag>
         <tag>网易云音乐api</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python notebook</title>
-    <url>/2016/08/10/1/</url>
-    <content><![CDATA[<p>就用这个帖子记录一下自己学习python遇到的一些小细节吧</p>
-<p>#1 ndarray.swapaxes(axis1, axis2) : 交换两个轴的元素后的矩阵. &gt;http://blog.csdn.net/qq403977698/article/details/47254597 转魔方，始终的面对着的面向下为第一维度，水平为第二维度 #2 [x for x in list if r.match(x)] &gt;http://stackoverflow.com/questions/3640359/regular-expressions-search-in-list</p>
-<p>#3 names = df.columns.tolist()</p>
-<p>names[names.index('two')] = 'new_name'</p>
-<p>df.columns = names</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python程序人生</tag>
       </tags>
   </entry>
   <entry>
